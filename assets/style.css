@@ -1,0 +1,59 @@
+:root {
+  --bg: #ffffff;
+  --text: #1a1d21;
+  --muted: #6b7280;
+  --accent: #4f46e5;
+  --rule: #e5e7eb;
+  --badge-feature-bg: #eef2ff;
+  --badge-feature-fg: #4338ca;
+  --badge-fix-bg: #ecfdf5;
+  --badge-fix-fg: #047857;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101216;
+    --text: #e7e9ee;
+    --muted: #9aa1ac;
+    --accent: #8b8df2;
+    --rule: #2a2e35;
+    --badge-feature-bg: #26264d;
+    --badge-feature-fg: #b3b5ff;
+    --badge-fix-bg: #123529;
+    --badge-fix-fg: #6ee7b7;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.site-header { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+.brand { font-weight: 700; font-size: 20px; color: var(--text); text-decoration: none; }
+.brand-sub { color: var(--muted); margin-left: 8px; font-size: 15px; }
+.page-title { margin: 44px 0 4px; font-size: 34px; letter-spacing: -0.02em; }
+.page-sub { margin: 0 0 12px; color: var(--muted); }
+.entry { border-top: 1px solid var(--rule); padding: 32px 0 8px; }
+.entry:first-of-type { border-top: 0; }
+main > .entry { border-top: 1px solid var(--rule); }
+.entry-title { margin: 0 0 2px; font-size: 24px; letter-spacing: -0.01em; }
+.entry-title a { color: var(--text); text-decoration: none; }
+.entry-title a:hover { color: var(--accent); }
+.entry-date { display: block; color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.entry-body h3 {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--muted); margin: 26px 0 8px;
+}
+.entry-body ul { padding-left: 22px; margin: 8px 0 20px; }
+.entry-body li { margin: 7px 0; }
+.entry-body li > strong:first-child { font-weight: 600; }
+.entry-body a { color: var(--accent); }
+.entry-body img { max-width: 100%; border-radius: 8px; border: 1px solid var(--rule); }
+.site-footer {
+  border-top: 1px solid var(--rule); margin-top: 56px; padding: 20px 0 40px;
+  color: var(--muted); font-size: 14px;
+}
+.site-footer a { color: var(--muted); }

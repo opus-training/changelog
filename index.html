@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<h1 class="page-title">What's new in Opus</h1>
+<p class="page-sub">Product updates, published every Friday.</p>
+
+{% for post in site.posts %}
+<article class="entry" id="{{ post.date | date: '%Y-%m-%d' }}">
+  <h2 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+  <div class="entry-body">
+    {{ post.content }}
+  </div>
+</article>
+{% endfor %}

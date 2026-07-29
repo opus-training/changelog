@@ -1,0 +1,17 @@
+title: Opus Changelog
+description: New features and fixes in Opus, published every Friday.
+url: "https://changelog.opus.so"
+timezone: America/New_York
+
+permalink: /:year-:month-:day/
+
+# GitHub Pages builds this with its native Jekyll pipeline — no Actions,
+# no Gemfile. Keep plugins to the Pages whitelist.
+markdown: kramdown
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: entry
