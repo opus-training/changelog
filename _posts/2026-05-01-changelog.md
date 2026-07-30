@@ -1,20 +1,16 @@
 ---
-title: "Week of April 27, 2026"
+title: "Changelog (May 1, 2026)"
 date: 2026-05-01
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Fourteen fixes across reporting, the content builder, and the mobile app, plus section duplication in the builder and required comments on low course ratings.
 
-- **Redesigned module screen** — the mobile module screen has a new step-by-step
-  timeline showing exactly where a trainee is in their training, a simpler header
-  with the due date and progress at a glance, and a single button to start or pick
-  up where they left off.
-- **Duplicate a section** — when building check-ins, audits, and task lists, you can
-  now copy an entire section — steps, conditional groups, and triggers — in one
-  click, instead of rebuilding it by hand.
-- **Required comments on low course ratings** — when a trainee rates a course three
-  stars or fewer, they're now asked to say why before submitting, so the feedback
-  you get back is specific enough to act on.
+### Improvements
+
+- When building check-ins, audits, and task lists, you can now copy an entire section — steps, conditional groups, and triggers — in one click, instead of rebuilding it by hand.
+- When a trainee rates a course three stars or fewer, they're now asked to say why before submitting, so the feedback you get back is specific enough to act on.
 
 ### Bug fixes
 

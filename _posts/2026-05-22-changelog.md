@@ -1,7 +1,11 @@
 ---
-title: "Week of May 18, 2026"
+title: "Changelog (May 22, 2026)"
 date: 2026-05-22
+kind: digest
+tags: [Fixes]
 ---
+
+Fourteen fixes across training records, the content builder, integrations, and the mobile app.
 
 ### Bug fixes
 

@@ -3,7 +3,7 @@ description: New features and fixes in Opus, published every Friday.
 url: "https://changelog.opus.so"
 timezone: America/New_York
 
-permalink: /:year-:month-:day/
+permalink: /:year-:month-:day/:title/
 
 # GitHub Pages builds this with its native Jekyll pipeline — no Actions,
 # no Gemfile. Keep plugins to the Pages whitelist.

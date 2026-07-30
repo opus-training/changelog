@@ -1,19 +1,11 @@
 ---
-title: "Week of May 4, 2026"
+title: "Changelog (May 8, 2026)"
 date: 2026-05-08
+kind: digest
+tags: [Fixes]
 ---
 
-### New features
-
-- **Guest Feedback inbox (beta)** — Guest Feedback now opens on an Issues view built
-  for working through problems rather than reading reviews one by one. Filter by status
-  or theme, sort the list, see when each issue was first detected, and open a redesigned
-  detail page with a clear next step. Connecting a data source is simpler too — link a
-  Google account or forward your Ovation review emails.
-- **Video editing for course media** — you can now trim video directly in the course
-  builder, alongside cropping and annotating photos. The editor has been pared back to
-  the tools that actually matter for training content and restyled to match the rest of
-  the dashboard.
+Sixteen fixes across training progress, reporting, the content builder, and the mobile app.
 
 ### Bug fixes
 

@@ -1,21 +1,15 @@
 ---
-title: "Week of June 8, 2026"
+title: "Changelog (June 12, 2026)"
 date: 2026-06-12
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Thirteen fixes across compliance, reporting, and imports, plus conflict warnings on invite imports.
 
-- **Ask Opus answers keyword searches with materials** — typing a keyword or a short phrase into
-  Ask Opus, rather than a full question, now brings back the matching training materials instead of
-  an attempted answer. Fully-formed questions still get a written answer as before.
-- **Invite imports flag conflicts before you send them** — when you upload a list of people to
-  invite, the preview now points out rows that clash with someone already in your organization, such
-  as the same phone number under a different email address, and links straight to that person's
-  profile. Rows that will reactivate a previously deactivated account are called out too. Previously
-  these rows failed quietly once the import was already running.
+### Improvements
 
-- **Check-ins trainees complete on their own** — a check-in can now be set up as self-directed,
-  so a trainee works through it themselves instead of a manager running the session with them.
+- Invite import previews now flag rows that clash with someone already in your organization — such as the same phone number under a different email address — with a link to that person's profile, and call out rows that will reactivate a previously deactivated account, instead of failing quietly once the import is running.
 
 ### Bug fixes
 

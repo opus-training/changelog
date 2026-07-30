@@ -1,17 +1,11 @@
 ---
-title: "Week of June 15, 2026"
+title: "Changelog (June 19, 2026)"
 date: 2026-06-19
+kind: digest
+tags: [Fixes]
 ---
 
-### New features
-
-- **A redesigned navigation for the web app** — the left-hand navigation is now a compact rail of
-  your main areas — Home, Training, Operations, Reporting, People and Messages — with a second
-  panel that lists the pages inside whichever area you are in. Settings has its own dedicated
-  navigation, the organization switcher and the "New" button now sit in the rail, and the
-  navigation collapses on its own while you are working in the content builder so the builder gets
-  the full width of the screen. As part of the new layout, the summary counts that used to sit
-  above the training library list have been removed.
+Seven fixes across training, reporting, and integrations.
 
 ### Bug fixes
 

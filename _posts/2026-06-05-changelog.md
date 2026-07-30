@@ -1,19 +1,16 @@
 ---
-title: "Week of June 1, 2026"
+title: "Changelog (June 5, 2026)"
 date: 2026-06-05
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Fifteen fixes across reporting, imports, and the mobile app, plus in-app course links and a smarter listen mode.
 
-- **Roster imports from your provider's own SFTP server** — payroll and HR systems that host
-  their own SFTP server, such as Paycom, can now be connected by having Opus pull the employee
-  file on a schedule, instead of requiring the file to be sent to Opus first.
-- **Links in course content open inside the mobile app** — tapping a link in a course's text
-  that points to another course, module, or file now opens it directly in the app instead of
-  sending you out to a browser.
-- **Listen mode reads the course introduction** — turning on listen mode while you're on a
-  course's intro page now reads the title and description aloud. Previously it only started
-  reading once you reached the first question.
+### Improvements
+
+- Tapping a link in a course's text that points to another course, module, or file now opens it directly in the mobile app instead of sending you out to a browser.
+- Turning on listen mode while you're on a course's intro page now reads the title and description aloud, instead of only starting once you reach the first question.
 
 ### Bug fixes
 

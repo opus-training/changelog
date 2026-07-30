@@ -1,18 +1,11 @@
 ---
-title: "Week of May 11, 2026"
+title: "Changelog (May 15, 2026)"
 date: 2026-05-15
+kind: digest
+tags: [Fixes]
 ---
 
-### New features
-
-- **Refreshed course experience on mobile** — question screens across multiple choice,
-  true/false, select all, matching, ordering, image choice, and written answers have a
-  cleaner, more consistent look, the course introduction now sits inline in the training
-  flow, and the completion screen has been redesigned with clearer pass and fail
-  messaging, a direct link to the certificate, and a simpler way to leave feedback.
-- **Timed video annotations** — annotations you add to a training video can now be set to
-  appear only during a specific part of playback, instead of staying on screen for the
-  whole video, so you can call out the right detail at the right moment.
+Ten fixes across training progress, guest feedback, the content builder, and the mobile app.
 
 ### Bug fixes
 

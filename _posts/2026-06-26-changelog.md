@@ -1,22 +1,18 @@
 ---
-title: "Week of June 22, 2026"
+title: "Changelog (June 26, 2026)"
 date: 2026-06-26
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Eleven fixes following the navigation redesign, plus submission notifications on every task list, library content counts, phone number editing, and check-in duplication.
 
-- **Submission notifications on every task list** — the Submission Notifications button now appears
-  on all task lists, so you can choose who gets alerted when one is submitted. It was previously
-  only available to organizations that also had audits turned on.
-- **Content counts are back in your training library** — the summary counts above the training
-  library have returned on the All tab, and each library page now shows its own count next to the
-  page title, matching the number of rows in the table below. You can also create your first folder
-  straight from the empty Folders view.
-- **Update phone numbers from the mobile app** — anyone can now add or change their own phone
-  number from their profile in the app, and admins and managers who can edit team members can update
-  someone else's phone number from that person's profile.
-- **Duplicate a check-in** — check-ins can now be duplicated from the training library, the same way
-  courses, modules and resources already could.
+### Improvements
+
+- The Submission Notifications button now appears on all task lists, so you can choose who gets alerted when one is submitted — previously it was only available to organizations that also had audits turned on.
+- Content counts are back in your training library — the summary counts have returned on the All tab, each library page now shows its own count next to the page title, and you can create your first folder straight from the empty Folders view.
+- Anyone can now add or change their own phone number from their profile in the mobile app, and admins and managers who can edit team members can update someone else's phone number from that person's profile.
+- Check-ins can now be duplicated from the training library, the same way courses, modules and resources already could.
 
 ### Bug fixes
 

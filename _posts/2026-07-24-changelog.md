@@ -1,29 +1,15 @@
 ---
-title: "Week of July 20, 2026"
+title: "Changelog (July 24, 2026)"
 date: 2026-07-24
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Eleven fixes across courses, reporting, and the mobile app, plus location and brand filters on Recommendations.
 
-- **Follow-up tasks** — when an audit turns up something that needs fixing, you can now track the fix
-  instead of chasing it by hand. Each follow-up task has an owner, a due date and a status that moves
-  from not started, through in progress and ready for review, to completed, and you can require a
-  photo as proof before it is signed off. A new Tasks page lists everything open across your
-  locations, and each task has its own page with comments, mentions and a full history of what
-  happened. Anything you already had open in the previous remediation flow has been carried over,
-  with its comments and history intact. Follow-up tasks are available to organizations using audits.
-- **Audits and tasks on the app** — the app's home screen is reorganized into clear sections for
-  training, tasks and what someone was recently working on, so people can see what they owe at a
-  glance. Audits open with their sections collapsed, which makes a long audit much easier to work
-  through, and the audit detail screen has been redesigned.
-- **A refreshed look for the admin dashboard** — text, buttons, tabs and status colors across the
-  dashboard now come from a single design system. Pages are more consistent and more compact — page
-  headings in particular are noticeably smaller — with no change to how anything works. Training
-  screens that learners see are unchanged.
-- **Photos from your camera roll** — when a check-in, task list or audit asks someone for a photo or
-  video, they can now pick one they already have instead of only taking a new one on the spot.
-- **Filter Recommendations by location and brand** — the Recommendations page now has location and
-  brand filters, so you can look at what guests are saying about one part of the business at a time.
+### Improvements
+
+- The Recommendations page now has location and brand filters, so you can look at what guests are saying about one part of the business at a time.
 
 ### Bug fixes
 

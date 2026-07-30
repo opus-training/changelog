@@ -1,17 +1,15 @@
 ---
-title: "Week of June 29, 2026"
+title: "Changelog (July 3, 2026)"
 date: 2026-07-03
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Seven fixes across publishing, task lists, and the dashboard, plus one-click PDF export for submissions.
 
-- **Credit spend by location** — the Billing page in Settings now includes a Credit Spend by
-  Location table, showing how many premium content credits each of your locations used over the
-  current billing period. Spend is counted under the location a team member joined first, so
-  someone who has transferred stores stays with their original location.
-- **Export a submission as a PDF** — submission details now have a single Export PDF button, and
-  you can export a submission straight from the "..." menu on the All Submissions table without
-  opening it first.
+### Improvements
+
+- Submission details now have a single Export PDF button, and you can export a submission straight from the "..." menu on the All Submissions table without opening it first.
 
 ### Bug fixes
 

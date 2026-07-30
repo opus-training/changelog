@@ -2,8 +2,11 @@
 layout: default
 ---
 <article class="entry">
-  <h1 class="entry-title">{{ page.title }}</h1>
   <time class="entry-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+  <h1 class="entry-title">{{ page.title }}</h1>
+  {% if page.tags.size > 0 %}
+  <span class="tags">{% for t in page.tags %}<span class="tag tag-{{ t | slugify }}">{{ t }}</span>{% endfor %}</span>
+  {% endif %}
   <div class="entry-body">
     {{ content }}
   </div>

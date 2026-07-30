@@ -1,20 +1,15 @@
 ---
-title: "Week of July 13, 2026"
+title: "Changelog (July 17, 2026)"
 date: 2026-07-17
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Twelve fixes across compliance, reporting, and guest feedback, plus saved views on the Messages report.
 
-- **Recommendations** — every organization now has a Recommendations page that turns the guest
-  feedback you collect into specific training actions. Opus groups recurring comments into themes,
-  recommends what to do about each one, and lets you turn a recommendation straight into a course.
-  New reviews are now analyzed within minutes of arriving instead of waiting for the weekly run, and
-  automatic syncing is included for everyone.
-- **Course generation follows your outline** — when you build an outline screen by screen and then
-  generate the course, Opus now reproduces what you wrote rather than rewriting it, and treats the
-  instructions in your brief as requirements instead of suggestions.
-- **Saved views on the Messages report** — you can now save a set of filters on the Messages report
-  and come back to it later, the same way you already can on the completion reports.
+### Improvements
+
+- You can now save a set of filters on the Messages report and come back to it later, the same way you already can on the completion reports.
 
 ### Bug fixes
 

@@ -1,18 +1,17 @@
 ---
-title: "Week of July 6, 2026"
+title: "Changelog (July 10, 2026)"
 date: 2026-07-10
+kind: digest
+tags: [Improvements, Fixes]
 ---
 
-### New features
+Twelve fixes across assignments, integrations, and the mobile app, plus a more detailed Ask Opus report and Traditional Chinese subtitles.
 
-- **See who asked each Ask Opus question** — the Ask Opus report now shows the person behind every
-  question along with their location and role, and you can click through to their profile from the
-  table. The added detail comes through when you export the report as well.
-- **Remove a state's version of Sexual Harassment Prevention Training** — you can now remove a
-  version of the training from your organization from its settings, and adding that version back
-  later restores it as it was rather than starting over.
-- **Traditional Chinese subtitles** — new training videos now get a Traditional Chinese subtitle
-  track automatically, alongside the other languages Opus already generates.
+### Improvements
+
+- The Ask Opus report now shows the person behind every question along with their location and role, lets you click through to their profile, and includes the added detail when you export the report.
+- You can now remove a state's version of Sexual Harassment Prevention Training from your organization from its settings, and adding that version back later restores it as it was rather than starting over.
+- New training videos now get a Traditional Chinese subtitle track automatically, alongside the other languages Opus already generates.
 
 ### Bug fixes
 
