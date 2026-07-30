@@ -14,6 +14,9 @@ date: 2026-06-12
   profile. Rows that will reactivate a previously deactivated account are called out too. Previously
   these rows failed quietly once the import was already running.
 
+- **Check-ins trainees complete on their own** — a check-in can now be set up as self-directed,
+  so a trainee works through it themselves instead of a manager running the session with them.
+
 ### Bug fixes
 
 - Fixed team members getting credit toward a new compliance course from training they had completed
