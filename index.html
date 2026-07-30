@@ -2,7 +2,7 @@
 layout: default
 ---
 <h1 class="page-title">What's new in Opus</h1>
-<p class="page-sub">Product updates, published every Friday.</p>
+<p class="page-sub">New features the day they ship, and a digest of improvements and fixes every Friday.</p>
 
 {% assign by_date = site.posts | group_by_exp: "post", "post.date | date: '%B %-d, %Y'" %}
 {% for g in by_date %}

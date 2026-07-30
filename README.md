@@ -8,9 +8,10 @@ publishing.
 ## How entries get here
 
 An automated fleet agent (`changelog-publisher`, defined in
-`dev-container/agent-config/devcontainer/agents/changelog-publisher.md`) runs
-every Friday, triggered by a scadmin scheduled task
-(`AgentsCtrl.trigger_changelog_publisher_agent`). It:
+`dev-container/agent-config/devcontainer/agents/changelog-publisher.md`) runs on
+weekday evenings (launch-day feature posts, Mon-Thu) and every Friday
+(the weekly digest + roundup), triggered by scadmin scheduled tasks
+(`AgentsCtrl.trigger_changelog_publisher_agent` / `_daily_agent`). It:
 
 1. Collects PRs merged since the newest entry in `_posts/` across
    `scadmin`, `dashboard`, and `mobile`, and checks launch status
