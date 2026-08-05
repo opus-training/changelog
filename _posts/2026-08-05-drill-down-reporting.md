@@ -1,5 +1,5 @@
 ---
-title: "Drill-down reporting"
+title: "Drill-down reporting for multi-location managers"
 date: 2026-08-05
 kind: feature
 tags: [Feature, Reporting]
