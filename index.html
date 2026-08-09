@@ -1,26 +1,30 @@
 ---
 layout: default
 ---
-<h1 class="page-title">What's new in Opus</h1>
-<p class="page-sub">New features the day they ship, and a digest of improvements and fixes every Friday.</p>
+<div class="page-head">
+  <h1 class="page-title">What&rsquo;s new in Opus</h1>
+  <p class="page-sub">New features the day they ship, and a digest of improvements and fixes every Friday.</p>
+</div>
 
 {% assign by_date = site.posts | group_by_exp: "post", "post.date | date: '%B %-d, %Y'" %}
 {% for g in by_date %}
 <section class="release" id="{{ g.items.first.date | date: '%Y-%m-%d' }}">
   <h2 class="release-date">{{ g.name }}</h2>
-  {% assign feats = g.items | where: "kind", "feature" %}
-  {% assign rest = g.items | where_exp: "p", "p.kind != 'feature'" %}
-  {% assign ordered = feats | concat: rest %}
-  {% for post in ordered %}
-  <article class="row">
-    <div class="row-head">
-      <h3 class="row-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      {% if post.tags.size > 0 %}
-      <span class="tags">{% for t in post.tags %}<span class="tag tag-{{ t | slugify }}">{{ t }}</span>{% endfor %}</span>
-      {% endif %}
-    </div>
-    <p class="row-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 200 }}</p>
-  </article>
-  {% endfor %}
+  <div class="release-items">
+    {% assign feats = g.items | where: "kind", "feature" %}
+    {% assign rest = g.items | where_exp: "p", "p.kind != 'feature'" %}
+    {% assign ordered = feats | concat: rest %}
+    {% for post in ordered %}
+    <article class="row">
+      <div class="row-head">
+        <h3 class="row-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.tags.size > 0 %}
+        <span class="tags">{% for t in post.tags %}<span class="tag tag-{{ t | slugify }}">{{ t }}</span>{% endfor %}</span>
+        {% endif %}
+      </div>
+      <p class="row-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 200 }}</p>
+    </article>
+    {% endfor %}
+  </div>
 </section>
 {% endfor %}

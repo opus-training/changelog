@@ -4,15 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | normalize_whitespace | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#012b28" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | normalize_whitespace | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="{{ '/' | relative_url }}">Opus</a>
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Opus">
+        <!-- Opus wordmark — same path as dashboard/public/images/opus-wordmark.svg,
+             recolored to currentColor so it inherits the ink token. -->
+        <svg viewBox="0 0 52 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M36.373 0.313131V4.53535C36.373 6.72727 34.8674 8.0404 33.1749 8.0404C31.4824 8.0404 30.7452 7.14141 30.7452 5.74748V0.313131H27.7859V6.33333C27.7859 8.89899 29.873 10.404 32.77 10.404C34.9609 10.404 35.968 9.71717 36.7883 8.52525L37.5152 9.07071C37.2452 9.35354 37.0064 9.67677 36.7883 10.0909H39.3219V0.313131H36.3626H36.373ZM46.1645 10.404C49.8195 10.404 52 9.15152 52 7.06061C52 5.34343 50.754 4.40404 48.0751 4.13131L45.095 3.81818C43.7037 3.67677 43.3091 3.46465 43.3091 2.85859C43.3091 2.25253 44.1086 1.9596 45.9049 1.9596C47.5559 1.9596 48.4385 2.39394 48.7604 3.31313H51.8339C51.5535 1.26263 49.4041 0.010101 46.1645 0.010101C42.5615 0.010101 40.3706 1.24242 40.3706 3.25253C40.3706 4.91919 41.5128 5.83838 43.8283 6.07071L46.9018 6.38384C48.615 6.53535 49.0511 6.75758 49.0511 7.38384C49.0511 8.09091 48.0855 8.46465 46.2165 8.46465C44.4824 8.46465 43.5272 8 43.1845 7H40.1733C40.5367 9.34343 42.4265 10.4242 46.1645 10.4242M15.627 9.60606L16.25 9C17.4129 10.0606 18.7835 10.4242 20.4968 10.4242C24.0791 10.4242 26.8722 8.17172 26.8722 5.22222C26.8722 2.27273 24.0687 0 20.4864 0C18.4928 0 17.0288 0.646465 16.0008 2.0101L15.3155 1.48485C15.7308 1.09091 15.9489 0.848485 16.2396 0.313131H13.7061V3.0303C14.0072 3.63636 14.1837 4.45455 14.1837 5.20202C14.1837 5.9495 14.0072 6.76768 13.7061 7.37374V14H16.6653V10.5051C16.2811 10.0404 16.0839 9.87879 15.6166 9.57576L15.627 9.60606ZM20.2891 8.06061C18.2332 8.06061 16.6653 6.82828 16.6653 5.22222C16.6653 3.61616 18.2332 2.38384 20.2891 2.38384C22.345 2.38384 23.9129 3.61616 23.9129 5.22222C23.9129 6.82828 22.345 8.06061 20.2891 8.06061ZM6.57268 8.06061C4.51677 8.06061 2.94888 6.82828 2.94888 5.22222C2.94888 3.61616 4.51677 2.38384 6.57268 2.38384C8.62859 2.38384 10.1965 3.61616 10.1965 5.22222C10.1965 6.82828 8.62859 8.06061 6.57268 8.06061ZM6.57268 10.4242C10.2276 10.4242 13.1454 8.12121 13.1454 5.22222C13.1454 2.32323 10.238 0 6.57268 0C2.90735 0 0 2.31313 0 5.20202C0 8.09091 2.91773 10.404 6.57268 10.404"/>
+        </svg>
+      </a>
       <span class="brand-sub">Changelog</span>
+      <a class="header-link" href="https://www.opus.so">opus.so</a>
     </div>
   </header>
   <main class="wrap">
@@ -20,7 +38,10 @@
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <a href="https://www.opus.so">opus.so</a> · Updated every Friday
+      <a href="https://www.opus.so">opus.so</a>
+      <span class="footer-sep">·</span>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      <span class="footer-note">New features the day they ship · Digest every Friday</span>
     </div>
   </footer>
 </body>

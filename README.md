@@ -84,6 +84,31 @@ Style rules:
 - If nothing customer-visible shipped, the agent skips the week (no empty
   entries).
 
+## Look and feel
+
+The site follows the Opus brand as it ships on opus.so: a warm off-white
+canvas (`#FAF9F5`), deep forest green ink (`#004540`) for *all* text, and the
+accent set — yellow `#FFE175`, lavender `#ADBDFF`, sky `#AEBEFD`, plum
+`#52154E`, lilac `#775172`. The same values back the product design system
+(`--brand-green` and friends in `dashboard/src/pages/global.css`). There are
+no cool grays in the brand: muted text is ink at a lower mix, never `#6b7280`.
+
+Everything lives in `assets/style.css` as CSS custom properties — change a
+token there rather than a rule. Two things to know before editing:
+
+- **Headings use `--font-display`**, which falls back to Inter. PolySans is
+  the brand display face; when it is licensed for web, drop the woff2 files
+  in `assets/fonts/` and un-comment the `@font-face` block at the top of the
+  stylesheet. Nothing else needs to change.
+- **The ink mix percentages are contrast-tuned.** Every text role clears
+  WCAG AA (4.5:1) against both the canvas and the white card surface, in
+  light and dark mode. Lightening `--ink-muted` or `--ink-faint` will break
+  that — re-check if you touch them.
+
+Tag colors key off the tag name (`tag-feature`, `tag-improvements`,
+`tag-fixes`); any other tag renders as a hairline outline pill, so new
+product-area tags need no CSS.
+
 ## Humans welcome
 
 Edit or delete anything here directly — the agent never rewrites existing
