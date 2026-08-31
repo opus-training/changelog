@@ -1,5 +1,5 @@
 ---
-title: "Changelog (August 28, 2026)"
+title: "Bugs and small improvements (Week of Aug 28, 2026)"
 date: 2026-08-28
 kind: digest
 tags: [Improvements, Fixes]
