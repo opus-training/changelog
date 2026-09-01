@@ -14,4 +14,6 @@ Connect Opus to the AI assistant you already use (Claude, ChatGPT, or anything e
 
 To set it up, add `https://api.opus.so/mcp` as a connector in your assistant and approve the connection once.
 
+Learn more: [Getting Started: Opus MCP](https://help.opus.so/en/articles/16531461-getting-started-opus-mcp)
+
 *Available to Admins and Managers.*
