@@ -1,5 +1,5 @@
 ---
-title: "Deeper questions in your AI assistant"
+title: "Deeper questions in Claude and ChatGPT"
 date: 2026-09-04
 kind: feature
 tags: [Feature, Integrations, Reporting]
