@@ -1,12 +1,12 @@
 ---
-title: "Location template variables in course screens and messages"
+title: "Location merge fields in Course screens and Messages"
 date: 2026-09-08
 kind: feature
 tags: [Feature, Courses, Messaging]
 ---
 
-Write a Course or message once and have each learner see their own Location in it.
+Think of a merge field like a personalized label. You write it once, and Opus fills in the right information for each Trainee automatically.
 
-- **The same placeholders you already use.** Type `{% raw %}{{location}}{% endraw %}` in Course screens and messages the way you already type `{% raw %}{{name}}{% endraw %}` and `{% raw %}{{company}}{% endraw %}`. Learners see their Location filled in automatically.
-- **One Course, every Location.** "Welcome to the team at `{% raw %}{{location}}{% endraw %}`" becomes "Welcome to the team at Downtown" for that person, and the next learner's Location for the next. You do not need a version per Location.
-- **No blank if they do not have one.** People without a Location see "your location" instead of a gap.
+- **Use the merge fields you already know.** Type `{% raw %}{{location}}{% endraw %}` in Course screens and Messages the way you already type `{% raw %}{{name}}{% endraw %}` and `{% raw %}{{company}}{% endraw %}`. Each Trainee sees their Location filled in.
+  - **Example:** "Welcome to the team at `{% raw %}{{location}}{% endraw %}`" becomes "Welcome to the team at Downtown" for a Trainee at Downtown. No need to create a separate version for each Location.
+- **No missing information.** If a Trainee does not have a Location, they will see "your location" instead of an empty space.
