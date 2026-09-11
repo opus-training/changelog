@@ -11,7 +11,7 @@ A new in progress stage for Recommendations, faster turnaround on Guest Feedback
 
 - **Recommendations now have an in progress stage.** Recommendations move through inbox, in progress, measuring impact, and done, and each one records the date work started. You choose when impact measurement begins, so it's measured from when the work actually landed, not from when training was assigned.
 - **See what happened after you act on a Recommendation.** Once you've acted, the Recommendation shows the outcome instead of asking you to act again: new training links straight to the Course you created, updated content shows when the update went live, and assigned training shows the segment it went to and when.
-- **Get Recommendations sooner after adding Guest Feedback.** Analysis now starts within a few minutes of an upload or sync, down from up to half an hour. Opus runs one analysis per business per day, so a second upload the same day won't start another.
+- **Get Recommendations sooner after adding Guest Feedback.** Analysis now starts within a few minutes of an upload or sync, down from up to half an hour.
 - **Watch AI translations as they generate.** Translation Mode in the Course builder now shows progress while translations generate, and it loads correctly when you open the builder from a link or refresh the page.
 - **Search for locations when you invite people.** The location picker now has a search box when you invite people, in both the dashboard and the app. On the web, it covers roles and groups too.
 - **A place to start in Guest Feedback and Recommendations.** Both now show a short getting-started screen instead of empty tabs and blank charts before there's anything to display.
