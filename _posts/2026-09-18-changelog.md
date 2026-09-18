@@ -22,7 +22,7 @@ Publishing permissions that match who can edit, cleaner completion reporting, an
 - Fixed an issue where the Course builder wouldn't scroll while the cursor rested over a screen card, leaving you to scroll in the gaps between cards.
 - Fixed an issue where the previous and next month arrows in date pickers did nothing when clicked.
 - Fixed an issue where line breaks were dropped from text people typed, in free-text answers and notes on Audits and Checklists, in course feedback and comments, and in messages composed in the app, so it arrived on the dashboard as one unbroken block.
-- Fixed an issue where updating a Path that a lot of people were partway through could time out before everyone was moved onto the new version, leaving them on the old one. Updates now move everyone across, and anyone already stranded moves at the next update.
+- Fixed an issue where updating a Path could leave people who were partway through it stuck on the old version.
 - Fixed an issue where double-clicking an image in an Opus Doc deleted it.
 - Fixed an issue where the location completion report showed "Could not load data" after you re-applied two or more filters under User Types.
 - Fixed an issue where a photo added to a Checklist step could fail to upload if you scrolled away before the upload finished.
