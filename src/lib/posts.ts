@@ -97,7 +97,10 @@ export function getPosts(): Post[] {
     .readdirSync(POSTS_DIR)
     .map(readPost)
     .filter((p): p is Post => p !== null)
-    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+    .sort((a, b) => {
+      if (a.date !== b.date) return a.date < b.date ? 1 : -1;
+      return a.slug < b.slug ? 1 : a.slug > b.slug ? -1 : 0;
+    });
 }
 
 export function getPost(date: string, slug: string): Post | null {
