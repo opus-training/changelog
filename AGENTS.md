@@ -1,14 +1,15 @@
 # Changelog copy
 
 Customer-facing posts in `_posts/`. Apply these rules to every new feature
-post and weekly digest. Confirm product labels on the live surface before
-using them. If you cannot confirm what a person sees, omit the bullet.
+post and weekly digest. Confirm product labels from UI strings in
+dashboard or mobile at the window revision, or on the live surface. If you
+cannot confirm what a person sees, omit the bullet.
 
 ## Words
 
 - Plain language, second person. "You can now..." Never "we" or "our".
-- Product nouns exactly as the UI labels them, capitalized: Course, Module,
-  Path, Resource, Opus Doc, Checklist, Audit, Task, Location, Trainee, Admin,
+- Product nouns cased exactly as the UI labels them: Course, Module, Path,
+  Resource, Opus Doc, Checklist, Audit, Task, Location, Trainee, Admin,
   Manager, Course builder, Team tab, Guest Feedback, Data Sources.
 - "Business", not "org" or "organization".
 - Never: PR numbers, Linear IDs, internal system or flag names, table and
@@ -27,8 +28,8 @@ using them. If you cannot confirm what a person sees, omit the bullet.
 - First paragraph is one or two lines saying what you can now do. It is the
   index teaser, so it carries the pitch on the homepage.
 - Two to four bullets, each a bold lead-in then one sentence of benefit.
-  Bold lead-in ends with a period, or an em dash if the sentence continues
-  from it. That is the only place an em dash belongs.
+  Bold lead-in ends with a period, or an em dash after the closing `**` if
+  the sentence continues from it. That is the only place an em dash belongs.
 - Optional setup line and one "Learn more" help-article link after the
   bullets.
 - Italic availability line last, and only when availability is genuinely
@@ -63,6 +64,6 @@ using them. If you cannot confirm what a person sees, omit the bullet.
 
 - Anything not broadly live: flag-gated, pilot, beta, dark launch.
 - Internal work, infra, refactors, dependency bumps.
-- Behavior you could not confirm on the live surface.
+- Behavior you could not confirm from UI strings or the live surface.
 - Anything that reads as disclosing a past security weakness or a past
-  overcharge. That goes to Jeff or CS, not into a bullet.
+  overcharge. Record it in the activity log. Do not put it in a bullet.

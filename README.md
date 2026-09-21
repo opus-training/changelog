@@ -33,7 +33,7 @@ tags: [Feature, Audits]
 You can now create a follow-up Task from a submission.
 
 - **Lead-in.** One sentence of benefit.
-- **Lead-in —** rest of the same sentence. 2–4 bullets.
+- **Lead-in** — rest of the same sentence. 2–4 bullets.
 
 *Available to businesses using Audits.*
 ```
