@@ -66,4 +66,4 @@ cannot confirm what a person sees, omit the bullet.
 - Internal work, infra, refactors, dependency bumps.
 - Behavior you could not confirm from UI strings or the live surface.
 - Anything that reads as disclosing a past security weakness or a past
-  overcharge. Record it in the activity log. Do not put it in a bullet.
+  overcharge. Leave it out of the post and escalate outside the changelog.
