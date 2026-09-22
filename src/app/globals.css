@@ -475,44 +475,6 @@ a {
   }
 }
 
-/* ── Dark mode — the same brand, inverted onto a deep green ground ──────── */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --canvas: #012b28;
-    --surface: #01352f;
-    --ink: #f2efe6;
-    --ink-muted: color-mix(in srgb, var(--ink) 72%, var(--canvas));
-    --ink-faint: color-mix(in srgb, var(--ink) 52%, var(--canvas));
-    --rule: color-mix(in srgb, var(--ink) 16%, transparent);
-    --rule-strong: color-mix(in srgb, var(--ink) 30%, transparent);
-  }
-
-  .tag-feature {
-    background: var(--yellow);
-    border-color: var(--yellow);
-    color: #004540;
-  }
-
-  .tag-improvements {
-    background: var(--sky);
-    border-color: var(--sky);
-    color: var(--plum);
-  }
-
-  .tag-fixes {
-    background: var(--lilac);
-    border-color: var(--lilac);
-    color: #f2efe6;
-  }
-
-  .header-link:hover,
-  .back-link:hover {
-    background: var(--ink);
-    color: #012b28;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
