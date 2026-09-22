@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { OpusWordmark } from "@/components/OpusWordmark";
+import { SiteNav } from "@/components/SiteNav";
 import { SITE } from "@/lib/posts";
 import "./globals.css";
 
@@ -52,7 +53,7 @@ export default function RootLayout({
             <Link className="brand" href="/" aria-label="Opus">
               <OpusWordmark />
             </Link>
-            <span className="brand-sub">Changelog</span>
+            <SiteNav />
             <a className="header-link" href="https://www.opus.so">
               opus.so
             </a>
@@ -63,9 +64,13 @@ export default function RootLayout({
           <div className="wrap">
             <a href="https://www.opus.so">opus.so</a>
             <span className="footer-sep">·</span>
+            <Link href="/">Changelog</Link>
+            <span className="footer-sep">·</span>
+            <Link href="/roadmap/">Roadmap</Link>
+            <span className="footer-sep">·</span>
             <a href="/feed.xml">RSS</a>
             <span className="footer-note">
-              New features the day they ship · Digest every Friday
+              New features the day they ship · What&rsquo;s next on the roadmap
             </span>
           </div>
         </footer>
