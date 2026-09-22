@@ -55,7 +55,12 @@ export default async function RoadmapItemPage({
         {item.eta ? ` · ${item.eta}` : ""}
       </p>
       <h1 className="entry-title">{item.title}</h1>
-      <Tags tags={[...item.tags, ...item.audience]} />
+      <Tags tags={item.tags} />
+      {item.audience.length > 0 ? (
+        <p className="row-meta">
+          <span>{item.audience.join(" · ")}</span>
+        </p>
+      ) : null}
       {item.video ? (
         <video
           className="entry-video"

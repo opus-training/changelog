@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { excerptFrom } from "@/lib/posts";
 
 export type RoadmapStatus = "just-launched" | "in-development" | "planned";
 
@@ -30,16 +31,6 @@ const STATUSES = new Set<RoadmapStatus>(
   STATUS_GROUPS.map((g) => g.id),
 );
 
-function excerptFrom(body: string): string {
-  const first = body.trim().split(/\n\s*\n/)[0] ?? "";
-  const plain = first
-    .replace(/[#>*_`\[\]]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-  if (plain.length <= 200) return plain;
-  return `${plain.slice(0, 197).trimEnd()}...`;
-}
-
 function strings(value: unknown): string[] {
   return Array.isArray(value) ? value.map((t) => String(t)) : [];
 }
@@ -57,7 +48,11 @@ function readItem(filename: string): RoadmapItem | null {
   const raw = fs.readFileSync(path.join(ROADMAP_DIR, filename), "utf8");
   const { data, content } = matter(raw);
   const status = String(data.status ?? "") as RoadmapStatus;
-  if (!STATUSES.has(status)) return null;
+  if (!STATUSES.has(status)) {
+    throw new Error(
+      `${filename}: status "${data.status ?? ""}" must be one of ${[...STATUSES].join(", ")}`,
+    );
+  }
   const body = content.trim();
   return {
     slug,
@@ -76,11 +71,22 @@ function readItem(filename: string): RoadmapItem | null {
 
 export function getRoadmapItems(): RoadmapItem[] {
   if (!fs.existsSync(ROADMAP_DIR)) return [];
-  return fs
+  const items = fs
     .readdirSync(ROADMAP_DIR)
     .map(readItem)
     .filter((p): p is RoadmapItem => p !== null)
     .sort((a, b) => a.order - b.order);
+  const seen = new Map<string, string>();
+  for (const item of items) {
+    const prev = seen.get(item.slug);
+    if (prev) {
+      throw new Error(
+        `duplicate roadmap slug "${item.slug}" (${prev} and order ${item.order})`,
+      );
+    }
+    seen.set(item.slug, `order ${item.order}`);
+  }
+  return items;
 }
 
 export function getRoadmapItem(slug: string): RoadmapItem | null {

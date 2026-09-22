@@ -70,7 +70,7 @@ export default function RootLayout({
             <span className="footer-sep">·</span>
             <a href="/feed.xml">RSS</a>
             <span className="footer-note">
-              New features the day they ship · What&rsquo;s next on the roadmap
+              New features the day they ship · Digest every Friday
             </span>
           </div>
         </footer>
