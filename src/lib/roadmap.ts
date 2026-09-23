@@ -24,8 +24,8 @@ export const STATUS_GROUPS: {
   label: string;
   when: string;
 }[] = [
-  { id: "in-development", label: "In development", when: "Now" },
   { id: "planned", label: "Planned", when: "Next" },
+  { id: "in-development", label: "In development", when: "Now" },
   { id: "just-launched", label: "Just launched", when: "Recently" },
 ];
 

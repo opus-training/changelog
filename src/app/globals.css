@@ -366,6 +366,15 @@ a {
   overflow: hidden;
 }
 
+.board .tag,
+.roadmap-entry .tag,
+.board .board-col-when,
+.status-pill {
+  font-size: 9px;
+  padding: 2px 7px;
+  letter-spacing: 0.05em;
+}
+
 body:has(.board) main.wrap {
   max-width: 1120px;
 }
