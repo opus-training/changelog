@@ -18,6 +18,8 @@ export type ReleaseFeature = {
   tags: string[];
   bullets: { title: string; text: string }[];
   tryThis?: string;
+  whoFor: string;
+  howToGet: string;
   helpUrl: string;
   tryUrl: string;
   media: FeatureMedia;
@@ -90,6 +92,9 @@ const october: Release = {
       ],
       tryThis:
         "Add the Stale Content Hunter template to find unused or outdated content across your Library.",
+      whoFor: "Every Admin in your org.",
+      howToGet:
+        "It's on by default for every Admin. Open Agents in the Opus Dashboard to get started.",
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",
@@ -121,6 +126,9 @@ const october: Release = {
           text: "Anything created through MCP stays in draft until someone reviews and publishes it.",
         },
       ],
+      whoFor: "Admins and Managers who want to work with Opus from Claude, ChatGPT, or another AI tool.",
+      howToGet:
+        "It's included on every plan. In the Opus Dashboard, go to Settings, open AI Connections, and follow the setup steps for your AI tool.",
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "mcp",
@@ -153,6 +161,9 @@ const october: Release = {
       ],
       tryThis:
         "Open one of your existing Paths and take a look around. Check the Trainee progress view to see who's currently working through it.",
+      whoFor: "Admins, plus Managers who have both the Manage Library permission and the Update Automations and Library Access permission.",
+      howToGet:
+        "It's on automatically for eligible plans. Your existing Paths have already moved over, so there's nothing to set up.",
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/path-builder`,
       media: "path-builder",
@@ -190,6 +201,9 @@ const october: Release = {
       ],
       tryThis:
         "Open a Course you manage and start with the Overview. Use the mobile preview to see how it will look to a Trainee the next time you're reviewing or updating content.",
+      whoFor: "Admins and Managers who build, assign, or review Courses and Modules.",
+      howToGet:
+        "It's on for every org. Open any Course or Module in the Library to start on the new Overview tab.",
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/library`,
       media: "content-detail",
@@ -219,6 +233,9 @@ const october: Release = {
       ],
       tryThis:
         "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
+      whoFor: "Everyone on your team.",
+      howToGet:
+        "No setup needed. Open your profile in the Opus Dashboard or the Opus mobile app to add, crop, or change your own photo.",
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "none",
@@ -256,6 +273,9 @@ const october: Release = {
       ],
       tryThis:
         "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
+      whoFor: "Everyone who uses Audits.",
+      howToGet:
+        "It's on for every org that uses Audits. Open an Audit in the builder and choose Scoring thresholds in the Scoring settings.",
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "none",

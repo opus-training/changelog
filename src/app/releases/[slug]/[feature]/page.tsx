@@ -45,10 +45,6 @@ export default async function FeaturePage({
   const release = getRelease(slug);
   const feature = getFeature(slug, featureSlug);
   if (!release || !feature) notFound();
-  const tryLabel =
-    feature.slug === "opus-ai-agent"
-      ? "Open Agents →"
-      : "Give it a try →";
   return (
     <article className="release-page feature-entry">
       <Link className="feature-back" href={releaseUrl(release)}>
@@ -95,15 +91,16 @@ export default async function FeaturePage({
           )}
         </div>
       ) : null}
-      {feature.tryThis ? (
-        <aside className="try-this">
-          <span className="try-pill">Try this</span>
-          <p>{feature.tryThis}</p>
-          <a className="try-link" href={feature.tryUrl}>
-            {tryLabel}
-          </a>
-        </aside>
-      ) : null}
+      <aside className="feature-fit" aria-label="Availability">
+        <div className="feature-fit-item">
+          <h2 className="feature-fit-label">Who it&rsquo;s for</h2>
+          <p>{feature.whoFor}</p>
+        </div>
+        <div className="feature-fit-item">
+          <h2 className="feature-fit-label">How to get it</h2>
+          <p>{feature.howToGet}</p>
+        </div>
+      </aside>
       <section className="can-do">
         <h2>What you can do</h2>
         <ul className="feature-bullets">
@@ -114,16 +111,6 @@ export default async function FeaturePage({
           ))}
         </ul>
       </section>
-      {feature.slug === "opus-ai-agent" ? (
-        <section className="how-get">
-          <h2>How you can get it</h2>
-          <p>
-            It&rsquo;s on for everyone, with no extra setup. Open the Opus
-            Dashboard and start asking. The agent uses the permissions you
-            already have in Opus.
-          </p>
-        </section>
-      ) : null}
     </article>
   );
 }

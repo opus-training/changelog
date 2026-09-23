@@ -647,26 +647,17 @@ a {
   grid-template-columns: 88px minmax(0, 1fr) 160px;
 }
 
-.can-do,
-.how-get {
+.can-do {
   margin: 0 0 40px;
 }
 
-.can-do h2,
-.how-get h2 {
+.can-do h2 {
   font-family: "Inter Tight", var(--font-display);
   font-size: 32px;
   font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0 0 16px;
-}
-
-.how-get p {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.65;
-  color: var(--ink-body, #2a4744);
 }
 
 .feature-demo {
@@ -750,18 +741,18 @@ a {
   margin-left: 0;
 }
 
-.try-this {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.feature-fit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 32px;
   background: #fff3c6;
   border-radius: 10px;
-  padding: 16px 20px;
+  padding: 20px 24px;
   margin: 14px 0 40px;
 }
 
-.try-pill {
-  flex-shrink: 0;
+.feature-fit-label {
+  display: inline-block;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -770,26 +761,14 @@ a {
   color: var(--ink);
   padding: 6px 10px;
   border-radius: var(--radius-pill);
+  margin: 0 0 10px;
 }
 
-.try-this p {
+.feature-fit-item p {
   margin: 0;
-  flex: 1;
   font-size: 16px;
   line-height: 1.5;
   color: var(--ink);
-}
-
-.try-link {
-  flex-shrink: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.try-link:hover {
-  text-decoration: underline;
 }
 
 .dash-shot {
@@ -1547,8 +1526,8 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .try-this {
-    flex-direction: column;
+  .feature-fit {
+    grid-template-columns: 1fr;
   }
 
   .release-page .page-title,
@@ -1759,16 +1738,6 @@ a {
 
 .viz-detail-title {
   font-size: 16px;
-}
-
-@media (max-width: 700px) {
-  .try-this {
-    flex-wrap: wrap;
-  }
-
-  .try-link {
-    width: 100%;
-  }
 }
 
 /* ── Release issue ──────────────────────────────────────────────────────── */
