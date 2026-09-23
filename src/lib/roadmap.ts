@@ -19,10 +19,14 @@ export type RoadmapItem = {
   url: string;
 };
 
-export const STATUS_GROUPS: { id: RoadmapStatus; label: string }[] = [
-  { id: "just-launched", label: "Just launched" },
-  { id: "in-development", label: "In development" },
-  { id: "planned", label: "Planned" },
+export const STATUS_GROUPS: {
+  id: RoadmapStatus;
+  label: string;
+  when: string;
+}[] = [
+  { id: "in-development", label: "In development", when: "Now" },
+  { id: "planned", label: "Planned", when: "Next" },
+  { id: "just-launched", label: "Just launched", when: "Recently" },
 ];
 
 const ROADMAP_DIR = path.join(process.cwd(), "_roadmap");
@@ -96,6 +100,7 @@ export function getRoadmapItem(slug: string): RoadmapItem | null {
 export type StatusGroup = {
   id: RoadmapStatus;
   label: string;
+  when: string;
   items: RoadmapItem[];
 };
 
