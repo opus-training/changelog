@@ -661,7 +661,8 @@ body:has(.board) main.wrap {
 
 @media (max-width: 960px) {
   .board {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
@@ -698,84 +699,8 @@ body:has(.board) main.wrap {
     display: none;
   }
 
-  .board {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
   .footer-note {
     margin-left: 0;
-  }
-}
-
-/* ── Dark mode — the same brand, inverted onto a deep green ground ──────── */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --canvas: #012b28;
-    --surface: #01352f;
-    --ink: #f2efe6;
-    --ink-muted: color-mix(in srgb, var(--ink) 72%, var(--canvas));
-    --ink-faint: color-mix(in srgb, var(--ink) 52%, var(--canvas));
-    --rule: color-mix(in srgb, var(--ink) 16%, transparent);
-    --rule-strong: color-mix(in srgb, var(--ink) 30%, transparent);
-  }
-
-  .tag-feature {
-    background: var(--yellow);
-    border-color: var(--yellow);
-    color: #004540;
-  }
-
-  .tag-improvements {
-    background: var(--sky);
-    border-color: var(--sky);
-    color: var(--plum);
-  }
-
-  .tag-fixes,
-  .tag-content-creation,
-  .status-planned,
-  .board-col-planned .board-col-when {
-    background: var(--yellow);
-    border-color: var(--yellow);
-    color: #004540;
-  }
-
-  .tag-operations,
-  .tag-reporting,
-  .status-just-launched,
-  .board-col-just-launched .board-col-when {
-    background: var(--yellow);
-    border-color: var(--yellow);
-    color: #004540;
-  }
-
-  .tag-messaging,
-  .tag-trainee-experience,
-  .tag-integration,
-  .tag-quality-of-life,
-  .status-in-development,
-  .board-col-in-development .board-col-when {
-    background: var(--sky);
-    border-color: var(--sky);
-    color: var(--plum);
-  }
-
-  .tag-manager-app {
-    background: var(--lilac);
-    border-color: var(--lilac);
-    color: #f2efe6;
-  }
-
-  .board-col-just-launched .board-col-head {
-    border-bottom-color: var(--yellow);
-  }
-
-  .header-link:hover,
-  .back-link:hover {
-    background: var(--ink);
-    color: #012b28;
   }
 }
 
