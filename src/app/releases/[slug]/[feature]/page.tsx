@@ -47,7 +47,7 @@ export default async function FeaturePage({
   if (!release || !feature) notFound();
   const tryLabel =
     feature.slug === "opus-ai-agent"
-      ? "Open the Content Audit Agent →"
+      ? "Open Agents →"
       : "Give it a try →";
   return (
     <article className="release-page feature-entry">

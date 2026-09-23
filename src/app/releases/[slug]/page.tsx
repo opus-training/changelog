@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FeatureVideo } from "@/components/FeatureVideo";
 import {
   featureUrl,
   getRelease,
@@ -92,7 +93,7 @@ function Lead({
   const href = featureUrl(release, feature);
   return (
     <section className="issue-chapter issue-lead">
-      <p className="issue-eyebrow">{feature.title}</p>
+      {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
       <h2 className="issue-heading">
         <Link href={href}>{feature.headline ?? feature.title}</Link>
       </h2>
@@ -109,17 +110,19 @@ function Lead({
           ))}
         </ul>
       ) : null}
-      {feature.tryThis ? (
-        <aside className="issue-note">
-          <p className="issue-note-label">Try this</p>
-          <p className="issue-note-text">{feature.tryThis}</p>
-          <div className="issue-actions">
-            <a className="btn-solid" href={feature.tryUrl}>
-              Give it a try
-            </a>
-          </div>
-        </aside>
-      ) : null}
+      <aside className={feature.tryThis ? "issue-note" : "issue-note is-bare"}>
+        {feature.tryThis ? (
+          <>
+            <p className="issue-note-label">Try this</p>
+            <p className="issue-note-text">{feature.tryThis}</p>
+          </>
+        ) : null}
+        <div className="issue-actions">
+          <a className="btn-solid" href={feature.tryUrl} aria-label={`Try ${feature.title}`}>
+            Give it a try
+          </a>
+        </div>
+      </aside>
     </section>
   );
 }
@@ -137,37 +140,15 @@ function Row({
     <div className={flip ? "issue-row is-flipped" : "issue-row"}>
       <FeatureVideo video={feature.video} />
       <div className="issue-row-copy">
-        <p className="issue-row-label">{feature.title}</p>
+        {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
         <h3 className="issue-row-title">
           <Link href={href}>{feature.headline ?? feature.title}</Link>
         </h3>
         <p>{feature.deck}</p>
-        <a className="issue-link" href={feature.tryUrl}>
-          Give it a try →
+        <a className="issue-link" href={feature.tryUrl} aria-label={`Try ${feature.title}`}>
+          Give it a try <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
-  );
-}
-
-function FeatureVideo({ video }: { video?: string }) {
-  if (!video) {
-    return (
-      <div className="issue-placeholder" role="img" aria-label="Placeholder">
-        Placeholder
-      </div>
-    );
-  }
-  return (
-    <video
-      className="issue-video"
-      src={`${video}.mp4`}
-      poster={`${video}.jpg`}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-    />
   );
 }

@@ -14,7 +14,6 @@ export type ReleaseFeature = {
   deck: string;
   pitch?: string;
   highlights?: { title: string; text: string }[];
-  summary: string;
   body: string;
   tags: string[];
   bullets: { title: string; text: string }[];
@@ -29,7 +28,6 @@ export type ReleaseFeature = {
 export type Release = {
   slug: string;
   label: string;
-  kicker: string;
   title: string;
   summary: string;
   features: ReleaseFeature[];
@@ -41,7 +39,6 @@ const DASHBOARD = "https://dashboard.opus.so";
 const october: Release = {
   slug: "2026-10",
   label: "October 2026",
-  kicker: "October 2026",
   title: "October 2026 Release",
   summary:
     "Build AI agents in Opus that know your people, your content, and your data.",
@@ -67,8 +64,6 @@ const october: Release = {
         },
       ],
       deck: "Build agents that know your people, your content, and your data.",
-      summary:
-        "The new Agents tab lets you build AI agents for the work your team does every week. Start from a template or write your own instructions, and share them with every admin in your org. Each agent uses the same permissions as the person chatting with it.",
       body: "The Agents tab in the Opus Dashboard lets you build AI agents that answer questions, find what needs attention, and draft content for your team. Each agent is a set of instructions you control. Start from templates for onboarding, compliance, content, reporting, and more, or build one from scratch. Every admin in your org shares the same agents, your chats stay private, and an agent only sees what you can see.",
       tags: ["Feature", "AI"],
       bullets: [
@@ -106,8 +101,6 @@ const october: Release = {
       title: "Opus MCP",
       headline: "Opus, inside Claude and ChatGPT.",
       deck: "Connect your Opus data to the AI tools you already use.",
-      summary:
-        "Work with your Opus data and content from Claude, ChatGPT, and other AI tools. The Opus MCP respects your Opus permissions and keeps anything it creates in draft until you approve.",
       body: "Opus MCP connects your Opus Dashboard to Claude, ChatGPT, or another AI tool, so you can work with Opus from the same place you already use for research, writing, and analysis. The connection runs as the person who authorized it, so it only has access to your business and the actions available to that person in Opus.",
       tags: ["Feature", "Integrations"],
       bullets: [
@@ -138,8 +131,6 @@ const october: Release = {
       title: "Improved Path Builder",
       headline: "Build Paths without the guesswork.",
       deck: "A clearer way to build, manage, and track Paths.",
-      summary:
-        "Build Paths with more control and see clearly how your team is progressing. Create drafts, collaborate with others, and publish changes when your Path is ready.",
       body: "We've rebuilt the Path Builder so Admins can manage Paths more easily and see Trainee progress more clearly. Your existing Paths and data have already been migrated, so your current training can continue without starting over.",
       tags: ["Feature", "Training", "Modules"],
       bullets: [
@@ -173,8 +164,6 @@ const october: Release = {
       title: "Content Detail Pages",
       headline: "Every Course, at a glance.",
       deck: "Everything you need to understand a Course or Module, in one place.",
-      summary:
-        "Understand a Course or Module without hunting across multiple tabs. See what's inside, what needs attention, and how it's performing—all in one place.",
       body: "The new Content Detail Pages give content owners one clear place to understand a Course or Module. See what needs attention, who has access, how it's performing, what's inside, what changed, and where it's being used.",
       tags: ["Feature", "Courses", "Modules"],
       bullets: [
@@ -212,8 +201,6 @@ const october: Release = {
       title: "Profile Images",
       headline: "Put a face to every name.",
       deck: "Let your team personalize their profiles—and recognize each other more easily.",
-      summary:
-        "Add, crop, replace, or remove a profile photo so teammates can quickly put names to faces across Opus.",
       body: "Team members can now add a profile photo from Dashboard or mobile. Profile images also help teams get ready for the new messaging experience coming in November, where recognizing who you're talking to will be even more important.",
       tags: ["Improvement", "Team"],
       bullets: [
@@ -243,8 +230,6 @@ const october: Release = {
       title: "Audit Thresholds",
       headline: "Audits, graded your way.",
       deck: "Give Audit results more meaning than pass or fail.",
-      summary:
-        "Add thresholds like Excellent, Good, Fair, or Needs improvement, for more granular Audit scores.",
       body: "Audits can now use scoring thresholds instead of a simple pass/fail result. Set thresholds such as Excellent, Good, Fair, and Needs improvement, then see the resulting grade wherever a completed Audit appears.",
       tags: ["Improvement", "Audits"],
       bullets: [

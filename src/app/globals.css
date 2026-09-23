@@ -1377,8 +1377,7 @@ a {
 }
 
 .release-page .hero-deck,
-.release-page .hero-summary,
-.release-page .row-excerpt {
+.release-page .hero-summary {
   margin: 0;
   font-size: 17px;
   font-weight: 400;
@@ -1882,6 +1881,30 @@ a {
   aspect-ratio: 4 / 3;
 }
 
+.issue-media {
+  position: relative;
+}
+
+.issue-video-toggle {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.issue-video-toggle:hover {
+  background: var(--surface);
+}
+
 .issue-points {
   list-style: none;
   max-width: 800px;
@@ -1957,6 +1980,12 @@ a {
   order: 2;
 }
 
+.issue-note.is-bare {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
 .issue-row-copy {
   display: flex;
   flex-direction: column;
@@ -1976,18 +2005,12 @@ a {
 
 .issue-row-title {
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  color: var(--ink);
-  margin: 0;
-}
-
-.issue-row .issue-row-title {
   font-size: clamp(24px, 3vw, 30px);
+  font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.15;
+  color: var(--ink);
+  margin: 0;
 }
 
 .issue-link {
