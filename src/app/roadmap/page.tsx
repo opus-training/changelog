@@ -16,12 +16,16 @@ export default function RoadmapPage() {
         <h1 className="page-title">What&rsquo;s next in Opus</h1>
         <p className="page-sub">
           What we&rsquo;re building now, what&rsquo;s after that, and what just
-          landed. Timing is a guide, not a promise.
+          landed.
         </p>
       </div>
       <div className="board">
         {groups.map((group) => (
-          <section className="board-col" id={group.id} key={group.id}>
+          <section
+            className={`board-col board-col-${group.id}`}
+            id={group.id}
+            key={group.id}
+          >
             <header className="board-col-head">
               <p className="board-col-when">{group.when}</p>
               <h2 className="board-col-title">{group.label}</h2>

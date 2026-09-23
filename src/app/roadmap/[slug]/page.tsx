@@ -51,8 +51,8 @@ export default async function RoadmapItemPage({
   return (
     <article className="entry">
       <p className="entry-date">
-        {status}
-        {item.eta ? ` · ${item.eta}` : ""}
+        <span className={`status-pill status-${item.status}`}>{status}</span>
+        {item.eta ? <span>{item.eta}</span> : null}
       </p>
       <h1 className="entry-title">{item.title}</h1>
       <Tags tags={item.tags} />

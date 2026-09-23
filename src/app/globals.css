@@ -293,17 +293,48 @@ a {
 
 .board-col-head {
   margin: 0 0 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--rule);
+  padding: 0 0 14px;
+  border-bottom: 3px solid var(--rule);
+}
+
+.board-col-in-development .board-col-head {
+  border-bottom-color: var(--lavender);
+}
+
+.board-col-planned .board-col-head {
+  border-bottom-color: var(--yellow);
+}
+
+.board-col-just-launched .board-col-head {
+  border-bottom-color: var(--ink);
 }
 
 .board-col-when {
-  margin: 0 0 4px;
-  font-size: 12px;
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 11px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  border-radius: var(--radius-pill);
+  background: var(--rule);
+  color: var(--ink-muted);
+}
+
+.board-col-in-development .board-col-when {
+  background: var(--lavender);
+  color: var(--plum);
+}
+
+.board-col-planned .board-col-when {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.board-col-just-launched .board-col-when {
+  background: var(--ink);
+  color: var(--canvas);
 }
 
 .board-col-title {
@@ -379,6 +410,79 @@ body:has(.board) main.wrap {
   color: var(--ink);
 }
 
+.tag-operations {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--canvas);
+}
+
+.tag-messaging {
+  background: var(--lavender);
+  border-color: var(--lavender);
+  color: var(--plum);
+}
+
+.tag-integration {
+  background: var(--sky);
+  border-color: var(--sky);
+  color: var(--plum);
+}
+
+.tag-content-creation {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+
+.tag-reporting {
+  background: var(--plum);
+  border-color: var(--plum);
+  color: var(--canvas);
+}
+
+.tag-manager-app {
+  background: var(--lilac);
+  border-color: var(--lilac);
+  color: var(--canvas);
+}
+
+.tag-quality-of-life {
+  background: var(--sky);
+  border-color: var(--sky);
+  color: var(--plum);
+}
+
+.tag-trainee-experience {
+  background: var(--lavender);
+  border-color: var(--lavender);
+  color: var(--plum);
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-in-development {
+  background: var(--lavender);
+  color: var(--plum);
+}
+
+.status-planned {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.status-just-launched {
+  background: var(--ink);
+  color: var(--canvas);
+}
+
 /* ── Entry page ─────────────────────────────────────────────────────────── */
 
 .entry {
@@ -387,7 +491,10 @@ body:has(.board) main.wrap {
 }
 
 .entry-date {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.11em;
@@ -626,10 +733,43 @@ body:has(.board) main.wrap {
     color: var(--plum);
   }
 
-  .tag-fixes {
+  .tag-fixes,
+  .tag-content-creation,
+  .status-planned,
+  .board-col-planned .board-col-when {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: #004540;
+  }
+
+  .tag-operations,
+  .tag-reporting,
+  .status-just-launched,
+  .board-col-just-launched .board-col-when {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: #004540;
+  }
+
+  .tag-messaging,
+  .tag-trainee-experience,
+  .tag-integration,
+  .tag-quality-of-life,
+  .status-in-development,
+  .board-col-in-development .board-col-when {
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--plum);
+  }
+
+  .tag-manager-app {
     background: var(--lilac);
     border-color: var(--lilac);
     color: #f2efe6;
+  }
+
+  .board-col-just-launched .board-col-head {
+    border-bottom-color: var(--yellow);
   }
 
   .header-link:hover,
