@@ -253,7 +253,7 @@ a {
   transition: background-size 0.2s ease;
 }
 
-.row-title a::after {
+.board .row-title a::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -335,7 +335,7 @@ a {
   overflow: hidden;
 }
 
-body:has(.board) .wrap {
+body:has(.board) main.wrap {
   max-width: 1120px;
 }
 
@@ -552,6 +552,12 @@ body:has(.board) .wrap {
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 
+@media (max-width: 960px) {
+  .board {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 720px) {
   .release {
     grid-template-columns: 1fr;
@@ -588,10 +594,6 @@ body:has(.board) .wrap {
   .board {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-
-  .board-col-head {
-    position: static;
   }
 
   .footer-note {
