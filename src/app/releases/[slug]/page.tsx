@@ -99,9 +99,9 @@ function Lead({
       </h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
       <div className="issue-stage">
-        <FeatureVideo video={feature.video} />
+        <FeatureVideo video={feature.video} title={feature.title} />
       </div>
-      {feature.highlights ? (
+      {feature.highlights?.length ? (
         <ul className="issue-points">
           {feature.highlights.map((highlight) => (
             <li key={highlight.title}>
@@ -118,7 +118,7 @@ function Lead({
           </>
         ) : null}
         <div className="issue-actions">
-          <a className="btn-solid" href={feature.tryUrl} aria-label={`Try ${feature.title}`}>
+          <a className="btn-solid" href={feature.tryUrl}>
             Give it a try
           </a>
         </div>
@@ -138,14 +138,18 @@ function Row({
 }) {
   return (
     <div className={flip ? "issue-row is-flipped" : "issue-row"}>
-      <FeatureVideo video={feature.video} />
+      <FeatureVideo video={feature.video} title={feature.title} />
       <div className="issue-row-copy">
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
         <h3 className="issue-row-title">
           <Link href={href}>{feature.headline ?? feature.title}</Link>
         </h3>
         <p>{feature.deck}</p>
-        <a className="issue-link" href={feature.tryUrl} aria-label={`Try ${feature.title}`}>
+        <a
+          className="issue-link"
+          href={feature.tryUrl}
+          aria-label={`Give it a try: ${feature.title}`}
+        >
           Give it a try <span aria-hidden="true">→</span>
         </a>
       </div>

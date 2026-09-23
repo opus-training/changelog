@@ -1934,6 +1934,12 @@ a {
   border-radius: var(--radius-card);
 }
 
+.issue-note.is-bare {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
 .issue-note-label {
   font-size: 12px;
   font-weight: 500;
@@ -1978,12 +1984,6 @@ a {
 
 .issue-row.is-flipped > :first-child {
   order: 2;
-}
-
-.issue-note.is-bare {
-  padding: 0;
-  border: 0;
-  background: none;
 }
 
 .issue-row-copy {

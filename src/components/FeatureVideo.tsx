@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function FeatureVideo({ video }: { video?: string }) {
+export function FeatureVideo({ video, title }: { video?: string; title: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -10,7 +10,7 @@ export function FeatureVideo({ video }: { video?: string }) {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    el.play().then(() => setPlaying(true), () => setPlaying(false));
+    el.play().catch(() => {});
   }, []);
 
   if (!video) {
@@ -25,10 +25,9 @@ export function FeatureVideo({ video }: { video?: string }) {
     const el = ref.current;
     if (!el) return;
     if (el.paused) {
-      el.play().then(() => setPlaying(true), () => setPlaying(false));
+      el.play().catch(() => {});
     } else {
       el.pause();
-      setPlaying(false);
     }
   };
 
@@ -44,8 +43,15 @@ export function FeatureVideo({ video }: { video?: string }) {
         playsInline
         preload="metadata"
         aria-hidden="true"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
       />
-      <button type="button" className="issue-video-toggle" onClick={toggle}>
+      <button
+        type="button"
+        className="issue-video-toggle"
+        onClick={toggle}
+        aria-label={`${playing ? "Pause" : "Play"} ${title} video`}
+      >
         {playing ? "Pause" : "Play"}
       </button>
     </div>
