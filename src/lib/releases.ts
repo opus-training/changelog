@@ -1,4 +1,4 @@
-export type FeatureTier = "hero" | "featured" | "supporting";
+export type FeatureTier = "hero" | "featured";
 
 export type FeatureMedia =
   | "agent-workflow"
@@ -10,7 +10,10 @@ export type FeatureMedia =
 export type ReleaseFeature = {
   slug: string;
   title: string;
+  headline?: string;
   deck: string;
+  pitch?: string;
+  highlights?: { title: string; text: string }[];
   summary: string;
   body: string;
   tags: string[];
@@ -19,6 +22,7 @@ export type ReleaseFeature = {
   helpUrl: string;
   tryUrl: string;
   media: FeatureMedia;
+  video?: string;
   tier: FeatureTier;
 };
 
@@ -38,46 +42,69 @@ const october: Release = {
   slug: "2026-10",
   label: "October 2026",
   kicker: "October 2026",
-  title: "What shipped in October",
+  title: "October 2026 Release",
   summary:
-    "Meet the Opus AI Agent, plus five updates to Paths, Courses, Audits, and team profiles.",
+    "Build AI agents in Opus that know your people, your content, and your data.",
   features: [
     {
       slug: "opus-ai-agent",
       title: "Opus AI Agent",
-      deck: "Let Opus find answers, take action, and get work done for you.",
+      headline: "Put Opus to work with agents.",
+      pitch:
+        "Each agent is a set of instructions you control, and it only sees what you can see.",
+      highlights: [
+        {
+          title: "Start from a template.",
+          text: "Onboarding, compliance, content, reporting, and more.",
+        },
+        {
+          title: "Build your own.",
+          text: "Write instructions for how it should work.",
+        },
+        {
+          title: "Share with your team.",
+          text: "Every admin in your org uses the same agents.",
+        },
+      ],
+      deck: "Build agents that know your people, your content, and your data.",
       summary:
-        "An AI agent built into the Opus Dashboard, so you can ask questions, pull reports, and create first drafts right away, with no extra setup. The Opus AI Agent uses the same permissions you already have in Opus, so it can safely follow the instructions you provide.",
-      body: "The Opus AI Agent brings an AI agent into the Opus Dashboard that can answer questions, find information, and get work done using the same permissions you have in Opus. Use prebuilt agents for common tasks, or create your own agent with instructions for how you want it to work.",
+        "The new Agents tab lets you build AI agents for the work your team does every week. Start from a template or write your own instructions, and share them with every admin in your org. Each agent uses the same permissions as the person chatting with it.",
+      body: "The Agents tab in the Opus Dashboard lets you build AI agents that answer questions, find what needs attention, and draft content for your team. Each agent is a set of instructions you control. Start from templates for onboarding, compliance, content, reporting, and more, or build one from scratch. Every admin in your org shares the same agents, your chats stay private, and an agent only sees what you can see.",
       tags: ["Feature", "AI"],
       bullets: [
         {
-          title: "Ask about reporting.",
-          text: "Find past-due training, compare locations, pull reports, search the Library, and more.",
+          title: "Start from a template.",
+          text: "Add a ready-made agent for onboarding, compliance, content, reporting, and more.",
         },
         {
-          title: "Find what needs attention.",
-          text: "Search your Library for outdated or inconsistent content.",
+          title: "Build your own.",
+          text: "Give an agent a name and instructions for how you want it to work.",
+        },
+        {
+          title: "Get answers from your data.",
+          text: "Find past-due training, compare locations, pull reports, search the Library, and more.",
         },
         {
           title: "Turn an idea into a first draft.",
           text: "Create Courses, Modules, Check-ins, Checklists, or Opus Docs, then review and publish them.",
         },
         {
-          title: "Use prebuilt agents or build your own.",
-          text: "Start with an agent designed for a specific workflow, or create one with your own instructions.",
+          title: "Share it with your team.",
+          text: "Every admin in your org uses the same agents, and each chat stays private.",
         },
       ],
       tryThis:
-        "Use the Content Audit Agent to find outdated or contradictory information across your Library.",
+        "Add the Stale Content Hunter template to find unused or outdated content across your Library.",
       helpUrl: HELP,
-      tryUrl: DASHBOARD,
+      tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",
+      video: "/releases/2026-10/agents",
       tier: "hero",
     },
     {
       slug: "opus-mcp",
       title: "Opus MCP",
+      headline: "Opus, inside Claude and ChatGPT.",
       deck: "Connect your Opus data to the AI tools you already use.",
       summary:
         "Work with your Opus data and content from Claude, ChatGPT, and other AI tools. The Opus MCP respects your Opus permissions and keeps anything it creates in draft until you approve.",
@@ -109,6 +136,7 @@ const october: Release = {
     {
       slug: "improved-path-builder",
       title: "Improved Path Builder",
+      headline: "Build Paths without the guesswork.",
       deck: "A clearer way to build, manage, and track Paths.",
       summary:
         "Build Paths with more control and see clearly how your team is progressing. Create drafts, collaborate with others, and publish changes when your Path is ready.",
@@ -137,11 +165,13 @@ const october: Release = {
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/path-builder`,
       media: "path-builder",
+      video: "/releases/2026-10/path",
       tier: "featured",
     },
     {
       slug: "content-detail-pages",
       title: "Content Detail Pages",
+      headline: "Every Course, at a glance.",
       deck: "Everything you need to understand a Course or Module, in one place.",
       summary:
         "Understand a Course or Module without hunting across multiple tabs. See what's inside, what needs attention, and how it's performing—all in one place.",
@@ -174,11 +204,13 @@ const october: Release = {
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/library`,
       media: "content-detail",
+      video: "/releases/2026-10/detail",
       tier: "featured",
     },
     {
       slug: "profile-images",
       title: "Profile Images",
+      headline: "Put a face to every name.",
       deck: "Let your team personalize their profiles—and recognize each other more easily.",
       summary:
         "Add, crop, replace, or remove a profile photo so teammates can quickly put names to faces across Opus.",
@@ -203,11 +235,13 @@ const october: Release = {
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "none",
-      tier: "supporting",
+      video: "/releases/2026-10/profile",
+      tier: "featured",
     },
     {
       slug: "audit-thresholds",
       title: "Audit Thresholds",
+      headline: "Audits, graded your way.",
       deck: "Give Audit results more meaning than pass or fail.",
       summary:
         "Add thresholds like Excellent, Good, Fair, or Needs improvement, for more granular Audit scores.",
@@ -240,7 +274,8 @@ const october: Release = {
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "none",
-      tier: "supporting",
+      video: "/releases/2026-10/audit",
+      tier: "featured",
     },
   ],
 };
