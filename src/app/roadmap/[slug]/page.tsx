@@ -49,7 +49,7 @@ export default async function RoadmapItemPage({
     STATUS_GROUPS.find((group) => group.id === item.status)?.label ??
     item.status;
   return (
-    <article className="entry">
+    <article className="entry roadmap-entry">
       <p className="entry-date">
         <span className={`status-pill status-${item.status}`}>{status}</span>
         {item.eta ? <span>{item.eta}</span> : null}

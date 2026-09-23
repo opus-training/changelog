@@ -410,49 +410,57 @@ body:has(.board) main.wrap {
   color: var(--ink);
 }
 
-.tag-operations {
+.board .tag-operations,
+.roadmap-entry .tag-operations {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--canvas);
 }
 
-.tag-messaging {
+.board .tag-messaging,
+.roadmap-entry .tag-messaging {
   background: var(--lavender);
   border-color: var(--lavender);
   color: var(--plum);
 }
 
-.tag-integration {
+.board .tag-integration,
+.roadmap-entry .tag-integration {
   background: var(--sky);
   border-color: var(--sky);
   color: var(--plum);
 }
 
-.tag-content-creation {
+.board .tag-content-creation,
+.roadmap-entry .tag-content-creation {
   background: var(--yellow);
   border-color: var(--yellow);
   color: var(--ink);
 }
 
-.tag-reporting {
+.board .tag-reporting,
+.roadmap-entry .tag-reporting {
   background: var(--plum);
   border-color: var(--plum);
   color: var(--canvas);
 }
 
-.tag-manager-app {
+.board .tag-manager-app,
+.roadmap-entry .tag-manager-app {
   background: var(--lilac);
   border-color: var(--lilac);
   color: var(--canvas);
 }
 
-.tag-quality-of-life {
+.board .tag-quality-of-life,
+.roadmap-entry .tag-quality-of-life {
   background: var(--sky);
   border-color: var(--sky);
   color: var(--plum);
 }
 
-.tag-trainee-experience {
+.board .tag-trainee-experience,
+.roadmap-entry .tag-trainee-experience {
   background: var(--lavender);
   border-color: var(--lavender);
   color: var(--plum);
