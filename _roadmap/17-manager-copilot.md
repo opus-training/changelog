@@ -1,5 +1,6 @@
 ---
 title: "Manager Copilot"
+emoji: "🧭"
 status: in-development
 eta: "2026"
 tags: [Manager App]

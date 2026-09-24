@@ -9,6 +9,7 @@ export type RoadmapItem = {
   slug: string;
   order: number;
   title: string;
+  emoji: string;
   status: RoadmapStatus;
   eta: string;
   tags: string[];
@@ -62,6 +63,7 @@ function readItem(filename: string): RoadmapItem | null {
     slug,
     order: Number(order),
     title: String(data.title ?? slug),
+    emoji: String(data.emoji ?? ""),
     status,
     eta: String(data.eta ?? ""),
     tags: strings(data.tags),

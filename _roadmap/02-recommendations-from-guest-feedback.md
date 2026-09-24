@@ -1,5 +1,6 @@
 ---
 title: "Recommendations from guest feedback"
+emoji: "🚀"
 status: just-launched
 tags: [Integration]
 audience: [Admins, Managers]

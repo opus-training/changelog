@@ -1,5 +1,6 @@
 ---
 title: "More assessment question types"
+emoji: "🎯"
 status: in-development
 eta: "2026"
 tags: [Trainee Experience, Content Creation]

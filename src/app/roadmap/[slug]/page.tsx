@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import { Tags } from "@/components/Tags";
 import {
   getRoadmapItem,
   getRoadmapItems,
@@ -54,8 +53,10 @@ export default async function RoadmapItemPage({
         <span className={`status-pill status-${item.status}`}>{status}</span>
         {item.eta ? <span>{item.eta}</span> : null}
       </p>
-      <h1 className="entry-title">{item.title}</h1>
-      <Tags tags={item.tags} />
+      <h1 className="entry-title">
+        {item.emoji ? `${item.emoji} ` : ""}
+        {item.title}
+      </h1>
       {item.audience.length > 0 ? (
         <p className="row-meta">
           <span>{item.audience.join(" · ")}</span>
@@ -65,9 +66,12 @@ export default async function RoadmapItemPage({
         <video
           className="entry-video"
           src={item.video}
-          controls
+          autoPlay
+          loop
+          muted
           playsInline
-          preload="metadata"
+          controls
+          preload="auto"
         />
       ) : null}
       <div className="entry-body">

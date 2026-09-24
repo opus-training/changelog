@@ -1,5 +1,6 @@
 ---
 title: "Opus MCP"
+emoji: "🔌"
 status: in-development
 eta: "2026"
 tags: [Integration]

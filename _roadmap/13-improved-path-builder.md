@@ -1,5 +1,6 @@
 ---
 title: "Improved Path Builder"
+emoji: "🛤️"
 status: in-development
 eta: "2026"
 tags: [Content Creation]

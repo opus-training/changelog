@@ -1,5 +1,6 @@
 ---
 title: "Improved Recommendations Engine"
+emoji: "💡"
 status: in-development
 eta: "2026"
 tags: [Reporting]

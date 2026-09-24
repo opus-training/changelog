@@ -1,5 +1,6 @@
 ---
 title: "Content Detail Pages"
+emoji: "🗂️"
 status: in-development
 eta: "2026"
 tags: [Quality of Life]

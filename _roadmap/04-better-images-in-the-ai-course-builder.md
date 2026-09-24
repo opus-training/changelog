@@ -1,5 +1,6 @@
 ---
 title: "Better images in the AI Course Builder"
+emoji: "🖼️"
 status: just-launched
 tags: [Content Creation]
 audience: [Admins]

@@ -1,5 +1,6 @@
 ---
 title: "Expanded Ask Opus Tools"
+emoji: "🤖"
 status: in-development
 eta: "2026"
 tags: [Reporting]

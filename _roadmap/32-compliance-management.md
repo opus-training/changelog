@@ -1,5 +1,6 @@
 ---
 title: "Compliance Management"
+emoji: "🛡️"
 status: planned
 tags: [Reporting]
 audience: [Admins]

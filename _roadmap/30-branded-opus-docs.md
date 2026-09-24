@@ -1,5 +1,6 @@
 ---
 title: "Branded Opus Docs"
+emoji: "🎨"
 status: planned
 tags: [Trainee Experience, Content Creation]
 audience: [Admins, Trainees]

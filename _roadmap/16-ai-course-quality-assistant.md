@@ -1,5 +1,6 @@
 ---
 title: "AI Course Quality Assistant"
+emoji: "🔍"
 status: in-development
 eta: "2026"
 tags: [Content Creation]

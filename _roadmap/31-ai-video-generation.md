@@ -1,5 +1,6 @@
 ---
 title: "AI Video Generation"
+emoji: "🎬"
 status: planned
 tags: [Content Creation]
 audience: [Admins, Managers]

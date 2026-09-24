@@ -1,5 +1,6 @@
 ---
 title: "Reporting now splits Overdue from Incomplete"
+emoji: "📊"
 status: just-launched
 tags: [Reporting]
 audience: [Admins, Managers, Trainers]

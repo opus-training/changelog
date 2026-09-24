@@ -1,5 +1,6 @@
 ---
 title: "Audits"
+emoji: "🎯"
 status: just-launched
 tags: [Operations]
 audience: [Admins, Managers]
