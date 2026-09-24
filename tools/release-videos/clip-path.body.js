@@ -1,0 +1,15 @@
+const { ctx, p, t } = await openRecorder(page, 1024, 768);
+await p.goto(BASE + '/path-builder');
+await p.getByText('New Hire Onboarding').first().waitFor({ timeout: 30000 });
+await p.waitForTimeout(2500);
+const marks = { start: t() };
+await p.mouse.move(600, 450, { steps: 10 });
+await p.waitForTimeout(800);
+await glide(p, p.getByText('New Hire Onboarding').first());
+await p.waitForTimeout(3000);
+await glide(p, p.getByText(/Back-of-House Refre/).first());
+await p.waitForTimeout(3000);
+await glide(p, p.getByText(/Shift Leader Training/).first());
+await p.waitForTimeout(3500);
+marks.end = t();
+return await finish(ctx, p, 'path', marks);

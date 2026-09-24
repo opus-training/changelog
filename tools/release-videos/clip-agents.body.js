@@ -1,0 +1,32 @@
+const { ctx, p, t } = await openRecorder(page, 1280, 720);
+await p.goto(BASE + '/agents');
+await p.getByText('Start from a template').waitFor({ timeout: 30000 });
+await p.waitForTimeout(2500);
+const marks = { start: t() };
+await p.mouse.move(900, 400, { steps: 15 });
+await smoothScroll(p, 700, 1800);
+await p.waitForTimeout(800);
+const card = p.locator('div', { hasText: 'Compliance Auditor' }).filter({ has: p.getByRole('button', { name: 'Add' }) }).last();
+await card.scrollIntoViewIfNeeded();
+await p.waitForTimeout(600);
+await glide(p, card.getByRole('button', { name: 'Add' }));
+const box = p.getByRole('textbox').last();
+await box.waitFor({ timeout: 30000 });
+await p.waitForTimeout(1500);
+await glide(p, box);
+await p.keyboard.type('Which locations are furthest behind on New Hire Onboarding?', { delay: 45 });
+await p.waitForTimeout(600);
+await p.keyboard.press('Enter');
+marks.sent = t();
+for (let i = 0; i < 60; i++) {
+  await p.waitForTimeout(5000);
+  const busy = await p.getByText(/Taking longer than usual|Working|Thinking/).count();
+  const stop = await p.locator('button:has(svg) >> nth=-1').count();
+  if (!busy && i > 3) break;
+}
+marks.done = t();
+await p.mouse.move(640, 300, { steps: 20 });
+await smoothScroll(p, 400, 1500);
+await p.waitForTimeout(5000);
+marks.end = t();
+return await finish(ctx, p, 'agents', marks);
