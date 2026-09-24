@@ -18,6 +18,8 @@ export type ReleaseFeature = {
   tags: string[];
   bullets: { title: string; text: string }[];
   tryThis?: string;
+  /** Tip for the feature page only; falls back to tryThis. */
+  detailTip?: string;
   whoFor: string;
   howToGet: string;
   helpUrl: string;
@@ -126,6 +128,8 @@ const october: Release = {
           text: "Anything created through MCP stays in draft until someone reviews and publishes it.",
         },
       ],
+      detailTip:
+        "Start with read-only access, then turn on write access when you're ready.",
       whoFor: "Admins and Managers who want to work with Opus from Claude, ChatGPT, or another AI tool.",
       howToGet:
         "It's included on every plan. In the Opus Dashboard, go to Settings, open AI Connections, and follow the setup steps for your AI tool.",

@@ -45,27 +45,17 @@ export default async function FeaturePage({
   const release = getRelease(slug);
   const feature = getFeature(slug, featureSlug);
   if (!release || !feature) notFound();
+  const tip = feature.detailTip ?? feature.tryThis;
   return (
     <article className="release-page feature-entry">
       <Link className="feature-back" href={releaseUrl(release)}>
         ← {release.title}
       </Link>
-      <div className="feature-hero-copy">
+      <header className="feature-hero-copy">
         <Tags tags={feature.tags} />
         <h1 className="page-title">{feature.title}</h1>
-        <div className="feature-prose">
-          <p className="hero-deck">{feature.deck}</p>
-          <p className="hero-summary">{feature.body}</p>
-        </div>
-        <div className="feature-actions">
-          <Link className="btn-solid" href={feature.helpUrl}>
-            Learn more
-          </Link>
-          <a className="btn-outline" href={feature.tryUrl}>
-            Give it a try
-          </a>
-        </div>
-      </div>
+        <p className="hero-deck">{feature.deck}</p>
+      </header>
       {feature.media !== "none" ? (
         <div className="feature-demo">
           {feature.media === "agent-workflow" ? (
@@ -91,16 +81,7 @@ export default async function FeaturePage({
           )}
         </div>
       ) : null}
-      <aside className="feature-fit" aria-label="Availability">
-        <div className="feature-fit-item">
-          <h2 className="feature-fit-label">Who it&rsquo;s for</h2>
-          <p>{feature.whoFor}</p>
-        </div>
-        <div className="feature-fit-item">
-          <h2 className="feature-fit-label">How to get it</h2>
-          <p>{feature.howToGet}</p>
-        </div>
-      </aside>
+      <p className="feature-summary">{feature.body}</p>
       <section className="can-do">
         <h2>What you can do</h2>
         <ul className="feature-bullets">
@@ -110,6 +91,32 @@ export default async function FeaturePage({
             </li>
           ))}
         </ul>
+      </section>
+      {tip ? (
+        <aside className="try-this" aria-label="Tip">
+          <span className="try-icon" aria-hidden="true">
+            💡
+          </span>
+          <p>{tip}</p>
+        </aside>
+      ) : null}
+      <div className="try-actions">
+        <a className="btn-solid" href={feature.tryUrl}>
+          Give it a try
+        </a>
+        <Link className="btn-outline try-learn" href={feature.helpUrl}>
+          Learn more
+        </Link>
+      </div>
+      <section className="feature-fit" aria-label="Availability">
+        <div>
+          <h2>Who it&rsquo;s for</h2>
+          <p>{feature.whoFor}</p>
+        </div>
+        <div>
+          <h2>How to get it</h2>
+          <p>{feature.howToGet}</p>
+        </div>
       </section>
     </article>
   );
