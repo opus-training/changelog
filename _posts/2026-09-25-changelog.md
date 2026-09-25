@@ -14,7 +14,6 @@ Zoomable Opus Docs, a fuller Team view for every manager in the app, subtitles o
 - **Subtitles on more videos.** Opus catalog videos now get subtitles in the languages your organization uses, just like the videos you upload. Long videos also no longer end up with no subtitles at all.
 - **Guest Feedback analysis history.** A new Analysis history tab lists every recommendation analysis run for your organization, with when it started, how many recommendations it produced, and whether it finished. Recommendations to create new training now always suggest a Course you can build straight from the card.
 - **Sort Roles and Departments by any column.** Every column in the Roles and Departments tables can now be sorted, and the departments and direct reports listed on a role are in alphabetical order.
-- **More ways to connect your AI assistant.** Gemini can now connect to Opus by signing in, with no client ID or secret to enter by hand, and more AI assistants that sign in with a client secret now work. Your assistant can also read what's inside a Module, Course, or Check-in.
 
 ### Bug fixes
 
