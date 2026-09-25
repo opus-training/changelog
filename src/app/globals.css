@@ -125,6 +125,24 @@ a {
   border-left: 1px solid var(--rule-strong);
 }
 
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 14px;
+  border-left: 1px solid var(--rule-strong);
+}
+
+.site-nav a {
+  font-size: 15px;
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+
+.site-nav a.is-active {
+  color: var(--ink);
+}
+
 .header-link {
   margin-left: auto;
   font-size: 14px;
@@ -197,6 +215,7 @@ a {
 /* ── Entry card ─────────────────────────────────────────────────────────── */
 
 .row {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: var(--radius-card);
@@ -234,6 +253,12 @@ a {
   transition: background-size 0.2s ease;
 }
 
+.board .row-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
 .row:hover .row-title a {
   background-size: 100% 1px;
 }
@@ -241,6 +266,117 @@ a {
 .row-excerpt {
   margin: 8px 0 0;
   color: var(--ink-muted);
+}
+
+.row-meta {
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.entry > .row-meta {
+  margin: 10px 0 26px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 8px 0 56px;
+}
+
+.board-col-head {
+  margin: 0 0 16px;
+  padding: 0 0 14px;
+  border-bottom: 3px solid var(--rule);
+}
+
+.board-col-in-development .board-col-head {
+  border-bottom-color: var(--lavender);
+}
+
+.board-col-planned .board-col-head {
+  border-bottom-color: var(--yellow);
+}
+
+.board-col-just-launched .board-col-head {
+  border-bottom-color: var(--ink);
+}
+
+.board-col-when {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 11px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  background: var(--rule);
+  color: var(--ink-muted);
+}
+
+.board-col-in-development .board-col-when {
+  background: var(--lavender);
+  color: var(--plum);
+}
+
+.board-col-planned .board-col-when {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.board-col-just-launched .board-col-when {
+  background: var(--ink);
+  color: var(--canvas);
+}
+
+.board-col-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.015em;
+}
+
+.board-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.board .row {
+  padding: 18px 20px;
+}
+
+.board .row-title {
+  font-size: 18px;
+}
+
+.board .row-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.board .tag,
+.roadmap-entry .tag,
+.board .board-col-when,
+.status-pill {
+  font-size: 9px;
+  padding: 2px 7px;
+  letter-spacing: 0.05em;
+}
+
+body:has(.board) main.wrap {
+  max-width: 1120px;
 }
 
 /* ── Tags ───────────────────────────────────────────────────────────────── */
@@ -283,6 +419,87 @@ a {
   color: var(--ink);
 }
 
+.board .tag-operations,
+.roadmap-entry .tag-operations {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--canvas);
+}
+
+.board .tag-messaging,
+.roadmap-entry .tag-messaging {
+  background: var(--lavender);
+  border-color: var(--lavender);
+  color: var(--plum);
+}
+
+.board .tag-integration,
+.roadmap-entry .tag-integration {
+  background: var(--sky);
+  border-color: var(--sky);
+  color: var(--plum);
+}
+
+.board .tag-content-creation,
+.roadmap-entry .tag-content-creation {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+
+.board .tag-reporting,
+.roadmap-entry .tag-reporting {
+  background: var(--plum);
+  border-color: var(--plum);
+  color: var(--canvas);
+}
+
+.board .tag-manager-app,
+.roadmap-entry .tag-manager-app {
+  background: var(--lilac);
+  border-color: var(--lilac);
+  color: var(--canvas);
+}
+
+.board .tag-quality-of-life,
+.roadmap-entry .tag-quality-of-life {
+  background: var(--sky);
+  border-color: var(--sky);
+  color: var(--plum);
+}
+
+.board .tag-trainee-experience,
+.roadmap-entry .tag-trainee-experience {
+  background: var(--lavender);
+  border-color: var(--lavender);
+  color: var(--plum);
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-in-development {
+  background: var(--lavender);
+  color: var(--plum);
+}
+
+.status-planned {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.status-just-launched {
+  background: var(--ink);
+  color: var(--canvas);
+}
+
 /* ── Entry page ─────────────────────────────────────────────────────────── */
 
 .entry {
@@ -291,7 +508,10 @@ a {
 }
 
 .entry-date {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.11em;
@@ -311,6 +531,15 @@ a {
 
 .entry > .tags {
   margin-bottom: 26px;
+}
+
+.entry-video {
+  display: block;
+  width: 100%;
+  margin: 0 0 26px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--rule);
+  background: var(--ink);
 }
 
 .entry-body {
@@ -447,6 +676,13 @@ a {
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 
+@media (max-width: 960px) {
+  .board {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
 @media (max-width: 720px) {
   .release {
     grid-template-columns: 1fr;
@@ -466,8 +702,18 @@ a {
     padding: 20px;
   }
 
-  .brand-sub {
+  .brand-sub,
+  .site-nav a {
     font-size: 14px;
+  }
+
+  .site-nav {
+    gap: 12px;
+    padding-left: 12px;
+  }
+
+  .header-link {
+    display: none;
   }
 
   .footer-note {
