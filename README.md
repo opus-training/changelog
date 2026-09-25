@@ -30,12 +30,12 @@ kind: feature
 tags: [Feature, Audits]
 ---
 
-One-line hook stating what customers can now do.
+You can now create a follow-up Task from a submission.
 
-- **Benefit** — one sentence on what it does and why it matters.
-- **Benefit** — 2–4 bullets total.
+- **Lead-in.** One sentence of benefit.
+- **Lead-in** — rest of the same sentence. 2–4 bullets.
 
-*Available to organizations using audits.*
+*Available to businesses using Audits.*
 ```
 
 **Weekly digest** — filename `_posts/YYYY-MM-DD-changelog.md`:
@@ -48,15 +48,15 @@ kind: digest
 tags: [Improvements, Fixes]
 ---
 
-One-line summary of the week (this becomes the index teaser).
+Publishing permissions, cleaner completion reporting, and fixes across the Course builder and the app.
 
 ### Improvements
 
-- Smaller enhancements to existing features.
+- **Lead-in.** One or two sentences of benefit. Five to seven bullets.
 
 ### Bug fixes
 
-- Fixed an issue where ...
+- Fixed an issue where the notification bell's unread count didn't match the list.
 ```
 
 The first paragraph of every post is its index teaser. Tags: the first tag is
@@ -66,12 +66,11 @@ Guest Feedback, Messaging, Mobile, Dashboard, Integrations, Ask Opus).
 
 URLs stay `/YYYY-MM-DD/<slug>/`.
 
-Style rules:
+Copy voice, product nouns, teaser shape, and digest/feature contracts live
+in `AGENTS.md`. Follow that file for every new post.
 
-- Plain language. No PR numbers, Linear IDs, internal system names, or org
-  names of specific customers.
-- Features lead with what you can now do; fixes start with "Fixed" and
-  describe the symptom, not the mechanism.
+Also:
+
 - A feature's week is its **launch** week (broadly available), not its
   merge week.
 - If nothing customer-visible shipped, the agent skips the week (no empty
