@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeatureMedia } from "@/components/FeatureMedia";
-import { Tags } from "@/components/Tags";
+import { FeatureVideo } from "@/components/FeatureVideo";
 import {
   getFeature,
   getRelease,
@@ -45,71 +45,109 @@ export default async function FeaturePage({
   const release = getRelease(slug);
   const feature = getFeature(slug, featureSlug);
   if (!release || !feature) notFound();
+  const { detail } = feature;
+  const cta = detail.ctaUrl ?? feature.tryUrl;
   return (
-    <article className="release-page feature-entry">
+    <article className="release-page feature-entry fd">
       <Link className="feature-back" href={releaseUrl(release)}>
         ← {release.title}
       </Link>
-      <div className="feature-hero-copy">
-        <Tags tags={feature.tags} />
+
+      <header className="fd-head">
         <h1 className="page-title">{feature.title}</h1>
-        <div className="feature-prose">
-          <p className="hero-deck">{feature.deck}</p>
-          <p className="hero-summary">{feature.body}</p>
-        </div>
-        <div className="feature-actions">
-          <Link className="btn-solid" href={feature.helpUrl}>
+        <p className="fd-lede">{detail.lede}</p>
+        <div className="fd-actions fd-actions-top">
+          <a className="btn-solid" href={cta}>
+            {detail.ctaLabel}
+          </a>
+          <Link
+            className="btn-outline fd-learn"
+            href={feature.helpUrl}
+            aria-label={`Learn more about ${feature.title}`}
+          >
             Learn more
           </Link>
-          <a className="btn-outline" href={feature.tryUrl}>
-            Give it a try
-          </a>
         </div>
+      </header>
+
+      <div className="fd-media">
+        {feature.video ? (
+          <FeatureVideo
+            video={feature.video}
+            title={feature.title}
+            aspect={feature.videoAspect}
+          />
+        ) : feature.media !== "none" ? (
+          <div className="feature-entry-shot">
+            <FeatureMedia media={feature.media} />
+          </div>
+        ) : null}
       </div>
-      {feature.media !== "none" ? (
-        <div className="feature-demo">
-          {feature.media === "agent-workflow" ? (
-            <div className="demo-frame">
-              <div className="demo-bar">
-                <span>Ask Opus</span>
-                <span className="demo-live">
-                  <i className="demo-dot" />
-                  Looping demo
-                </span>
-              </div>
-              <div className="demo-body">
-                <FeatureMedia media={feature.media} />
-              </div>
-              <div className="demo-progress" aria-hidden="true">
-                <i />
-              </div>
-            </div>
-          ) : (
-            <div className="feature-entry-shot">
-              <FeatureMedia media={feature.media} />
-            </div>
-          )}
+
+      <p className="fd-intro">{detail.intro}</p>
+
+      <dl className="fd-facts">
+        <div>
+          <dt>Who it&rsquo;s for</dt>
+          <dd>
+            <strong>{detail.who.main}</strong>
+            {detail.who.sub ? <span>{detail.who.sub}</span> : null}
+          </dd>
         </div>
+        <div>
+          <dt>Where to find it</dt>
+          <dd>
+            <strong>{detail.where.main}</strong>
+            {detail.where.sub ? <span>{detail.where.sub}</span> : null}
+          </dd>
+        </div>
+        <div>
+          <dt>How to get it</dt>
+          <dd>
+            <strong>{detail.access.main}</strong>
+            {detail.access.sub ? <span>{detail.access.sub}</span> : null}
+          </dd>
+        </div>
+      </dl>
+      {detail.note ? (
+        <p className="fd-note">
+          <span aria-hidden="true">💡</span>
+          <span>
+            <strong>Good to know:</strong> {detail.note}
+          </span>
+        </p>
       ) : null}
-      <aside className="feature-fit" aria-label="Availability">
-        <div className="feature-fit-item">
-          <h2 className="feature-fit-label">Who it&rsquo;s for</h2>
-          <p>{feature.whoFor}</p>
-        </div>
-        <div className="feature-fit-item">
-          <h2 className="feature-fit-label">How to get it</h2>
-          <p>{feature.howToGet}</p>
-        </div>
-      </aside>
-      <section className="can-do">
-        <h2>What you can do</h2>
-        <ul className="feature-bullets">
-          {feature.bullets.map((bullet) => (
-            <li key={bullet.title}>
-              <strong>{bullet.title}</strong> {bullet.text}
+
+      <section className="fd-highlights" aria-labelledby="fd-highlights">
+        <h2 id="fd-highlights">Why you&rsquo;ll love it</h2>
+        <ul>
+          {detail.highlights.map((item) => (
+            <li key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="fd-next" aria-labelledby="fd-next">
+        <h2 id="fd-next">Ready to try it?</h2>
+        <p className="fd-tip">
+          <span aria-hidden="true">👉</span>
+          <span>{detail.firstStep}</span>
+        </p>
+        <div className="fd-actions">
+          <a className="btn-solid" href={cta}>
+            {detail.ctaLabel}
+          </a>
+          <Link
+            className="btn-outline fd-learn"
+            href={feature.helpUrl}
+            aria-label={`Learn more about ${feature.title}`}
+          >
+            Learn more
+          </Link>
+        </div>
       </section>
     </article>
   );

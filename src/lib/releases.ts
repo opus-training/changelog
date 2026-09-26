@@ -7,6 +7,28 @@ export type FeatureMedia =
   | "content-detail"
   | "none";
 
+export type Fact = { main: string; sub?: string };
+
+export type FeatureDetail = {
+  /** One-sentence outcome shown under the title. */
+  lede: string;
+  /** What it does, in plain language. */
+  intro: string;
+  /** Each fact: a short answer, plus optional supporting detail. */
+  who: Fact;
+  where: Fact;
+  access: Fact;
+  /** Optional caveat people should know before they start. */
+  note?: string;
+  highlights: { title: string; text: string }[];
+  /** Concrete first thing to try. */
+  firstStep: string;
+  /** Specific label for the primary button. */
+  ctaLabel: string;
+  /** Deep link for the primary button; defaults to tryUrl. */
+  ctaUrl?: string;
+};
+
 export type ReleaseFeature = {
   slug: string;
   title: string;
@@ -14,17 +36,16 @@ export type ReleaseFeature = {
   deck: string;
   pitch?: string;
   highlights?: { title: string; text: string }[];
-  body: string;
   tags: string[];
-  bullets: { title: string; text: string }[];
   tryThis?: string;
-  whoFor: string;
-  howToGet: string;
   helpUrl: string;
   tryUrl: string;
   media: FeatureMedia;
   video?: string;
+  /** Native aspect ratio for framed clips, e.g. "35 / 27"; shown uncropped. */
+  videoAspect?: string;
   tier: FeatureTier;
+  detail: FeatureDetail;
 };
 
 export type Release = {
@@ -66,221 +87,262 @@ const october: Release = {
         },
       ],
       deck: "Build agents that know your people, your content, and your data.",
-      body: "The Agents tab in the Opus Dashboard lets you build AI agents that answer questions, find what needs attention, and draft content for your team. Each agent is a set of instructions you control. Start from templates for onboarding, compliance, content, reporting, and more, or build one from scratch. Every admin in your org shares the same agents, your chats stay private, and an agent only sees what you can see.",
       tags: ["Feature", "AI"],
-      bullets: [
-        {
-          title: "Start from a template.",
-          text: "Add a ready-made agent for onboarding, compliance, content, reporting, and more.",
-        },
-        {
-          title: "Build your own.",
-          text: "Give an agent a name and instructions for how you want it to work.",
-        },
-        {
-          title: "Get answers from your data.",
-          text: "Find past-due training, compare locations, pull reports, search the Library, and more.",
-        },
-        {
-          title: "Turn an idea into a first draft.",
-          text: "Create Courses, Modules, Check-ins, Checklists, or Opus Docs, then review and publish them.",
-        },
-        {
-          title: "Share it with your team.",
-          text: "Every admin in your org uses the same agents, and each chat stays private.",
-        },
-      ],
       tryThis:
         "Add the Stale Content Hunter template to find unused or outdated content across your Library.",
-      whoFor: "Every Admin in your org.",
-      howToGet:
-        "It's on by default for every Admin. Open Agents in the Opus Dashboard to get started.",
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",
       video: "/releases/2026-10/agents",
       tier: "hero",
+      detail: {
+        lede:
+          "Agents that answer questions about your training and find what needs attention.",
+        intro:
+          "Agents live in a new Agents tab in the Opus Dashboard. Start with a ready-made agent or write your own instructions, then ask it to pull a report, answer a question about your team's training, or find content that needs attention. It works inside your permissions and shows where every answer came from.",
+        who: { main: "Admins", sub: "Shared with every Admin" },
+        where: { main: "Opus Dashboard", sub: "Left menu › Agents" },
+        access: { main: "On by default", sub: "No setup needed" },
+        highlights: [
+          {
+            title: "Answers from your own data",
+            text: "Ask about past-due training, compare locations, or pull a report without building it yourself.",
+          },
+          {
+            title: "Sources you can check",
+            text: "Every answer links back to the content or data it used.",
+          },
+          {
+            title: "Inside your permissions",
+            text: "An agent sees only what you can see in Opus.",
+          },
+          {
+            title: "Build once, share with Admins",
+            text: "Agents you create are available to every Admin in your org.",
+          },
+        ],
+        firstStep:
+          "Open a ready-made agent and ask which training is past due at each location.",
+        ctaLabel: "Open Agents",
+      },
     },
     {
       slug: "opus-mcp",
       title: "Opus MCP",
       headline: "Opus, inside Claude and ChatGPT.",
       deck: "Connect your Opus data to the AI tools you already use.",
-      body: "Opus MCP connects your Opus Dashboard to Claude, ChatGPT, or another AI tool, so you can work with Opus from the same place you already use for research, writing, and analysis. The connection runs as the person who authorized it, so it only has access to your business and the actions available to that person in Opus.",
       tags: ["Feature", "Integrations"],
-      bullets: [
-        {
-          title: "Ask questions across your Opus data.",
-          text: "Compare completion data, reports, certifications, and training trends without checking records one at a time.",
-        },
-        {
-          title: "Use Opus content from outside the Dashboard.",
-          text: "Search, analyze, and work with your training content from your connected AI tool.",
-        },
-        {
-          title: "Choose read or write access.",
-          text: "Give the connection read-only access, or enable write access when you're ready.",
-        },
-        {
-          title: "Keep control of changes.",
-          text: "Anything created through MCP stays in draft until someone reviews and publishes it.",
-        },
-      ],
-      whoFor: "Admins and Managers who want to work with Opus from Claude, ChatGPT, or another AI tool.",
-      howToGet:
-        "It's included on every plan. In the Opus Dashboard, go to Settings, open AI Connections, and follow the setup steps for your AI tool.",
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "mcp",
+      video: "/releases/2026-10/mcp",
+      videoAspect: "35 / 27",
       tier: "featured",
+      detail: {
+        lede:
+          "Work with your Opus data from Claude, ChatGPT, Copilot, or Gemini.",
+        intro:
+          "Opus MCP connects Opus to the AI assistant you already use. If your assistant is already connected to other tools, like scheduling, HR, or your POS, you can ask questions that pull in your training data too. It runs as you, so it sees only what you can see and does only what you can already do in Opus.",
+        who: { main: "Admins and Managers", sub: "Connects with your own access" },
+        where: { main: "Your AI assistant", sub: "Claude, ChatGPT, Copilot, Gemini" },
+        access: { main: "Set it up yourself", sub: "Settings › AI Connections" },
+        highlights: [
+          {
+            title: "Reports in plain language",
+            text: "Ask for completion or certification reports the way you'd ask a colleague.",
+          },
+          {
+            title: "You choose the access",
+            text: "Connect with read-only access, or allow changes when you're ready.",
+          },
+          {
+            title: "Nothing goes live on its own",
+            text: "Anything it creates stays a draft until someone publishes it.",
+          },
+          {
+            title: "Guardrails built in",
+            text: "Risky changes need confirmation, and every action is logged.",
+          },
+        ],
+        firstStep:
+          "Connect with read-only access first, then allow changes once you're comfortable.",
+        ctaLabel: "Connect your AI tool",
+        ctaUrl: `${DASHBOARD}/settings`,
+      },
     },
     {
       slug: "improved-path-builder",
       title: "Improved Path Builder",
       headline: "Build Paths without the guesswork.",
       deck: "A clearer way to build, manage, and track Paths.",
-      body: "We've rebuilt the Path Builder so Admins can manage Paths more easily and see Trainee progress more clearly. Your existing Paths and data have already been migrated, so your current training can continue without starting over.",
       tags: ["Feature", "Training", "Modules"],
-      bullets: [
-        {
-          title: "Keep training moving.",
-          text: "Trainees already working through a Path can continue where they left off.",
-        },
-        {
-          title: "Build with more control.",
-          text: "Create a Path as a draft, make changes, and publish it when it's ready.",
-        },
-        {
-          title: "Work together more easily.",
-          text: "See when another Admin is editing the same Path, with changes synced as you work.",
-        },
-        {
-          title: "Make changes with confidence.",
-          text: "Get validation before publishing and use undo and redo while you build.",
-        },
-      ],
       tryThis:
         "Open one of your existing Paths and take a look around. Check the Trainee progress view to see who's currently working through it.",
-      whoFor: "Admins, plus Managers who have both the Manage Library permission and the Update Automations and Library Access permission.",
-      howToGet:
-        "It's on automatically for eligible plans. Your existing Paths have already moved over, so there's nothing to set up.",
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/path-builder`,
       media: "path-builder",
       video: "/releases/2026-10/path",
+      videoAspect: "35 / 27",
       tier: "featured",
+      detail: {
+        lede:
+          "Paths are now easier to build, publish, and track.",
+        intro:
+          "Give each Path a name, keep it in draft while you build, and publish it when it's ready. Once it's live, you can follow your team's progress through every step.",
+        who: { main: "Admins", sub: "Plus Managers with permission" },
+        where: { main: "Opus Dashboard", sub: "Training › Paths" },
+        access: { main: "On for eligible plans", sub: "No setup needed" },
+        highlights: [
+          {
+            title: "Track every run",
+            text: "The Runs tab shows who on your team is in a Path, the step they're on, and when they started and finished.",
+          },
+          {
+            title: "Names you recognize",
+            text: "Give every Path a clear name, so it's easy to find and manage.",
+          },
+          {
+            title: "Build at your own pace",
+            text: "Changes stay in draft until you publish them.",
+          },
+          {
+            title: "Edit together",
+            text: "See when another Admin is in the same Path, with every change saved as you go.",
+          },
+        ],
+        firstStep:
+          "Open one of your Paths and check the Runs tab to see who's on each step.",
+        ctaLabel: "Open Paths",
+        ctaUrl: `${DASHBOARD}/paths`,
+      },
     },
     {
       slug: "content-detail-pages",
       title: "Content Detail Pages",
       headline: "Every Course, at a glance.",
       deck: "Everything you need to understand a Course or Module, in one place.",
-      body: "The new Content Detail Pages give content owners one clear place to understand a Course or Module. See what needs attention, who has access, how it's performing, what's inside, what changed, and where it's being used.",
       tags: ["Feature", "Courses", "Modules"],
-      bullets: [
-        {
-          title: "See what needs attention.",
-          text: "Review important findings and jump directly to where you can address them.",
-        },
-        {
-          title: "Understand your audience.",
-          text: "See who is assigned the content and clearly distinguish Required training from Self-serve in Library.",
-        },
-        {
-          title: "Preview the Trainee experience.",
-          text: "See what a Course or Module will look like on a Trainee's phone directly from the Dashboard with the improved mobile preview.",
-        },
-        {
-          title: "Review performance at a glance.",
-          text: "See completion data and identify the questions where Trainees are struggling most.",
-        },
-        {
-          title: "Follow changes over time.",
-          text: "Review recent activity and see where else the Course or Module is being used.",
-        },
-      ],
       tryThis:
         "Open a Course you manage and start with the Overview. Use the mobile preview to see how it will look to a Trainee the next time you're reviewing or updating content.",
-      whoFor: "Admins and Managers who build, assign, or review Courses and Modules.",
-      howToGet:
-        "It's on for every org. Open any Course or Module in the Library to start on the new Overview tab.",
       helpUrl: HELP,
       tryUrl: `${DASHBOARD}/library`,
       media: "content-detail",
       video: "/releases/2026-10/detail",
       tier: "featured",
+      detail: {
+        lede:
+          "See how a Course or Module is landing, on one screen.",
+        intro:
+          "Open a Course or Module and you'll land on a new Overview tab. It shows what needs attention, who it's for, how it's performing, what's inside, what changed recently, and where else it's used.",
+        who: { main: "Admins and Managers", sub: "Who build or assign content" },
+        where: { main: "Opus Dashboard", sub: "Training › Library" },
+        access: { main: "On by default", sub: "No setup needed" },
+        note:
+          "Assignments are now called Required training, and Library access is now Self-serve in Library. Both live together on the new Audience tab.",
+        highlights: [
+          {
+            title: "A ranked to-do list",
+            text: "Needs attention puts the biggest issues first, including the questions your team misses most.",
+          },
+          {
+            title: "Who has it, in one place",
+            text: "The Audience tab shows your rules first, then who on your team they reach.",
+          },
+          {
+            title: "Straight to the fix",
+            text: "Every finding links to the tab where you can act on it.",
+          },
+        ],
+        firstStep:
+          "Open a Course you own and start with the Needs attention card.",
+        ctaLabel: "Open your Library",
+      },
     },
     {
       slug: "profile-images",
       title: "Profile Images",
       headline: "Put a face to every name.",
       deck: "Let your team personalize their profiles—and recognize each other more easily.",
-      body: "Team members can now add a profile photo from Dashboard or mobile. Profile images also help teams get ready for the new messaging experience coming in November, where recognizing who you're talking to will be even more important.",
       tags: ["Improvement", "Team"],
-      bullets: [
-        {
-          title: "Add it from anywhere.",
-          text: "Add, crop, replace, or remove a profile photo from Dashboard or mobile.",
-        },
-        {
-          title: "See it across Opus.",
-          text: "Your profile photo appears wherever your avatar is shown.",
-        },
-        {
-          title: "Get ready for November.",
-          text: "Have your team add profile photos ahead of the new Opus Messaging update.",
-        },
-      ],
       tryThis:
         "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
-      whoFor: "Everyone on your team.",
-      howToGet:
-        "No setup needed. Open your profile in the Opus Dashboard or the Opus mobile app to add, crop, or change your own photo.",
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "none",
       video: "/releases/2026-10/profile",
+      videoAspect: "359 / 270",
       tier: "featured",
+      detail: {
+        lede:
+          "Swap your initials for a photo, and see it everywhere in Opus.",
+        intro:
+          "Your team can add profile photos from the Opus Dashboard or the Opus Training App. Team members crop their photo to fit, and it shows up wherever their avatar appears in Opus.",
+        who: { main: "Your whole team", sub: "Team members add their own" },
+        where: { main: "Your profile", sub: "Profile icon, top right" },
+        access: { main: "On by default", sub: "Opus Training App and Dashboard" },
+        highlights: [
+          {
+            title: "Put names to faces",
+            text: "Your team can recognize each other more easily, even across locations.",
+          },
+          {
+            title: "Ready for Messaging",
+            text: "Photos help your team see who they're talking to in the new Messaging experience coming in November.",
+          },
+          {
+            title: "Admin control",
+            text: "Photos stay within your org, and franchise privacy settings still apply: if a name is hidden, the photo is too. Team members who skip it keep their initials.",
+          },
+        ],
+        firstStep:
+          "Ask your team to add a photo before Messaging arrives in November.",
+        ctaLabel: "Add your photo",
+        ctaUrl: `${DASHBOARD}/my-profile`,
+      },
     },
     {
       slug: "audit-thresholds",
       title: "Audit Thresholds",
       headline: "Audits, graded your way.",
       deck: "Give Audit results more meaning than pass or fail.",
-      body: "Audits can now use scoring thresholds instead of a simple pass/fail result. Set thresholds such as Excellent, Good, Fair, and Needs improvement, then see the resulting grade wherever a completed Audit appears.",
       tags: ["Improvement", "Audits"],
-      bullets: [
-        {
-          title: "Choose how Audits are scored.",
-          text: "Use No score, Pass/Fail, or Scoring thresholds for each Audit version.",
-        },
-        {
-          title: "Set the grading scale.",
-          text: "Define the percentage ranges for each threshold, from 0 to 100%.",
-        },
-        {
-          title: "See grades at a glance.",
-          text: "Threshold labels and colors appear throughout Dashboard and mobile wherever completed Audits are shown.",
-        },
-        {
-          title: "Keep historical results accurate.",
-          text: "Completed Audits keep the thresholds that applied when they were submitted, even if the Audit is edited later.",
-        },
-        {
-          title: "Score sections, too.",
-          text: "See threshold grades for the overall Audit and for each section.",
-        },
-      ],
       tryThis:
         "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
-      whoFor: "Everyone who uses Audits.",
-      howToGet:
-        "It's on for every org that uses Audits. Open an Audit in the builder and choose Scoring thresholds in the Scoring settings.",
       helpUrl: HELP,
       tryUrl: DASHBOARD,
       media: "none",
       video: "/releases/2026-10/audit",
+      videoAspect: "35 / 27",
       tier: "featured",
+      detail: {
+        lede:
+          "Grade Audits on a scale, not just pass or fail.",
+        intro:
+          "Audits can now be scored with thresholds like Excellent, Good, Fair, and Needs improvement. You set the percentage ranges, and every completed Audit gets a grade for the whole Audit and for each section. Grades show in the Opus Dashboard and the Opus Training App.",
+        who: { main: "Teams that use Audits", sub: "Builders set the grading scale" },
+        where: { main: "Opus Dashboard", sub: "Operations › Audits" },
+        access: { main: "On by default", sub: "For every org with Audits" },
+        note:
+          "Threshold grades don't trigger fail-based follow-ups or notifications. Keep Pass/Fail on Audits that rely on those.",
+        highlights: [
+          {
+            title: "Start from a ready scale",
+            text: "Four default grades you can rename and recolor.",
+          },
+          {
+            title: "Grades for every section",
+            text: "See where a location is strong and where it slips.",
+          },
+          {
+            title: "History stays accurate",
+            text: "A submitted Audit keeps its grade, even if the Audit changes later.",
+          },
+        ],
+        firstStep:
+          "Pick an Audit where pass/fail hides too much, and switch it to Scoring thresholds.",
+        ctaLabel: "Set up thresholds",
+        ctaUrl: `${DASHBOARD}/library/forms?type=audits`,
+      },
     },
   ],
 };

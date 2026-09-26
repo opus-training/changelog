@@ -99,7 +99,11 @@ function Lead({
       </h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
       <div className="issue-stage">
-        <FeatureVideo video={feature.video} title={feature.title} />
+        <FeatureVideo
+          video={feature.video}
+          title={feature.title}
+          aspect={feature.videoAspect}
+        />
       </div>
       {feature.highlights?.length ? (
         <ul className="issue-points">
@@ -138,7 +142,11 @@ function Row({
 }) {
   return (
     <div className={flip ? "issue-row is-flipped" : "issue-row"}>
-      <FeatureVideo video={feature.video} title={feature.title} />
+      <FeatureVideo
+        video={feature.video}
+        title={feature.title}
+        aspect={feature.videoAspect}
+      />
       <div className="issue-row-copy">
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
         <h3 className="issue-row-title">

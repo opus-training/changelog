@@ -2,7 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function FeatureVideo({ video, title }: { video?: string; title: string }) {
+export function FeatureVideo({
+  video,
+  title,
+  aspect,
+}: {
+  video?: string;
+  title: string;
+  aspect?: string;
+}) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -35,7 +43,8 @@ export function FeatureVideo({ video, title }: { video?: string; title: string }
     <div className="issue-media">
       <video
         ref={ref}
-        className="issue-video"
+        className={aspect ? "issue-video is-framed" : "issue-video"}
+        style={aspect ? { aspectRatio: aspect } : undefined}
         src={`${video}.mp4`}
         poster={`${video}.jpg`}
         muted
