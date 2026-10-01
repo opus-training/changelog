@@ -90,7 +90,7 @@ const october: Release = {
       tags: ["Feature", "AI"],
       tryThis:
         "Add the Stale Content Hunter template to find unused or outdated content across your Library.",
-      helpUrl: HELP,
+      helpUrl: `${HELP}/en/articles/17153956`,
       tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",
       video: "/releases/2026-10/agents",
@@ -132,7 +132,7 @@ const october: Release = {
       headline: "Opus, inside Claude and ChatGPT.",
       deck: "Connect your Opus data to the AI tools you already use.",
       tags: ["Feature", "Integrations"],
-      helpUrl: HELP,
+      helpUrl: `${HELP}/en/articles/16531461`,
       tryUrl: DASHBOARD,
       media: "mcp",
       video: "/releases/2026-10/mcp",
@@ -178,7 +178,7 @@ const october: Release = {
       tags: ["Feature", "Training", "Modules"],
       tryThis:
         "Open one of your existing Paths and take a look around. Check the Trainee progress view to see who's currently working through it.",
-      helpUrl: HELP,
+      helpUrl: `${HELP}/en/articles/9460316`,
       tryUrl: `${DASHBOARD}/path-builder`,
       media: "path-builder",
       video: "/releases/2026-10/path",
@@ -224,7 +224,7 @@ const october: Release = {
       tags: ["Feature", "Courses", "Modules"],
       tryThis:
         "Open a Course you manage and start with the Overview. Use the mobile preview to see how it will look to a Trainee the next time you're reviewing or updating content.",
-      helpUrl: HELP,
+      helpUrl: `${HELP}/en/articles/17154881`,
       tryUrl: `${DASHBOARD}/library`,
       media: "content-detail",
       video: "/releases/2026-10/detail",
@@ -266,7 +266,7 @@ const october: Release = {
       tags: ["Improvement", "Team"],
       tryThis:
         "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
-      helpUrl: HELP,
+      helpUrl: `${HELP}/en/articles/17154255`,
       tryUrl: DASHBOARD,
       media: "none",
       video: "/releases/2026-10/profile",
@@ -308,7 +308,7 @@ const october: Release = {
       tags: ["Improvement", "Audits"],
       tryThis:
         "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
-      helpUrl: HELP,
+      helpUrl: `${HELP}/en/articles/17040944`,
       tryUrl: DASHBOARD,
       media: "none",
       video: "/releases/2026-10/audit",
