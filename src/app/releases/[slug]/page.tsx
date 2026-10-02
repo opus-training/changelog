@@ -113,8 +113,12 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
           <a className="btn-solid" href={feature.tryUrl}>
             {feature.ctaLabel}
           </a>
-          <a className="btn-outline" href={feature.helpUrl}>
-            Learn more
+          <a
+            className="btn-outline"
+            href={feature.helpUrl}
+            aria-label={`Learn more about ${feature.title}`}
+          >
+            Learn more <span aria-hidden="true">↗</span>
           </a>
         </div>
       </aside>
@@ -151,7 +155,7 @@ function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
             href={feature.helpUrl}
             aria-label={`Learn more about ${feature.title}`}
           >
-            Learn more
+            Learn more <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>

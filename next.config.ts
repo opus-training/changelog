@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       {
         source: "/releases/:slug/:feature/",
         destination: "/releases/:slug/",
-        permanent: true,
+        permanent: false,
       },
     ];
   },

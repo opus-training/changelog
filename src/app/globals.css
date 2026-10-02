@@ -518,7 +518,6 @@ a {
   text-decoration-color: var(--ink);
 }
 
-/* Feature detail page */
 
 @media (prefers-reduced-motion: reduce) {
   * {
