@@ -21,7 +21,7 @@ function McpShot() {
         <i />
       </div>
       <div className="viz-opus">Opus</div>
-      <p className="viz-note">Anything it creates stays a draft until you approve.</p>
+      <p className="viz-note">New training it builds starts as a draft, and nothing is published unless you ask and confirm.</p>
     </div>
   );
 }
@@ -56,12 +56,12 @@ function PathBuilderShot() {
 
 function ContentDetailShot() {
   return (
-    <div className="viz viz-detail" role="img" aria-label="Course overview, needs attention, and performance">
+    <div className="viz viz-detail" role="img" aria-label="Course Overview with assignment progress">
       <strong className="viz-detail-title">Food Safety Essentials</strong>
       <div className="shot-tabs">
         <span className="is-on">Overview</span>
-        <span>Needs attention</span>
-        <span>Performance</span>
+        <span>Build</span>
+        <span>Reporting</span>
       </div>
       <div className="shot-stats">
         <div>
@@ -69,8 +69,8 @@ function ContentDetailShot() {
           <span>Complete</span>
         </div>
         <div>
-          <b>3</b>
-          <span>Need a look</span>
+          <b>2</b>
+          <span>Paths</span>
         </div>
         <div>
           <b>184</b>

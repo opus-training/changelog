@@ -88,7 +88,7 @@ const october: Release = {
       deck: "Build agents that know your people, your content, and your data.",
       tags: ["Feature", "AI"],
       tryThis:
-        "Add the Stale Content Hunter template to find unused or outdated content across your Library.",
+        "Add the Library Manager template and ask it to find duplicate or stale content in your Library.",
       helpUrl: "https://help.opus.so/en/articles/17153956",
       tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",
@@ -96,7 +96,7 @@ const october: Release = {
       tier: "hero",
       detail: {
         lede:
-          "Agents that answer questions about your training and find what needs attention.",
+          "Agents that answer questions, find what needs attention, and draft training for you.",
         intro:
           "Agents live in a new Agents tab in the Opus Dashboard. Start with a ready-made agent or write your own instructions, then ask it to pull a report, answer a question about your team's training, or find content that needs attention. It works inside your permissions and shows where every answer came from.",
         who: { main: "Admins", sub: "Shared with every Admin" },
@@ -106,6 +106,10 @@ const october: Release = {
           {
             title: "Answers from your own data",
             text: "Ask about past-due training, compare locations, or pull a report without building it yourself.",
+          },
+          {
+            title: "Draft training for you",
+            text: "Turn an SOP or an idea into a first draft of a Course, Module, Check-in, Checklist, or Opus Doc, then review and publish it. It works in the content builder too.",
           },
           {
             title: "Sources you can check",
@@ -132,7 +136,7 @@ const october: Release = {
       deck: "Connect your Opus data to the AI tools you already use.",
       tags: ["Feature", "Integrations"],
       helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
-      tryUrl: DASHBOARD,
+      tryUrl: `${DASHBOARD}/settings`,
       media: "mcp",
       video: "/releases/2026-10/mcp",
       videoAspect: "35 / 27",
@@ -144,7 +148,7 @@ const october: Release = {
           "Opus MCP connects Opus to the AI assistant you already use. If your assistant is already connected to other tools, like scheduling, HR, or your POS, you can ask questions that pull in your training data too. It runs as you, so it sees only what you can see and does only what you can already do in Opus.",
         who: { main: "Admins and Managers", sub: "Connects with your own access" },
         where: { main: "Your AI assistant", sub: "Claude, ChatGPT, Copilot, Gemini" },
-        access: { main: "Set it up yourself", sub: "Settings › AI Connections" },
+        access: { main: "Set it up yourself", sub: "Settings › AI connections" },
         highlights: [
           {
             title: "Reports in plain language",
@@ -156,7 +160,7 @@ const october: Release = {
           },
           {
             title: "Nothing goes live on its own",
-            text: "Anything it creates stays a draft until someone publishes it.",
+            text: "New training it builds starts as a draft, and nothing is published unless you ask and confirm.",
           },
           {
             title: "Guardrails built in",
@@ -176,9 +180,9 @@ const october: Release = {
       deck: "A clearer way to build, manage, and track Paths.",
       tags: ["Feature", "Training", "Modules"],
       tryThis:
-        "Open one of your existing Paths and take a look around. Check the Trainee progress view to see who's currently working through it.",
+        "Open one of your existing Paths and take a look around. Check the Runs tab to see who's currently working through it.",
       helpUrl: "https://help.opus.so/en/articles/9460316-paths-overview",
-      tryUrl: `${DASHBOARD}/path-builder`,
+      tryUrl: `${DASHBOARD}/paths`,
       media: "path-builder",
       video: "/releases/2026-10/path",
       videoAspect: "35 / 27",
@@ -218,9 +222,9 @@ const october: Release = {
     {
       slug: "content-detail-pages",
       title: "Content Detail Pages",
-      headline: "Every Course, at a glance.",
+      headline: "Every piece of content, at a glance.",
       deck: "See how every piece of content is doing, in one place.",
-      tags: ["Feature", "Courses", "Modules"],
+      tags: ["Feature", "Training", "Operations"],
       tryThis:
         "Open a Course you manage and start with the Overview. Use the phone preview to see it the way your team does, then open Build to frame a screen's media with Content Zoom.",
       helpUrl: "https://help.opus.so/en/articles/17154881-content-pages-overview",
@@ -261,6 +265,51 @@ const october: Release = {
       },
     },
     {
+      slug: "video-editor",
+      title: "Video Editor",
+      headline: "Polish training videos in Opus.",
+      deck: "Edit training videos without leaving Opus.",
+      tags: ["Feature", "Video"],
+      tryThis:
+        "Open a training video your team filmed on a phone and trim it down to the steps that matter.",
+      helpUrl: "https://help.opus.so/en/articles/17297854",
+      tryUrl: `${DASHBOARD}/library`,
+      media: "none",
+      video: "/releases/2026-10/video-editor",
+      videoAspect: "35 / 27",
+      tier: "featured",
+      detail: {
+        lede:
+          "Trim clips, add a voiceover, and add music, right where you build your training.",
+        intro:
+          "Click Edit video on an uploaded video anywhere in your training, make your changes, and save it back in place of the original.",
+        who: { main: "Admins", sub: "Plus Managers who can edit the training" },
+        where: { main: "Opus Dashboard", sub: "Edit video, on any uploaded video" },
+        access: { main: "On every plan", sub: "No setup needed" },
+        highlights: [
+          {
+            title: "Cut it down",
+            text: "Trim, split, delete, and reorder clips, or join more videos from your Library.",
+          },
+          {
+            title: "Pause on what matters",
+            text: "Freeze a frame or slow a clip down so your team sees exactly what good looks like.",
+          },
+          {
+            title: "Add a voiceover",
+            text: "Record yourself while the video plays, or type a script and have an AI voice read it.",
+          },
+          {
+            title: "Add background music",
+            text: "Generate a track or upload your own. It gets quieter automatically while the voiceover plays.",
+          },
+        ],
+        firstStep:
+          "Open a training video your team filmed on a phone and trim it down to the steps that matter.",
+        ctaLabel: "Open your Library",
+      },
+    },
+    {
       slug: "profile-images",
       title: "Profile Images",
       headline: "Put a face to every name.",
@@ -269,7 +318,7 @@ const october: Release = {
       tryThis:
         "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
       helpUrl: "https://help.opus.so/en/articles/17154255",
-      tryUrl: DASHBOARD,
+      tryUrl: `${DASHBOARD}/my-profile`,
       media: "none",
       video: "/releases/2026-10/profile",
       videoAspect: "359 / 270",
@@ -311,7 +360,7 @@ const october: Release = {
       tryThis:
         "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
       helpUrl: "https://help.opus.so/en/articles/17040944",
-      tryUrl: DASHBOARD,
+      tryUrl: `${DASHBOARD}/library/forms?type=audits`,
       media: "none",
       video: "/releases/2026-10/audit",
       videoAspect: "35 / 27",
