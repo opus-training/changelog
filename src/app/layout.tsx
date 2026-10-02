@@ -1,3 +1,4 @@
+import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -44,6 +45,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap"
         />
       </head>
+      <GoogleTagManager gtmId="GTM-M59VT4T" />
       <body>
         <SiteHeader />
         <main className="wrap">{children}</main>
