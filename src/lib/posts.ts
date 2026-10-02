@@ -46,7 +46,7 @@ export function slugifyTag(tag: string): string {
     .replace(/^-|-$/g, "");
 }
 
-function excerptFrom(body: string): string {
+export function excerptFrom(body: string): string {
   const first = body.trim().split(/\n\s*\n/)[0] ?? "";
   const plain = first
     .replace(/[#>*_`\[\]]/g, "")

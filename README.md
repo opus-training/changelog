@@ -77,6 +77,30 @@ Style rules:
 - If nothing customer-visible shipped, the agent skips the week (no empty
   entries).
 
+## Roadmap
+
+Customer-facing snapshot at `/roadmap`. Markdown in `_roadmap/` is the source
+of truth (Notion sync comes later). Filename `_roadmap/NN-slug.md`:
+
+```markdown
+---
+title: "Workflows"
+status: in-development
+eta: "2026"
+tags: [Operations]
+audience: [Admins, Managers]
+video: /assets/roadmap/workflows.mp4
+---
+
+One-line hook.
+
+Supporting paragraphs. Optional help-center links.
+```
+
+`status` is `just-launched`, `in-development`, or `planned`. `eta` is the
+public timing from Notion (year or quarter). Drop `video` until the file
+exists under `public/assets/roadmap/`. Released work stays on the changelog.
+
 ## Look and feel
 
 Brand styles live in `src/app/globals.css`. Tokens match opus.so: canvas
