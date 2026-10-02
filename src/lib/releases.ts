@@ -77,7 +77,7 @@ const october: Release = {
       title: "Opus MCP",
       headline: "Opus, inside Claude and ChatGPT.",
       deck: "Connect Opus to the AI tools you already use. If your AI tool is also connected to your scheduling or HR system, ask one question across all of them, like who is working this weekend without a current food safety certification.",
-      where: "For Admins and Managers, with their own access. Admins find it in Settings › AI connections.",
+      where: "For Admins and Managers, and each sees only what they can see in Opus. Admins connect in Settings › AI connections, and Managers connect from their AI tool.",
       ctaLabel: "Connect your AI tool",
       tags: ["Feature", "Integrations"],
       helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
