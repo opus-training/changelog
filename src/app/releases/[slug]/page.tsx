@@ -123,7 +123,7 @@ function Lead({
         ) : null}
         <div className="issue-actions">
           <a className="btn-solid" href={feature.tryUrl}>
-            Give it a try
+            {feature.detail.ctaLabel}
           </a>
         </div>
       </aside>
@@ -156,9 +156,9 @@ function Row({
         <a
           className="issue-link"
           href={feature.tryUrl}
-          aria-label={`Give it a try: ${feature.title}`}
+          aria-label={`${feature.detail.ctaLabel}: ${feature.title}`}
         >
-          Give it a try <span aria-hidden="true">→</span>
+          {feature.detail.ctaLabel} <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>

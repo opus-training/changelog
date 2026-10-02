@@ -63,14 +63,14 @@ const october: Release = {
   label: "October 2026",
   title: "October 2026 Release",
   summary:
-    "Build AI agents in Opus that know your people, your content, and your data.",
+    "Build AI agents that know your people, your content, and your data. Plus Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
   features: [
     {
       slug: "opus-ai-agent",
-      title: "Opus AI Agent",
+      title: "Opus Agents",
       headline: "Put Opus to work with agents.",
       pitch:
-        "Each agent is a set of instructions you control, and it only sees what you can see.",
+        "Agents answer questions about your team, find content that needs attention, and draft training for you, using only what you can already see.",
       highlights: [
         {
           title: "Start from a template.",
@@ -78,11 +78,11 @@ const october: Release = {
         },
         {
           title: "Build your own.",
-          text: "Write instructions for how it should work.",
+          text: "Describe a job in your own words, like a weekly past-due check, and it does it the same way every time.",
         },
         {
-          title: "Share with your team.",
-          text: "Every admin in your org uses the same agents.",
+          title: "Share with other Admins.",
+          text: "Every Admin in your business can use the agents you build.",
         },
       ],
       deck: "Build agents that know your people, your content, and your data.",
@@ -177,7 +177,7 @@ const october: Release = {
       slug: "improved-path-builder",
       title: "Improved Path Builder",
       headline: "Build Paths without the guesswork.",
-      deck: "A clearer way to build, manage, and track Paths.",
+      deck: "Keep changes in draft until you publish, and see who's on each step in the new Runs tab.",
       tags: ["Feature", "Training", "Modules"],
       tryThis:
         "Open one of your existing Paths and take a look around. Check the Runs tab to see who's currently working through it.",
@@ -223,7 +223,7 @@ const october: Release = {
       slug: "content-detail-pages",
       title: "Content Detail Pages",
       headline: "Every piece of content, at a glance.",
-      deck: "See how every piece of content is doing, in one place.",
+      deck: "A new Overview shows results, who has it, and a phone preview. The Manage tab's lists now live under Reporting.",
       tags: ["Feature", "Training", "Operations"],
       tryThis:
         "Open a Course you manage and start with the Overview. Use the phone preview to see it the way your team does, then open Build to frame a screen's media with Content Zoom.",
@@ -268,7 +268,7 @@ const october: Release = {
       slug: "video-editor",
       title: "Video Editor",
       headline: "Polish training videos in Opus.",
-      deck: "Edit training videos without leaving Opus.",
+      deck: "Trim clips, add a voiceover or an AI voice, and add music, then save it in place.",
       tags: ["Feature", "Video"],
       tryThis:
         "Open a training video your team filmed on a phone and trim it down to the steps that matter.",
@@ -311,9 +311,9 @@ const october: Release = {
     },
     {
       slug: "profile-images",
-      title: "Profile Images",
+      title: "Profile Photos",
       headline: "Put a face to every name.",
-      deck: "Let your team personalize their profiles—and recognize each other more easily.",
+      deck: "Let your team personalize their profiles, and recognize each other more easily.",
       tags: ["Improvement", "Team"],
       tryThis:
         "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
@@ -355,7 +355,7 @@ const october: Release = {
       slug: "audit-thresholds",
       title: "Audit Thresholds",
       headline: "Audits, graded your way.",
-      deck: "Give Audit results more meaning than pass or fail.",
+      deck: "Grade every Audit and each section from Excellent to Needs improvement, using ranges you set.",
       tags: ["Improvement", "Audits"],
       tryThis:
         "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
