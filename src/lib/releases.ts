@@ -89,7 +89,7 @@ const october: Release = {
       deck: "Build agents that know your people, your content, and your data.",
       tags: ["Feature", "AI"],
       tryThis:
-        "Add the Stale Content Hunter template to find unused or outdated content across your Library.",
+        "Add the Library Manager template and ask it to find duplicate or stale content in your Library.",
       helpUrl: `${HELP}/en/articles/17153956`,
       tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",
@@ -97,7 +97,7 @@ const october: Release = {
       tier: "hero",
       detail: {
         lede:
-          "Agents that answer questions about your training and find what needs attention.",
+          "Agents that answer questions, find what needs attention, and draft training for you.",
         intro:
           "Agents live in a new Agents tab in the Opus Dashboard. Start with a ready-made agent or write your own instructions, then ask it to pull a report, answer a question about your team's training, or find content that needs attention. It works inside your permissions and shows where every answer came from.",
         who: { main: "Admins", sub: "Shared with every Admin" },
@@ -107,6 +107,10 @@ const october: Release = {
           {
             title: "Answers from your own data",
             text: "Ask about past-due training, compare locations, or pull a report without building it yourself.",
+          },
+          {
+            title: "Draft training for you",
+            text: "Turn an SOP or an idea into a first draft of a Course, Module, Check-in, Checklist, or Opus Doc, then review and publish it. It works in the content builder too.",
           },
           {
             title: "Sources you can check",
