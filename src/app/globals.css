@@ -518,7 +518,6 @@ a {
   text-decoration-color: var(--ink);
 }
 
-/* Feature detail page */
 
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -847,6 +846,13 @@ a {
   padding-left: 12px;
   border-left: 2px solid var(--rule-strong);
   text-align: left;
+}
+
+.issue-teaser {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-faint);
 }
 
 .issue-note .issue-where {

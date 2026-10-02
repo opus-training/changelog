@@ -11,6 +11,8 @@ export type ReleaseFeature = {
   where: string;
   /** Optional caveat people should know before they start. */
   note?: string;
+  /** Optional quiet hint at what's coming next. */
+  teaser?: string;
   tags: string[];
   tryThis?: string;
   helpUrl: string;
@@ -53,7 +55,7 @@ const october: Release = {
         },
         {
           title: "Build your own.",
-          text: "Describe a job in your own words, like a weekly past-due check, and it does it the same way every time.",
+          text: "Write instructions in your own words, like how to check past-due training, and it follows them every time you ask.",
         },
         {
           title: "Share with other Admins.",
@@ -61,7 +63,7 @@ const october: Release = {
         },
       ],
       deck: "Build agents that know your people, your content, and your data.",
-      where: "For Admins. Left menu › Agents.",
+      where: "For Admins. Find them in the Agents section of the left menu.",
       ctaLabel: "Open Agents",
       tags: ["Feature", "AI"],
       tryThis:
@@ -69,18 +71,19 @@ const october: Release = {
       helpUrl: "https://help.opus.so/en/articles/17153956",
       tryUrl: `${DASHBOARD}/agents`,
       video: "/releases/2026-10/agents",
+      videoAspect: "275 / 172",
       tier: "hero",
     },
     {
       slug: "opus-mcp",
       title: "Opus MCP",
       headline: "Opus, inside Claude and ChatGPT.",
-      deck: "Connect Opus to the AI tools you already use. Ask one question across your training, schedule, and HR data, like who is working this weekend without a current food safety certification.",
-      where: "For Admins and Managers. Set up in Settings › AI connections.",
+      deck: "Connect Opus to the AI tools you already use. If your AI tool is also connected to your scheduling or HR system, ask one question across all of them, like who is working this weekend without a current food safety certification.",
+      where: "For Admins and Managers, and each sees only what they can see in Opus. Admins connect in Settings › AI connections, and Managers connect from their AI tool.",
       ctaLabel: "Connect your AI tool",
       tags: ["Feature", "Integrations"],
       helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
-      tryUrl: `${DASHBOARD}/settings`,
+      tryUrl: `${DASHBOARD}/settings/ai-connections`,
       video: "/releases/2026-10/mcp",
       videoAspect: "35 / 27",
       tier: "featured",
@@ -108,7 +111,7 @@ const october: Release = {
       deck: "A new Overview shows results, who has it, and a phone preview of what your team sees.",
       where: "For Admins and Managers. Open any Course, Module, Check-in, Resource, Checklist, or Audit.",
       note:
-        "The Manage tab is gone. Who gets your content is now on the Overview, and the full assigned, past due, and self-serve lists are under Reporting.",
+        "The Manage tab is gone: who gets your content is now on the Overview, and the assigned, past due, and self-serve lists are under Reporting.",
       ctaLabel: "Open your Library",
       tags: ["Feature", "Training", "Operations"],
       tryThis:
@@ -140,6 +143,8 @@ const october: Release = {
       headline: "Put a face to every name.",
       deck: "Let your team personalize their profiles, and recognize each other more easily.",
       where: "For your whole team, in the Opus Dashboard and the Opus Training App.",
+      teaser:
+        "Psst. Those faces are about to get busier. A new Newsfeed and group messages arrive with Messaging in November.",
       ctaLabel: "Add your photo",
       tags: ["Improvement", "Team"],
       tryThis:
@@ -156,8 +161,6 @@ const october: Release = {
       headline: "Audits, graded your way.",
       deck: "Grade every Audit and each section from Excellent to Needs improvement, using ranges you set.",
       where: "For teams that use Audits. Open an Audit and choose Scoring.",
-      note:
-        "Threshold grades don't trigger fail-based follow-ups or notifications. Keep Pass/Fail on Audits that rely on those.",
       ctaLabel: "Set up thresholds",
       tags: ["Improvement", "Audits"],
       tryThis:
