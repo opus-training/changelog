@@ -161,8 +161,6 @@ const october: Release = {
       headline: "Audits, graded your way.",
       deck: "Grade every Audit and each section from Excellent to Needs improvement, using ranges you set.",
       where: "For teams that use Audits. Open an Audit and choose Scoring.",
-      note:
-        "Threshold grades don't trigger fail-based follow-ups or notifications, so keep Pass/Fail on Audits that rely on them.",
       ctaLabel: "Set up thresholds",
       tags: ["Improvement", "Audits"],
       tryThis:
