@@ -16,8 +16,9 @@ export default function HomePage() {
           {latestRelease ? (
             <>
               {" "}
-              {latestRelease.label}:{" "}
-              <Link href={releaseUrl(latestRelease)}>{latestRelease.headline}</Link>
+              <Link href={releaseUrl(latestRelease)}>
+                {latestRelease.label}: {latestRelease.headline}
+              </Link>
             </>
           ) : null}
         </p>
