@@ -45,7 +45,8 @@ export default async function ReleasePage({
   return (
     <article className="issue">
       <header className="issue-masthead">
-        <h1 className="issue-title">{release.title}</h1>
+        <p className="issue-eyebrow">{release.label}</p>
+        <h1 className="issue-title">{release.headline}</h1>
       </header>
 
       {hero ? <Lead feature={hero} /> : null}

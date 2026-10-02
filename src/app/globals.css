@@ -591,7 +591,9 @@ a {
   line-height: 1.02;
   letter-spacing: -0.03em;
   color: var(--ink);
-  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  text-wrap: balance;
 }
 
 .issue-chapter {

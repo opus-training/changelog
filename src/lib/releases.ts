@@ -29,6 +29,8 @@ export type Release = {
   slug: string;
   label: string;
   title: string;
+  /** Big line at the top of the release page. */
+  headline: string;
   summary: string;
   features: ReleaseFeature[];
 };
@@ -39,8 +41,9 @@ const october: Release = {
   slug: "2026-10",
   label: "October 2026",
   title: "October 2026 Release",
+  headline: "Automate the tedious tasks so you can focus on what's high impact.",
   summary:
-    "Build AI agents that know your people, your content, and your data. Plus Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
+    "Automate the tedious tasks so you can focus on what's high impact. Agents, Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
   features: [
     {
       slug: "opus-ai-agent",
