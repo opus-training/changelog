@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/third-parties": "^15.5.27",
     "gray-matter": "^4.0.3",
     "next": "^15.2.0",
     "react": "^19.0.0",

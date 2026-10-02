@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
-import { OpusWordmark } from "@/components/OpusWordmark";
-import { SiteNav } from "@/components/SiteNav";
+import { CookieConsent } from "@/components/CookieConsent";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { SITE } from "@/lib/posts";
 import "./globals.css";
 
@@ -42,36 +42,16 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap"
         />
       </head>
       <body>
-        <header className="site-header">
-          <div className="wrap">
-            <Link className="brand" href="/" aria-label="Opus">
-              <OpusWordmark />
-            </Link>
-            <SiteNav />
-            <a className="header-link" href="https://www.opus.so">
-              opus.so
-            </a>
-          </div>
-        </header>
+        <SiteHeader />
         <main className="wrap">{children}</main>
-        <footer className="site-footer">
-          <div className="wrap">
-            <a href="https://www.opus.so">opus.so</a>
-            <span className="footer-sep">·</span>
-            <Link href="/">Changelog</Link>
-            <span className="footer-sep">·</span>
-            <Link href="/roadmap/">Roadmap</Link>
-            <span className="footer-sep">·</span>
-            <a href="/feed.xml">RSS</a>
-            <span className="footer-note">
-              New features the day they ship · Digest every Friday
-            </span>
-          </div>
-        </footer>
+        <SiteFooter />
+        <CookieConsent
+          gtmId={process.env.VERCEL_ENV === "production" ? "GTM-M59VT4T" : null}
+        />
       </body>
     </html>
   );
