@@ -1994,3 +1994,47 @@ a {
     padding: 28px 22px;
   }
 }
+
+/* Cookie consent, matching the opus.so banner. */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--ink) 12%, transparent);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-banner p {
+  flex: 1 1 320px;
+  margin: 0;
+}
+
+.cookie-banner a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cookie-banner-actions button {
+  cursor: pointer;
+  font-family: inherit;
+}

@@ -56,7 +56,6 @@ export type Release = {
   features: ReleaseFeature[];
 };
 
-const HELP = "https://help.opus.so";
 const DASHBOARD = "https://dashboard.opus.so";
 
 const october: Release = {
@@ -90,7 +89,7 @@ const october: Release = {
       tags: ["Feature", "AI"],
       tryThis:
         "Add the Library Manager template and ask it to find duplicate or stale content in your Library.",
-      helpUrl: `${HELP}/en/articles/17153956`,
+      helpUrl: "https://help.opus.so/en/articles/17153956",
       tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",
       video: "/releases/2026-10/agents",
@@ -136,7 +135,7 @@ const october: Release = {
       headline: "Opus, inside Claude and ChatGPT.",
       deck: "Connect your Opus data to the AI tools you already use.",
       tags: ["Feature", "Integrations"],
-      helpUrl: `${HELP}/en/articles/16531461`,
+      helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
       tryUrl: `${DASHBOARD}/settings`,
       media: "mcp",
       video: "/releases/2026-10/mcp",
@@ -182,7 +181,7 @@ const october: Release = {
       tags: ["Feature", "Training", "Modules"],
       tryThis:
         "Open one of your existing Paths and take a look around. Check the Runs tab to see who's currently working through it.",
-      helpUrl: `${HELP}/en/articles/9460316`,
+      helpUrl: "https://help.opus.so/en/articles/9460316-paths-overview",
       tryUrl: `${DASHBOARD}/paths`,
       media: "path-builder",
       video: "/releases/2026-10/path",
@@ -224,43 +223,44 @@ const october: Release = {
       slug: "content-detail-pages",
       title: "Content Detail Pages",
       headline: "Every piece of content, at a glance.",
-      deck: "Everything you need to understand any piece of content, in one place.",
+      deck: "See how every piece of content is doing, in one place.",
       tags: ["Feature", "Training", "Operations"],
       tryThis:
-        "Open a Course you manage and start with the Overview. Use the mobile preview to see how it will look to a Trainee the next time you're reviewing or updating content.",
-      helpUrl: `${HELP}/en/articles/17154881`,
+        "Open a Course you manage and start with the Overview. Use the phone preview to see it the way your team does, then open Build to frame a screen's media with Content Zoom.",
+      helpUrl: "https://help.opus.so/en/articles/17154881-content-pages-overview",
       tryUrl: `${DASHBOARD}/library`,
       media: "content-detail",
       video: "/releases/2026-10/detail",
       tier: "featured",
       detail: {
-        lede:
-          "See how any piece of content is landing, on one screen.",
+        lede: "See how your content is doing, on one screen.",
         intro:
-          "Open a Course, Module, Check-in, Checklist, Audit, or Resource and you'll land on a new Overview tab. It shows how it's performing, who gets it, what your team sees on their phones, and where else it's used.",
+          "Open a Course, Module, Check-in, Resource, Checklist or Audit and you'll land on a new Overview. It shows how it's doing, who gets it, a preview of what your team sees, its settings, and where else it's used.",
         who: { main: "Admins and Managers", sub: "Who build or assign content" },
         where: { main: "Opus Dashboard", sub: "Training › Library" },
         access: { main: "On by default", sub: "No setup needed" },
+        note:
+          "The Manage tab is gone. Who gets your content now lives on the Overview, and the full lists of who's assigned, past due and self-serve live under Reporting.",
         highlights: [
           {
-            title: "See who gets it",
-            text: "Your Automations and who can find it in the Library, right on the Overview.",
+            title: "How it's going, first",
+            text: "Completion, scores and past due, or submissions for Checklists and Audits, are the first thing you see.",
           },
           {
-            title: "Preview the Trainee experience",
-            text: "See how it will look on a Trainee's phone, right from the Dashboard.",
+            title: "Who has it, in one place",
+            text: "Your Automations and Library access sit together on the Overview.",
           },
           {
-            title: "Performance at a glance",
-            text: "Assignment progress and learning results, or submissions and schedules for Checklists and Audits.",
+            title: "See it like your team",
+            text: "A phone preview shows exactly what your team sees.",
           },
           {
-            title: "See where it's used",
-            text: "Find every Path and folder that includes it.",
+            title: "Content Zoom",
+            text: "Set how much of a Course screen its photo or video fills, choose Fill or Fit, and pick the focal point.",
           },
         ],
         firstStep:
-          "Open a Course you manage and start with the Overview.",
+          "Open a Course you own and start with the Overview.",
         ctaLabel: "Open your Library",
       },
     },
@@ -272,7 +272,7 @@ const october: Release = {
       tags: ["Feature", "Video"],
       tryThis:
         "Open a training video your team filmed on a phone and trim it down to the steps that matter.",
-      helpUrl: `${HELP}/en/articles/17297854`,
+      helpUrl: "https://help.opus.so/en/articles/17297854",
       tryUrl: `${DASHBOARD}/library`,
       media: "none",
       video: "/releases/2026-10/video-editor",
@@ -317,7 +317,7 @@ const october: Release = {
       tags: ["Improvement", "Team"],
       tryThis:
         "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
-      helpUrl: `${HELP}/en/articles/17154255`,
+      helpUrl: "https://help.opus.so/en/articles/17154255",
       tryUrl: `${DASHBOARD}/my-profile`,
       media: "none",
       video: "/releases/2026-10/profile",
@@ -359,7 +359,7 @@ const october: Release = {
       tags: ["Improvement", "Audits"],
       tryThis:
         "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
-      helpUrl: `${HELP}/en/articles/17040944`,
+      helpUrl: "https://help.opus.so/en/articles/17040944",
       tryUrl: `${DASHBOARD}/library/forms?type=audits`,
       media: "none",
       video: "/releases/2026-10/audit",
