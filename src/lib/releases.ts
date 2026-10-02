@@ -221,7 +221,7 @@ const october: Release = {
       title: "Content Detail Pages",
       headline: "Every piece of content, at a glance.",
       deck: "Everything you need to understand any piece of content, in one place.",
-      tags: ["Feature", "Courses", "Modules"],
+      tags: ["Feature", "Training", "Operations"],
       tryThis:
         "Open a Course you manage and start with the Overview. Use the mobile preview to see how it will look to a Trainee the next time you're reviewing or updating content.",
       helpUrl: `${HELP}/en/articles/17154881`,
@@ -279,7 +279,7 @@ const october: Release = {
           "Trim clips, add a voiceover, and add music, right where you build your training.",
         intro:
           "Click Edit video on an uploaded video anywhere in your training, make your changes, and save it back in place of the original.",
-        who: { main: "Admins and Managers", sub: "Anyone who can edit the training" },
+        who: { main: "Admins", sub: "Plus Managers who can edit the training" },
         where: { main: "Opus Dashboard", sub: "Edit video, on any uploaded video" },
         access: { main: "On every plan", sub: "No setup needed" },
         highlights: [
