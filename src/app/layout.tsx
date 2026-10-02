@@ -1,5 +1,5 @@
-import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
+import { CookieConsent } from "@/components/CookieConsent";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE } from "@/lib/posts";
@@ -45,14 +45,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap"
         />
       </head>
-      {/* Production only, so preview visits stay out of retargeting audiences. */}
-      {process.env.VERCEL_ENV === "production" && (
-        <GoogleTagManager gtmId="GTM-M59VT4T" />
-      )}
       <body>
         <SiteHeader />
         <main className="wrap">{children}</main>
         <SiteFooter />
+        {/* Production only, so preview visits stay out of retargeting audiences. */}
+        <CookieConsent
+          gtmId={process.env.VERCEL_ENV === "production" ? "GTM-M59VT4T" : null}
+        />
       </body>
     </html>
   );
