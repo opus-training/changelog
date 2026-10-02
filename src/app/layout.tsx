@@ -45,7 +45,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&display=swap"
         />
       </head>
-      <GoogleTagManager gtmId="GTM-M59VT4T" />
+      {/* Production only, so preview visits stay out of retargeting audiences. */}
+      {process.env.VERCEL_ENV === "production" && (
+        <GoogleTagManager gtmId="GTM-M59VT4T" />
+      )}
       <body>
         <SiteHeader />
         <main className="wrap">{children}</main>
