@@ -3,10 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeatureVideo } from "@/components/FeatureVideo";
 import {
-  featureUrl,
   getRelease,
   getReleases,
-  type Release,
   type ReleaseFeature,
 } from "@/lib/releases";
 
@@ -50,19 +48,14 @@ export default async function ReleasePage({
         <h1 className="issue-title">{release.title}</h1>
       </header>
 
-      {hero ? <Lead feature={hero} release={release} /> : null}
+      {hero ? <Lead feature={hero} /> : null}
 
       {featured.length > 0 ? (
         <section className="issue-chapter">
           <h2 className="issue-heading">Also in {release.label.split(" ")[0]}</h2>
           <div className="issue-rows">
             {featured.map((feature, index) => (
-              <Row
-                key={feature.slug}
-                feature={feature}
-                href={featureUrl(release, feature)}
-                flip={index % 2 === 1}
-              />
+              <Row key={feature.slug} feature={feature} flip={index % 2 === 1} />
             ))}
           </div>
         </section>
@@ -83,19 +76,12 @@ export default async function ReleasePage({
   );
 }
 
-function Lead({
-  feature,
-  release,
-}: {
-  feature: ReleaseFeature;
-  release: Release;
-}) {
-  const href = featureUrl(release, feature);
+function Lead({ feature }: { feature: ReleaseFeature }) {
   return (
     <section className="issue-chapter issue-lead">
       {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
       <h2 className="issue-heading">
-        <Link href={href}>{feature.headline ?? feature.title}</Link>
+        <a href={feature.helpUrl}>{feature.headline ?? feature.title}</a>
       </h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
       <div className="issue-stage">
@@ -121,9 +107,14 @@ function Lead({
             <p className="issue-note-text">{feature.tryThis}</p>
           </>
         ) : null}
+        <p className="issue-where">{feature.where}</p>
+        {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
         <div className="issue-actions">
           <a className="btn-solid" href={feature.tryUrl}>
-            {feature.detail.ctaLabel}
+            {feature.ctaLabel}
+          </a>
+          <a className="btn-outline" href={feature.helpUrl}>
+            Learn more
           </a>
         </div>
       </aside>
@@ -131,15 +122,7 @@ function Lead({
   );
 }
 
-function Row({
-  feature,
-  href,
-  flip,
-}: {
-  feature: ReleaseFeature;
-  href: string;
-  flip: boolean;
-}) {
+function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
   return (
     <div className={flip ? "issue-row is-flipped" : "issue-row"}>
       <FeatureVideo
@@ -150,16 +133,27 @@ function Row({
       <div className="issue-row-copy">
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
         <h3 className="issue-row-title">
-          <Link href={href}>{feature.headline ?? feature.title}</Link>
+          <a href={feature.helpUrl}>{feature.headline ?? feature.title}</a>
         </h3>
         <p>{feature.deck}</p>
-        <a
-          className="issue-link"
-          href={feature.tryUrl}
-          aria-label={`${feature.detail.ctaLabel}: ${feature.title}`}
-        >
-          {feature.detail.ctaLabel} <span aria-hidden="true">→</span>
-        </a>
+        <p className="issue-where">{feature.where}</p>
+        {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
+        <div className="issue-row-links">
+          <a
+            className="issue-link"
+            href={feature.tryUrl}
+            aria-label={`${feature.ctaLabel}: ${feature.title}`}
+          >
+            {feature.ctaLabel} <span aria-hidden="true">→</span>
+          </a>
+          <a
+            className="issue-link"
+            href={feature.helpUrl}
+            aria-label={`Learn more about ${feature.title}`}
+          >
+            Learn more
+          </a>
+        </div>
       </div>
     </div>
   );
