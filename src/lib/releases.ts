@@ -98,7 +98,7 @@ const october: Release = {
         lede:
           "Agents that answer questions, find what needs attention, and draft training for you.",
         intro:
-          "Agents live in a new Agents tab in the Opus Dashboard. Start with a ready-made agent or write your own instructions, then ask it to pull a report, answer a question about your team's training, or find content that needs attention. It works inside your permissions and shows where every answer came from.",
+          "Agents live in the Agents section of the left menu in the Opus Dashboard, under the Primary Agent. Start with a ready-made agent or write your own instructions, then ask it to pull a report, answer a question about your team's training, or find content that needs attention. It works inside your permissions and shows where every answer came from.",
         who: { main: "Admins", sub: "Shared with every Admin" },
         where: { main: "Opus Dashboard", sub: "Left menu › Agents" },
         access: { main: "On by default", sub: "No setup needed" },
