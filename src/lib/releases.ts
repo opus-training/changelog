@@ -133,7 +133,7 @@ const october: Release = {
       slug: "opus-mcp",
       title: "Opus MCP",
       headline: "Opus, inside Claude and ChatGPT.",
-      deck: "Connect your Opus data to the AI tools you already use.",
+      deck: "Connect Opus to the AI tools you already use.",
       tags: ["Feature", "Integrations"],
       helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
       tryUrl: `${DASHBOARD}/settings`,
