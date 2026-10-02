@@ -133,7 +133,7 @@ const october: Release = {
       deck: "Connect your Opus data to the AI tools you already use.",
       tags: ["Feature", "Integrations"],
       helpUrl: `${HELP}/en/articles/16531461`,
-      tryUrl: DASHBOARD,
+      tryUrl: `${DASHBOARD}/settings`,
       media: "mcp",
       video: "/releases/2026-10/mcp",
       videoAspect: "35 / 27",
@@ -145,7 +145,7 @@ const october: Release = {
           "Opus MCP connects Opus to the AI assistant you already use. If your assistant is already connected to other tools, like scheduling, HR, or your POS, you can ask questions that pull in your training data too. It runs as you, so it sees only what you can see and does only what you can already do in Opus.",
         who: { main: "Admins and Managers", sub: "Connects with your own access" },
         where: { main: "Your AI assistant", sub: "Claude, ChatGPT, Copilot, Gemini" },
-        access: { main: "Set it up yourself", sub: "Settings › AI Connections" },
+        access: { main: "Set it up yourself", sub: "Settings › AI connections" },
         highlights: [
           {
             title: "Reports in plain language",
@@ -157,7 +157,7 @@ const october: Release = {
           },
           {
             title: "Nothing goes live on its own",
-            text: "Anything it creates stays a draft until someone publishes it.",
+            text: "New training it builds starts as a draft, and nothing is published unless you ask and confirm.",
           },
           {
             title: "Guardrails built in",
@@ -177,9 +177,9 @@ const october: Release = {
       deck: "A clearer way to build, manage, and track Paths.",
       tags: ["Feature", "Training", "Modules"],
       tryThis:
-        "Open one of your existing Paths and take a look around. Check the Trainee progress view to see who's currently working through it.",
+        "Open one of your existing Paths and take a look around. Check the Runs tab to see who's currently working through it.",
       helpUrl: `${HELP}/en/articles/9460316`,
-      tryUrl: `${DASHBOARD}/path-builder`,
+      tryUrl: `${DASHBOARD}/paths`,
       media: "path-builder",
       video: "/releases/2026-10/path",
       videoAspect: "35 / 27",
@@ -219,8 +219,8 @@ const october: Release = {
     {
       slug: "content-detail-pages",
       title: "Content Detail Pages",
-      headline: "Every Course, at a glance.",
-      deck: "Everything you need to understand a Course or Module, in one place.",
+      headline: "Every piece of content, at a glance.",
+      deck: "Everything you need to understand any piece of content, in one place.",
       tags: ["Feature", "Courses", "Modules"],
       tryThis:
         "Open a Course you manage and start with the Overview. Use the mobile preview to see how it will look to a Trainee the next time you're reviewing or updating content.",
@@ -231,30 +231,77 @@ const october: Release = {
       tier: "featured",
       detail: {
         lede:
-          "See how a Course or Module is landing, on one screen.",
+          "See how any piece of content is landing, on one screen.",
         intro:
-          "Open a Course or Module and you'll land on a new Overview tab. It shows what needs attention, who it's for, how it's performing, what's inside, what changed recently, and where else it's used.",
+          "Open a Course, Module, Check-in, Checklist, Audit, or Resource and you'll land on a new Overview tab. It shows how it's performing, who gets it, what your team sees on their phones, and where else it's used.",
         who: { main: "Admins and Managers", sub: "Who build or assign content" },
         where: { main: "Opus Dashboard", sub: "Training › Library" },
         access: { main: "On by default", sub: "No setup needed" },
-        note:
-          "Assignments are now called Required training, and Library access is now Self-serve in Library. Both live together on the new Audience tab.",
         highlights: [
           {
-            title: "A ranked to-do list",
-            text: "Needs attention puts the biggest issues first, including the questions your team misses most.",
+            title: "See who gets it",
+            text: "Your Automations and who can find it in the Library, right on the Overview.",
           },
           {
-            title: "Who has it, in one place",
-            text: "The Audience tab shows your rules first, then who on your team they reach.",
+            title: "Preview the Trainee experience",
+            text: "See how it will look on a Trainee's phone, right from the Dashboard.",
           },
           {
-            title: "Straight to the fix",
-            text: "Every finding links to the tab where you can act on it.",
+            title: "Performance at a glance",
+            text: "Assignment progress and learning results, or submissions and schedules for Checklists and Audits.",
+          },
+          {
+            title: "See where it's used",
+            text: "Find every Path and folder that includes it.",
           },
         ],
         firstStep:
-          "Open a Course you own and start with the Needs attention card.",
+          "Open a Course you manage and start with the Overview.",
+        ctaLabel: "Open your Library",
+      },
+    },
+    {
+      slug: "video-editor",
+      title: "Video Editor",
+      headline: "Polish training videos in Opus.",
+      deck: "Edit training videos without leaving Opus.",
+      tags: ["Feature", "Video"],
+      tryThis:
+        "Open a training video your team filmed on a phone and trim it down to the steps that matter.",
+      helpUrl: `${HELP}/en/articles/17297854`,
+      tryUrl: `${DASHBOARD}/library`,
+      media: "none",
+      video: "/releases/2026-10/video-editor",
+      videoAspect: "35 / 27",
+      tier: "featured",
+      detail: {
+        lede:
+          "Trim clips, add a voiceover, and add music, right where you build your training.",
+        intro:
+          "Click Edit video on an uploaded video anywhere in your training, make your changes, and save it back in place of the original.",
+        who: { main: "Admins and Managers", sub: "Anyone who can edit the training" },
+        where: { main: "Opus Dashboard", sub: "Edit video, on any uploaded video" },
+        access: { main: "On every plan", sub: "No setup needed" },
+        highlights: [
+          {
+            title: "Cut it down",
+            text: "Trim, split, delete, and reorder clips, or join more videos from your Library.",
+          },
+          {
+            title: "Pause on what matters",
+            text: "Freeze a frame or slow a clip down so your team sees exactly what good looks like.",
+          },
+          {
+            title: "Add a voiceover",
+            text: "Record yourself while the video plays, or type a script and have an AI voice read it.",
+          },
+          {
+            title: "Add background music",
+            text: "Generate a track or upload your own. It gets quieter automatically while the voiceover plays.",
+          },
+        ],
+        firstStep:
+          "Open a training video your team filmed on a phone and trim it down to the steps that matter.",
         ctaLabel: "Open your Library",
       },
     },
@@ -267,7 +314,7 @@ const october: Release = {
       tryThis:
         "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
       helpUrl: `${HELP}/en/articles/17154255`,
-      tryUrl: DASHBOARD,
+      tryUrl: `${DASHBOARD}/my-profile`,
       media: "none",
       video: "/releases/2026-10/profile",
       videoAspect: "359 / 270",
@@ -309,7 +356,7 @@ const october: Release = {
       tryThis:
         "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
       helpUrl: `${HELP}/en/articles/17040944`,
-      tryUrl: DASHBOARD,
+      tryUrl: `${DASHBOARD}/library/forms?type=audits`,
       media: "none",
       video: "/releases/2026-10/audit",
       videoAspect: "35 / 27",
