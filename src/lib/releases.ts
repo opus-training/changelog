@@ -11,6 +11,8 @@ export type ReleaseFeature = {
   where: string;
   /** Optional caveat people should know before they start. */
   note?: string;
+  /** Optional quiet hint at what's coming next. */
+  teaser?: string;
   tags: string[];
   tryThis?: string;
   helpUrl: string;
@@ -141,6 +143,8 @@ const october: Release = {
       headline: "Put a face to every name.",
       deck: "Let your team personalize their profiles, and recognize each other more easily.",
       where: "For your whole team, in the Opus Dashboard and the Opus Training App.",
+      teaser:
+        "Psst. Those faces are about to get busier. A new Newsfeed and group messages arrive with Messaging in November.",
       ctaLabel: "Add your photo",
       tags: ["Improvement", "Team"],
       tryThis:
