@@ -46,15 +46,13 @@ export default async function ReleasePage({
   const featured = release.features.filter((feature) => feature.tier === "featured");
   return (
     <article className="issue">
-      <header className="issue-masthead">
-        <h1 className="issue-title">{release.title}</h1>
-      </header>
-
       {hero ? <Lead feature={hero} release={release} /> : null}
 
       {featured.length > 0 ? (
         <section className="issue-chapter">
-          <h2 className="issue-heading">Also in {release.label.split(" ")[0]}</h2>
+          <h2 className="issue-heading is-start">
+            {release.alsoHeading ?? `Also in ${release.label.split(" ")[0]}`}
+          </h2>
           <div className="issue-rows">
             {featured.map((feature, index) => (
               <Row
@@ -93,11 +91,19 @@ function Lead({
   const href = featureUrl(release, feature);
   return (
     <section className="issue-chapter issue-lead">
-      {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
-      <h2 className="issue-heading">
-        <Link href={href}>{feature.headline ?? feature.title}</Link>
-      </h2>
-      {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
+      <p className="issue-eyebrow">{release.kicker ?? feature.title}</p>
+      <h1 className="issue-heading issue-hero-title">
+        {feature.headline ?? feature.title}
+      </h1>
+      {feature.story?.map((paragraph) => (
+        <p className="issue-story" key={paragraph}>
+          {paragraph}
+        </p>
+      ))}
+      {!feature.story && feature.pitch ? (
+        <p className="issue-pitch">{feature.pitch}</p>
+      ) : null}
+      <FeatureActions feature={feature} href={href} />
       <div className="issue-stage">
         <FeatureVideo
           video={feature.video}
@@ -114,20 +120,28 @@ function Lead({
           ))}
         </ul>
       ) : null}
-      <aside className={feature.tryThis ? "issue-note" : "issue-note is-bare"}>
-        {feature.tryThis ? (
-          <>
-            <p className="issue-note-label">Try this</p>
-            <p className="issue-note-text">{feature.tryThis}</p>
-          </>
-        ) : null}
-        <div className="issue-actions">
-          <a className="btn-solid" href={feature.tryUrl}>
-            Give it a try
-          </a>
-        </div>
-      </aside>
     </section>
+  );
+}
+
+function FeatureActions({
+  feature,
+  href,
+  align,
+}: {
+  feature: ReleaseFeature;
+  href: string;
+  align?: "start";
+}) {
+  return (
+    <div className={align === "start" ? "issue-actions is-start" : "issue-actions"}>
+      <Link className="btn-solid" href={href}>
+        See the feature
+      </Link>
+      <a className="btn-outline" href={feature.helpUrl}>
+        Help article
+      </a>
+    </div>
   );
 }
 
@@ -149,17 +163,9 @@ function Row({
       />
       <div className="issue-row-copy">
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
-        <h3 className="issue-row-title">
-          <Link href={href}>{feature.headline ?? feature.title}</Link>
-        </h3>
+        <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
         <p>{feature.deck}</p>
-        <a
-          className="issue-link"
-          href={feature.tryUrl}
-          aria-label={`Give it a try: ${feature.title}`}
-        >
-          Give it a try <span aria-hidden="true">→</span>
-        </a>
+        <FeatureActions feature={feature} href={href} align="start" />
       </div>
     </div>
   );

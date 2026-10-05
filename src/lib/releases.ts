@@ -35,6 +35,8 @@ export type ReleaseFeature = {
   headline?: string;
   deck: string;
   pitch?: string;
+  /** Longer hero copy. Replaces pitch on the release index when set. */
+  story?: string[];
   highlights?: { title: string; text: string }[];
   tags: string[];
   tryThis?: string;
@@ -53,6 +55,10 @@ export type Release = {
   label: string;
   title: string;
   summary: string;
+  /** Small label above the hero, in place of the feature name. */
+  kicker?: string;
+  /** Heading for the featured-row section. Defaults to "Also in {month}". */
+  alsoHeading?: string;
   features: ReleaseFeature[];
 };
 
@@ -62,15 +68,19 @@ const october: Release = {
   slug: "2026-10",
   label: "October 2026",
   title: "October 2026 Release",
+  kicker: "October release",
+  alsoHeading: "The other big ones in October",
   summary:
     "Build AI agents in Opus that know your people, your content, and your data.",
   features: [
     {
       slug: "opus-ai-agent",
       title: "Opus AI Agent",
-      headline: "Put Opus to work with agents.",
-      pitch:
-        "Each agent is a set of instructions you control, and it only sees what you can see.",
+      headline: "Lonely no more:\nMulti agent workflows are now in Opus",
+      story: [
+        "Ask Opus doesn't have to do all the work alone anymore. He's now the primary agent, and you can give him a team of specialized agents to take care of the busywork you used to handle yourself. We've set up a few of our favorites to get you started, like the Stale Content Hunter, which keeps your Library tidy, and the Content Reporter, which reports on what you care about, when you care about it. You can also build your own agents.",
+        "We can't wait to see what you will do with them.",
+      ],
       highlights: [
         {
           title: "Start from a template.",
@@ -87,8 +97,6 @@ const october: Release = {
       ],
       deck: "Build agents that know your people, your content, and your data.",
       tags: ["Feature", "AI"],
-      tryThis:
-        "Add the Library Manager template and ask it to find duplicate or stale content in your Library.",
       helpUrl: "https://help.opus.so/en/articles/17153956",
       tryUrl: `${DASHBOARD}/agents`,
       media: "agent-workflow",

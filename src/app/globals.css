@@ -1715,6 +1715,10 @@ a {
   border-top: 1px solid var(--rule);
 }
 
+.issue-lead {
+  border-top: 0;
+}
+
 .issue-eyebrow {
   text-align: center;
   font-size: 12px;
@@ -1734,6 +1738,30 @@ a {
   text-align: center;
   color: var(--ink);
   margin: 0 0 32px;
+}
+
+.issue-heading.is-start {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.issue-hero-title {
+  white-space: pre-line;
+  margin-bottom: 28px;
+}
+
+.issue-story {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #1e5b56;
+}
+
+.issue-story + .issue-story {
+  margin-top: 18px;
 }
 
 .issue-heading a,
@@ -1880,6 +1908,11 @@ a {
   justify-content: center;
   gap: 12px;
   margin-top: 24px;
+}
+
+.issue-actions.is-start {
+  justify-content: flex-start;
+  margin-top: 8px;
 }
 
 .issue-rows {
