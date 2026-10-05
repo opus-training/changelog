@@ -53,7 +53,9 @@ export default async function ReleasePage({
 
       {featured.length > 0 ? (
         <section className="issue-chapter">
-          <h2 className="issue-heading">Also in {release.label.split(" ")[0]}</h2>
+          <h2 className="issue-heading is-start">
+            {release.alsoHeading ?? `Also in ${release.label.split(" ")[0]}`}
+          </h2>
           <div className="issue-rows">
             {featured.map((feature, index) => (
               <Row key={feature.slug} feature={feature} flip={index % 2 === 1} />
@@ -81,10 +83,16 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
   return (
     <section className="issue-chapter issue-lead">
       {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
-      <h2 className="issue-heading">
-        <a href={feature.helpUrl}>{feature.headline ?? feature.title}</a>
-      </h2>
+      <h2 className="issue-heading">{feature.headline ?? feature.title}</h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
+      <div className="issue-story-block">
+        {feature.story?.map((paragraph) => (
+          <p className="issue-story" key={paragraph}>
+            {paragraph}
+          </p>
+        ))}
+        <FeatureActions feature={feature} />
+      </div>
       <div className="issue-stage">
         <FeatureVideo
           video={feature.video}
@@ -101,29 +109,24 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
           ))}
         </ul>
       ) : null}
-      <aside className={feature.tryThis ? "issue-note" : "issue-note is-bare"}>
-        {feature.tryThis ? (
-          <>
-            <p className="issue-note-label">Try this</p>
-            <p className="issue-note-text">{feature.tryThis}</p>
-          </>
-        ) : null}
+      <aside className="issue-note is-bare">
         <p className="issue-where">{feature.where}</p>
         {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
-        <div className="issue-actions">
-          <a className="btn-solid" href={feature.tryUrl}>
-            {feature.ctaLabel}
-          </a>
-          <a
-            className="btn-outline"
-            href={feature.helpUrl}
-            aria-label={`Learn more about ${feature.title}`}
-          >
-            Learn more <span aria-hidden="true">↗</span>
-          </a>
-        </div>
       </aside>
     </section>
+  );
+}
+
+function FeatureActions({ feature }: { feature: ReleaseFeature }) {
+  return (
+    <div className="issue-actions is-start">
+      <a className="btn-solid" href={feature.tryUrl} aria-label={`${feature.ctaLabel}: ${feature.title}`}>
+        {feature.ctaLabel}
+      </a>
+      <a className="btn-outline" href={feature.helpUrl} aria-label={`Help article: ${feature.title}`}>
+        Help article
+      </a>
+    </div>
   );
 }
 
@@ -137,29 +140,12 @@ function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
       />
       <div className="issue-row-copy">
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
-        <h3 className="issue-row-title">
-          <a href={feature.helpUrl}>{feature.headline ?? feature.title}</a>
-        </h3>
+        <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
         <p>{feature.deck}</p>
         <p className="issue-where">{feature.where}</p>
         {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
         {feature.teaser ? <p className="issue-teaser">{feature.teaser}</p> : null}
-        <div className="issue-row-links">
-          <a
-            className="issue-link"
-            href={feature.tryUrl}
-            aria-label={`${feature.ctaLabel}: ${feature.title}`}
-          >
-            {feature.ctaLabel} <span aria-hidden="true">→</span>
-          </a>
-          <a
-            className="issue-link"
-            href={feature.helpUrl}
-            aria-label={`Learn more about ${feature.title}`}
-          >
-            Learn more <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+        <FeatureActions feature={feature} />
       </div>
     </div>
   );
