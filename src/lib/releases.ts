@@ -16,7 +16,6 @@ export type ReleaseFeature = {
   /** Optional quiet hint at what's coming next. */
   teaser?: string;
   tags: string[];
-  tryThis?: string;
   helpUrl: string;
   tryUrl: string;
   /** Specific label for the try button. */
@@ -78,8 +77,6 @@ const october: Release = {
       where: "For Admins. Find them in the Agents section of the left menu.",
       ctaLabel: "Open Agents",
       tags: ["Feature", "AI"],
-      tryThis:
-        "Add the Library Manager template and ask it to find duplicate or stale content in your Library.",
       helpUrl: "https://help.opus.so/en/articles/17153956",
       tryUrl: `${DASHBOARD}/agents`,
       video: "/releases/2026-10/agents",
@@ -108,8 +105,6 @@ const october: Release = {
       where: "For Admins, plus Managers with permission. Training › Paths.",
       ctaLabel: "Open Paths",
       tags: ["Feature", "Training", "Modules"],
-      tryThis:
-        "Open one of your existing Paths and take a look around. Check the Runs tab to see who's currently working through it.",
       helpUrl: "https://help.opus.so/en/articles/9460316-paths-overview",
       tryUrl: `${DASHBOARD}/paths`,
       video: "/releases/2026-10/path",
@@ -126,8 +121,6 @@ const october: Release = {
         "The Manage tab is gone: who gets your content is now on the Overview, and the assigned, past due, and self-serve lists are under Reporting.",
       ctaLabel: "Open your Library",
       tags: ["Feature", "Training", "Operations"],
-      tryThis:
-        "Open a Course you manage and start with the Overview. Use the phone preview to see it the way your team does, then open Build to frame a screen's media with Content Zoom.",
       helpUrl: "https://help.opus.so/en/articles/17154881-content-pages-overview",
       tryUrl: `${DASHBOARD}/library`,
       video: "/releases/2026-10/detail",
@@ -141,8 +134,6 @@ const october: Release = {
       where: "For Admins, plus Managers who can edit the training. Click Edit video on any uploaded video.",
       ctaLabel: "Open your Library",
       tags: ["Feature", "Video"],
-      tryThis:
-        "Open a training video your team filmed on a phone and trim it down to the steps that matter.",
       helpUrl: "https://help.opus.so/en/articles/17297854",
       tryUrl: `${DASHBOARD}/library`,
       video: "/releases/2026-10/video-editor",
@@ -159,8 +150,6 @@ const october: Release = {
         "Psst. Those faces are about to get busier. A new Newsfeed and group messages arrive with Messaging in November.",
       ctaLabel: "Add your photo",
       tags: ["Improvement", "Team"],
-      tryThis:
-        "Ask everyone to add a profile photo ahead of the Opus Messaging update in November, or use it as a quick way to put names to faces across your business.",
       helpUrl: "https://help.opus.so/en/articles/17154255",
       tryUrl: `${DASHBOARD}/my-profile`,
       video: "/releases/2026-10/profile",
@@ -175,8 +164,6 @@ const october: Release = {
       where: "For teams that use Audits. Open an Audit and choose Scoring.",
       ctaLabel: "Set up thresholds",
       tags: ["Improvement", "Audits"],
-      tryThis:
-        "Open an Audit and check the Scoring settings. If pass/fail does not give your team enough context, try setting up a threshold-based grading scale.",
       helpUrl: "https://help.opus.so/en/articles/17040944",
       tryUrl: `${DASHBOARD}/library/forms?type=audits`,
       video: "/releases/2026-10/audit",

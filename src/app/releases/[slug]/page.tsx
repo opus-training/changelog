@@ -85,12 +85,14 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
       {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
       <h2 className="issue-heading">{feature.headline ?? feature.title}</h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
-      {feature.story?.map((paragraph) => (
-        <p className="issue-story" key={paragraph}>
-          {paragraph}
-        </p>
-      ))}
-      <FeatureActions feature={feature} />
+      <div className="issue-story-block">
+        {feature.story?.map((paragraph) => (
+          <p className="issue-story" key={paragraph}>
+            {paragraph}
+          </p>
+        ))}
+        <FeatureActions feature={feature} />
+      </div>
       <div className="issue-stage">
         <FeatureVideo
           video={feature.video}
@@ -107,12 +109,10 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
           ))}
         </ul>
       ) : null}
-      {feature.where || feature.note ? (
-        <aside className="issue-note is-bare">
-          {feature.where ? <p className="issue-where">{feature.where}</p> : null}
-          {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
-        </aside>
-      ) : null}
+      <aside className="issue-note is-bare">
+        <p className="issue-where">{feature.where}</p>
+        {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
+      </aside>
     </section>
   );
 }

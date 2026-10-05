@@ -631,14 +631,13 @@ a {
   margin-bottom: 0;
 }
 
-.issue-hero-title {
-  white-space: pre-line;
-  margin-bottom: 28px;
+.issue-story-block {
+  max-width: 640px;
+  margin: 24px auto 0;
 }
 
 .issue-story {
-  max-width: 640px;
-  margin: 0 auto;
+  margin: 0;
   text-align: left;
   font-size: 18px;
   font-weight: 500;
@@ -648,19 +647,6 @@ a {
 
 .issue-story + .issue-story {
   margin-top: 18px;
-}
-
-.issue-heading a,
-.issue-row-title a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.issue-heading a:hover,
-.issue-row-title a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.15em;
 }
 
 .issue-pitch {
@@ -772,21 +758,6 @@ a {
   background: none;
 }
 
-.issue-note-label {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 10px;
-}
-
-.issue-note-text {
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--ink);
-}
-
 .issue-actions,
 .issue-close-links {
   display: flex;
@@ -848,24 +819,6 @@ a {
   line-height: 1.15;
   color: var(--ink);
   margin: 0;
-}
-
-.issue-link {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.issue-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.issue-row-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
 .issue-where {
