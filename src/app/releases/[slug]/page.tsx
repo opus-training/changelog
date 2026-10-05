@@ -135,10 +135,10 @@ function FeatureActions({
 }) {
   return (
     <div className={align === "start" ? "issue-actions is-start" : "issue-actions"}>
-      <Link className="btn-solid" href={href}>
+      <Link className="btn-solid" href={href} aria-label={`See the feature: ${feature.title}`}>
         See the feature
       </Link>
-      <a className="btn-outline" href={feature.helpUrl}>
+      <a className="btn-outline" href={feature.helpUrl} aria-label={`Help article: ${feature.title}`}>
         Help article
       </a>
     </div>
