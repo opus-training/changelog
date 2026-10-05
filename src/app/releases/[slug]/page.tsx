@@ -3,10 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeatureVideo } from "@/components/FeatureVideo";
 import {
-  featureUrl,
   getRelease,
   getReleases,
-  type Release,
   type ReleaseFeature,
 } from "@/lib/releases";
 
@@ -46,7 +44,12 @@ export default async function ReleasePage({
   const featured = release.features.filter((feature) => feature.tier === "featured");
   return (
     <article className="issue">
-      {hero ? <Lead feature={hero} release={release} /> : null}
+      <header className="issue-masthead">
+        <p className="issue-eyebrow">{release.label}</p>
+        <h1 className="issue-title">{release.headline}</h1>
+      </header>
+
+      {hero ? <Lead feature={hero} /> : null}
 
       {featured.length > 0 ? (
         <section className="issue-chapter">
@@ -55,12 +58,7 @@ export default async function ReleasePage({
           </h2>
           <div className="issue-rows">
             {featured.map((feature, index) => (
-              <Row
-                key={feature.slug}
-                feature={feature}
-                href={featureUrl(release, feature)}
-                flip={index % 2 === 1}
-              />
+              <Row key={feature.slug} feature={feature} flip={index % 2 === 1} />
             ))}
           </div>
         </section>
@@ -81,29 +79,18 @@ export default async function ReleasePage({
   );
 }
 
-function Lead({
-  feature,
-  release,
-}: {
-  feature: ReleaseFeature;
-  release: Release;
-}) {
-  const href = featureUrl(release, feature);
+function Lead({ feature }: { feature: ReleaseFeature }) {
   return (
     <section className="issue-chapter issue-lead">
-      <p className="issue-eyebrow">{release.kicker ?? feature.title}</p>
-      <h1 className="issue-heading issue-hero-title">
-        {feature.headline ?? feature.title}
-      </h1>
+      {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
+      <h2 className="issue-heading">{feature.headline ?? feature.title}</h2>
+      {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
       {feature.story?.map((paragraph) => (
         <p className="issue-story" key={paragraph}>
           {paragraph}
         </p>
       ))}
-      {!feature.story && feature.pitch ? (
-        <p className="issue-pitch">{feature.pitch}</p>
-      ) : null}
-      <FeatureActions feature={feature} href={href} />
+      <FeatureActions feature={feature} />
       <div className="issue-stage">
         <FeatureVideo
           video={feature.video}
@@ -120,24 +107,22 @@ function Lead({
           ))}
         </ul>
       ) : null}
+      {feature.where || feature.note ? (
+        <aside className="issue-note is-bare">
+          {feature.where ? <p className="issue-where">{feature.where}</p> : null}
+          {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
+        </aside>
+      ) : null}
     </section>
   );
 }
 
-function FeatureActions({
-  feature,
-  href,
-  align,
-}: {
-  feature: ReleaseFeature;
-  href: string;
-  align?: "start";
-}) {
+function FeatureActions({ feature }: { feature: ReleaseFeature }) {
   return (
-    <div className={align === "start" ? "issue-actions is-start" : "issue-actions"}>
-      <Link className="btn-solid" href={href} aria-label={`See the feature: ${feature.title}`}>
-        See the feature
-      </Link>
+    <div className="issue-actions is-start">
+      <a className="btn-solid" href={feature.tryUrl} aria-label={`${feature.ctaLabel}: ${feature.title}`}>
+        {feature.ctaLabel}
+      </a>
       <a className="btn-outline" href={feature.helpUrl} aria-label={`Help article: ${feature.title}`}>
         Help article
       </a>
@@ -145,15 +130,7 @@ function FeatureActions({
   );
 }
 
-function Row({
-  feature,
-  href,
-  flip,
-}: {
-  feature: ReleaseFeature;
-  href: string;
-  flip: boolean;
-}) {
+function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
   return (
     <div className={flip ? "issue-row is-flipped" : "issue-row"}>
       <FeatureVideo
@@ -165,7 +142,10 @@ function Row({
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
         <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
         <p>{feature.deck}</p>
-        <FeatureActions feature={feature} href={href} align="start" />
+        <p className="issue-where">{feature.where}</p>
+        {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
+        {feature.teaser ? <p className="issue-teaser">{feature.teaser}</p> : null}
+        <FeatureActions feature={feature} />
       </div>
     </div>
   );
