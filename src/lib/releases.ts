@@ -63,6 +63,16 @@ const october: Release = {
       tier: "companion",
     },
     {
+      slug: "video-editor",
+      title: "Video Editor",
+      headline: "Polish training videos in Opus.",
+      deck: "Trim clips, add a voiceover or an AI voice, and add music, then save it in place.",
+      tags: ["Feature", "Video"],
+      video: "/releases/2026-10/video-editor",
+      videoAspect: "35 / 27",
+      tier: "featured",
+    },
+    {
       slug: "improved-path-builder",
       title: "Improved Path Builder",
       headline: "Build Paths without the guesswork.",
@@ -79,16 +89,6 @@ const october: Release = {
       deck: "A new Overview shows results, who has it, and a phone preview of what your team sees.",
       tags: ["Feature", "Training", "Operations"],
       video: "/releases/2026-10/detail",
-      tier: "featured",
-    },
-    {
-      slug: "video-editor",
-      title: "Video Editor",
-      headline: "Polish training videos in Opus.",
-      deck: "Trim clips, add a voiceover or an AI voice, and add music, then save it in place.",
-      tags: ["Feature", "Video"],
-      video: "/releases/2026-10/video-editor",
-      videoAspect: "35 / 27",
       tier: "featured",
     },
     {
