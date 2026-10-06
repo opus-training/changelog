@@ -80,22 +80,6 @@ function Lead({
           aspect={feature.videoAspect}
         />
       </div>
-      <div className="issue-story-block">
-        {feature.story?.map((paragraph) => (
-          <p className="issue-story" key={paragraph}>
-            {paragraph}
-          </p>
-        ))}
-      </div>
-      {feature.highlights?.length ? (
-        <ul className="issue-points">
-          {feature.highlights.map((highlight) => (
-            <li key={highlight.title}>
-              <strong>{highlight.title}</strong> {highlight.text}
-            </li>
-          ))}
-        </ul>
-      ) : null}
       {companions.map((companion) => (
         <Companion key={companion.slug} feature={companion} />
       ))}

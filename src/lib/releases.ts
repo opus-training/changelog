@@ -7,9 +7,6 @@ export type ReleaseFeature = {
   headline?: string;
   deck: string;
   pitch?: string;
-  /** Longer hero copy, shown under the pitch. */
-  story?: string[];
-  highlights?: { title: string; text: string }[];
   /** Who gets it and where to find it, in one line. */
   where?: string;
   /** Optional caveat people should know before they start. */
@@ -49,23 +46,6 @@ const october: Release = {
       headline: "Put Opus to work with agents.",
       pitch:
         "Agents answer questions about your team, find content that needs attention, and draft training for you, using only what you can already see.",
-      story: [
-        "We can't wait to see what you will do with them.",
-      ],
-      highlights: [
-        {
-          title: "Start from a template.",
-          text: "Onboarding, compliance, content, reporting, and more.",
-        },
-        {
-          title: "Build your own.",
-          text: "Write instructions in your own words, like how to check past-due training, and it follows them every time you ask.",
-        },
-        {
-          title: "Share with other Admins.",
-          text: "Every Admin in your business can use the agents you build.",
-        },
-      ],
       deck: "Build agents that know your people, your content, and your data.",
       tags: ["Feature", "AI"],
       video: "/releases/2026-10/agents",
