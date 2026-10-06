@@ -160,6 +160,28 @@ a {
   color: var(--canvas);
 }
 
+.header-link.is-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--canvas);
+  font-weight: 500;
+}
+
+.header-link.is-primary:hover {
+  background: color-mix(in srgb, var(--ink) 88%, #000);
+}
+
+@media (max-width: 560px) {
+  .site-nav,
+  .header-link:not(.is-primary) {
+    display: none;
+  }
+
+  .header-link.is-primary {
+    margin-left: auto;
+  }
+}
+
 /* ── Page head ──────────────────────────────────────────────────────────── */
 
 .page-head {

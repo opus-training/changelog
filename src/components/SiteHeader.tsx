@@ -6,6 +6,8 @@ import { OpusWordmark } from "@/components/OpusWordmark";
 
 const ROADMAP =
   "https://opustraining.notion.site/opustraining/5c7e7b1164bb44e58f1f5afdeb74bbea?v=fe8fa7f83a5a499493c91f5d6140735f";
+const BOOK_A_DEMO =
+  "https://www.opus.so/book-a-demo?utm_source=changelog&utm_medium=website&utm_campaign=header_cta";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -29,6 +31,9 @@ export function SiteHeader() {
         </nav>
         <a className="header-link" href="https://www.opus.so">
           opus.so
+        </a>
+        <a className="header-link is-primary" href={BOOK_A_DEMO}>
+          Book a demo
         </a>
       </div>
     </header>
