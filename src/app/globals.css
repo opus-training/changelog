@@ -864,8 +864,8 @@ a {
     gap: 24px;
   }
 
-  .issue-row.is-flipped > :first-child {
-    order: 0;
+  .issue-row > :first-child {
+    order: 2;
   }
 
   .issue-rows {
