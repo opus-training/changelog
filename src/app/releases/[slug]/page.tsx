@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeatureVideo } from "@/components/FeatureVideo";
 import {
@@ -7,9 +6,6 @@ import {
   getReleases,
   type ReleaseFeature,
 } from "@/lib/releases";
-
-const ROADMAP =
-  "https://opustraining.notion.site/opustraining/5c7e7b1164bb44e58f1f5afdeb74bbea?v=fe8fa7f83a5a499493c91f5d6140735f";
 
 export const dynamicParams = false;
 
@@ -63,18 +59,6 @@ export default async function ReleasePage({
           </div>
         </section>
       ) : null}
-
-      <footer className="issue-close">
-        <p className="issue-close-line">Looking for every fix, or what comes next?</p>
-        <div className="issue-close-links">
-          <Link className="btn-outline" href="/">
-            Read the changelog
-          </Link>
-          <a className="btn-outline" href={ROADMAP}>
-            See the roadmap
-          </a>
-        </div>
-      </footer>
     </article>
   );
 }
@@ -85,6 +69,13 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
       {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
       <h2 className="issue-heading">{feature.headline ?? feature.title}</h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
+      <div className="issue-stage">
+        <FeatureVideo
+          video={feature.video}
+          title={feature.title}
+          aspect={feature.videoAspect}
+        />
+      </div>
       <div className="issue-story-block">
         {feature.story?.map((paragraph) => (
           <p className="issue-story" key={paragraph}>
@@ -92,13 +83,6 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
           </p>
         ))}
         <FeatureActions feature={feature} />
-      </div>
-      <div className="issue-stage">
-        <FeatureVideo
-          video={feature.video}
-          title={feature.title}
-          aspect={feature.videoAspect}
-        />
       </div>
       {feature.highlights?.length ? (
         <ul className="issue-points">
@@ -109,24 +93,23 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
           ))}
         </ul>
       ) : null}
-      <aside className="issue-note is-bare">
-        <p className="issue-where">{feature.where}</p>
-        {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
-      </aside>
+      {feature.where || feature.note ? (
+        <aside className="issue-note is-bare">
+          {feature.where ? <p className="issue-where">{feature.where}</p> : null}
+          {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
+        </aside>
+      ) : null}
     </section>
   );
 }
 
 function FeatureActions({ feature }: { feature: ReleaseFeature }) {
   return (
-    <div className="issue-actions is-start">
-      <a className="btn-solid" href={feature.tryUrl} aria-label={`${feature.ctaLabel}: ${feature.title}`}>
-        {feature.ctaLabel}
-      </a>
-      <a className="btn-outline" href={feature.helpUrl} aria-label={`Help article: ${feature.title}`}>
+    <p className="issue-actions is-start">
+      <a className="issue-help-link" href={feature.helpUrl} aria-label={`Help article: ${feature.title}`}>
         Help article
       </a>
-    </div>
+    </p>
   );
 }
 
@@ -142,7 +125,7 @@ function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
         <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
         <p>{feature.deck}</p>
-        <p className="issue-where">{feature.where}</p>
+        {feature.where ? <p className="issue-where">{feature.where}</p> : null}
         {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
         {feature.teaser ? <p className="issue-teaser">{feature.teaser}</p> : null}
         <FeatureActions feature={feature} />

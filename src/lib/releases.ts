@@ -10,16 +10,13 @@ export type ReleaseFeature = {
   story?: string[];
   highlights?: { title: string; text: string }[];
   /** Who gets it and where to find it, in one line. */
-  where: string;
+  where?: string;
   /** Optional caveat people should know before they start. */
   note?: string;
   /** Optional quiet hint at what's coming next. */
   teaser?: string;
   tags: string[];
   helpUrl: string;
-  tryUrl: string;
-  /** Specific label for the try button. */
-  ctaLabel: string;
   video?: string;
   /** Native aspect ratio for framed clips, e.g. "35 / 27"; shown uncropped. */
   videoAspect?: string;
@@ -38,8 +35,6 @@ export type Release = {
   features: ReleaseFeature[];
 };
 
-const DASHBOARD = "https://dashboard.opus.so";
-
 const october: Release = {
   slug: "2026-10",
   label: "October 2026",
@@ -56,7 +51,6 @@ const october: Release = {
       pitch:
         "Agents answer questions about your team, find content that needs attention, and draft training for you, using only what you can already see.",
       story: [
-        "Ask Opus doesn't have to do all the work alone anymore. He's now the primary agent, and you can give him a team of specialized agents to take care of the busywork you used to handle yourself. We've set up a few of our favorites to get you started, like the Stale Content Hunter, which keeps your Library tidy, and the Content Reporter, which reports on what you care about, when you care about it. You can also build your own agents.",
         "We can't wait to see what you will do with them.",
       ],
       highlights: [
@@ -74,11 +68,8 @@ const october: Release = {
         },
       ],
       deck: "Build agents that know your people, your content, and your data.",
-      where: "For Admins. Find them in the Agents section of the left menu.",
-      ctaLabel: "Open Agents",
       tags: ["Feature", "AI"],
       helpUrl: "https://help.opus.so/en/articles/17153956",
-      tryUrl: `${DASHBOARD}/agents`,
       video: "/releases/2026-10/agents",
       videoAspect: "275 / 172",
       tier: "hero",
@@ -89,10 +80,8 @@ const october: Release = {
       headline: "Opus, inside Claude and ChatGPT.",
       deck: "Connect Opus to the AI tools you already use. If your AI tool is also connected to your scheduling or HR system, ask one question across all of them, like who is working this weekend without a current food safety certification.",
       where: "For Admins and Managers, and each sees only what they can see in Opus. Admins connect in Settings › AI connections, and Managers connect from their AI tool.",
-      ctaLabel: "Connect your AI tool",
       tags: ["Feature", "Integrations"],
       helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
-      tryUrl: `${DASHBOARD}/settings/ai-connections`,
       video: "/releases/2026-10/mcp",
       videoAspect: "35 / 27",
       tier: "featured",
@@ -103,10 +92,8 @@ const october: Release = {
       headline: "Build Paths without the guesswork.",
       deck: "Keep changes in draft until you publish, and see who's on each step in the new Runs tab.",
       where: "For Admins, plus Managers with permission. Training › Paths.",
-      ctaLabel: "Open Paths",
       tags: ["Feature", "Training", "Modules"],
       helpUrl: "https://help.opus.so/en/articles/9460316-paths-overview",
-      tryUrl: `${DASHBOARD}/paths`,
       video: "/releases/2026-10/path",
       videoAspect: "35 / 27",
       tier: "featured",
@@ -119,10 +106,8 @@ const october: Release = {
       where: "For Admins and Managers. Open any Course, Module, Check-in, Resource, Checklist, or Audit.",
       note:
         "The Manage tab is gone: who gets your content is now on the Overview, and the assigned, past due, and self-serve lists are under Reporting.",
-      ctaLabel: "Open your Library",
       tags: ["Feature", "Training", "Operations"],
       helpUrl: "https://help.opus.so/en/articles/17154881-content-pages-overview",
-      tryUrl: `${DASHBOARD}/library`,
       video: "/releases/2026-10/detail",
       tier: "featured",
     },
@@ -132,10 +117,8 @@ const october: Release = {
       headline: "Polish training videos in Opus.",
       deck: "Trim clips, add a voiceover or an AI voice, and add music, then save it in place.",
       where: "For Admins, plus Managers who can edit the training. Click Edit video on any uploaded video.",
-      ctaLabel: "Open your Library",
       tags: ["Feature", "Video"],
       helpUrl: "https://help.opus.so/en/articles/17297854",
-      tryUrl: `${DASHBOARD}/library`,
       video: "/releases/2026-10/video-editor",
       videoAspect: "35 / 27",
       tier: "featured",
@@ -148,10 +131,8 @@ const october: Release = {
       where: "For your whole team, in the Opus Dashboard and the Opus Training App.",
       teaser:
         "Psst. Those faces are about to get busier. A new Newsfeed and group messages arrive with Messaging in November.",
-      ctaLabel: "Add your photo",
       tags: ["Improvement", "Team"],
       helpUrl: "https://help.opus.so/en/articles/17154255",
-      tryUrl: `${DASHBOARD}/my-profile`,
       video: "/releases/2026-10/profile",
       videoAspect: "359 / 270",
       tier: "featured",
@@ -161,11 +142,8 @@ const october: Release = {
       title: "Audit Thresholds",
       headline: "Audits, graded your way.",
       deck: "Grade every Audit and each section from Excellent to Needs improvement, using ranges you set.",
-      where: "For teams that use Audits. Open an Audit and choose Scoring.",
-      ctaLabel: "Set up thresholds",
       tags: ["Improvement", "Audits"],
       helpUrl: "https://help.opus.so/en/articles/17040944",
-      tryUrl: `${DASHBOARD}/library/forms?type=audits`,
       video: "/releases/2026-10/audit",
       videoAspect: "35 / 27",
       tier: "featured",
