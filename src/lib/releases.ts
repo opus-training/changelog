@@ -82,9 +82,6 @@ const october: Release = {
       title: "Content Detail Pages",
       headline: "Every piece of content, at a glance.",
       deck: "A new Overview shows results, who has it, and a phone preview of what your team sees.",
-      where: "For Admins and Managers. Open any Course, Module, Check-in, Resource, Checklist, or Audit.",
-      note:
-        "The Manage tab is gone: who gets your content is now on the Overview, and the assigned, past due, and self-serve lists are under Reporting.",
       tags: ["Feature", "Training", "Operations"],
       video: "/releases/2026-10/detail",
       tier: "featured",
