@@ -7,6 +7,9 @@ import {
   type ReleaseFeature,
 } from "@/lib/releases";
 
+const BOOK_A_DEMO =
+  "https://www.opus.so/book-a-demo?utm_source=changelog&utm_medium=website&utm_campaign=release_page";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -44,6 +47,9 @@ export default async function ReleasePage({
       <header className="issue-masthead">
         <p className="issue-eyebrow">{release.label}</p>
         <h1 className="issue-title">{release.headline}</h1>
+        <a className="btn-solid issue-cta" href={BOOK_A_DEMO}>
+          Book a demo
+        </a>
       </header>
 
       {hero ? <Lead feature={hero} companions={companions} /> : null}

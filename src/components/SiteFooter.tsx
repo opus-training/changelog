@@ -31,8 +31,6 @@ export function SiteFooter() {
       <div className="wrap">
         <a href="https://www.opus.so">opus.so</a>
         <span className="footer-sep">·</span>
-        <Link href="/releases/">Releases</Link>
-        <span className="footer-sep">·</span>
         <a href="/feed.xml">RSS</a>
         <span className="footer-sep">·</span>
         <a href={PRIVACY_POLICY_URL}>Privacy Policy</a>
