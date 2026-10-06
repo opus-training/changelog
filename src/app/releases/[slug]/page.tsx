@@ -110,8 +110,8 @@ function Companion({ feature }: { feature: ReleaseFeature }) {
               src={logo.src}
               alt={logo.name}
               title={logo.name}
-              width={28}
-              height={28}
+              width={44}
+              height={44}
             />
           ))}
         </span>
