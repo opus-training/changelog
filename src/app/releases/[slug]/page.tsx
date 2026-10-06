@@ -49,9 +49,6 @@ export default async function ReleasePage({
 
       {featured.length > 0 ? (
         <section className="issue-chapter">
-          <h2 className="issue-heading is-start">
-            {release.alsoHeading ?? `Also in ${release.label.split(" ")[0]}`}
-          </h2>
           <div className="issue-rows">
             {featured.map((feature, index) => (
               <Row key={feature.slug} feature={feature} flip={index % 2 === 1} />

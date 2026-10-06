@@ -30,8 +30,6 @@ export type Release = {
   /** Big line at the top of the release page. */
   headline: string;
   summary: string;
-  /** Heading for the featured-row section. Defaults to "Also in {month}". */
-  alsoHeading?: string;
   features: ReleaseFeature[];
 };
 
@@ -40,7 +38,6 @@ const october: Release = {
   label: "October 2026",
   title: "October 2026 Release",
   headline: "Automate the tedious tasks so you can focus on what’s high impact.",
-  alsoHeading: "The other big ones in October",
   summary:
     "Automate the tedious tasks so you can focus on what’s high impact. New this month: Agents, Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
   features: [

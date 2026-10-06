@@ -627,11 +627,6 @@ a {
   margin: 0 0 32px;
 }
 
-.issue-heading.is-start {
-  text-align: left;
-  margin-bottom: 0;
-}
-
 .issue-story-block {
   max-width: 640px;
   margin: 0 auto 56px;
@@ -788,7 +783,6 @@ a {
   display: flex;
   flex-direction: column;
   gap: 88px;
-  margin-top: 56px;
 }
 
 .issue-row {
