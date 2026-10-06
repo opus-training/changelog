@@ -72,7 +72,6 @@ const october: Release = {
       title: "Improved Path Builder",
       headline: "Build Paths without the guesswork.",
       deck: "Keep changes in draft until you publish, and see who's on each step in the new Runs tab.",
-      where: "For Admins, plus Managers with permission. Training › Paths.",
       tags: ["Feature", "Training", "Modules"],
       video: "/releases/2026-10/path",
       videoAspect: "35 / 27",
