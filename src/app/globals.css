@@ -758,11 +758,6 @@ a {
   margin: 8px auto 16px;
 }
 
-.issue-companion .issue-actions.is-start {
-  justify-content: center;
-  margin-top: 20px;
-}
-
 .issue-logos {
   list-style: none;
   display: flex;
@@ -803,31 +798,6 @@ a {
   padding: 0;
   border: 0;
   background: none;
-}
-
-.issue-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.issue-actions.is-start {
-  justify-content: flex-start;
-  margin-top: 8px;
-}
-
-.issue-help-link {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.issue-help-link:hover {
-  text-decoration-thickness: 2px;
 }
 
 .issue-rows {

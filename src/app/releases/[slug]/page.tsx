@@ -86,7 +86,6 @@ function Lead({
             {paragraph}
           </p>
         ))}
-        <FeatureActions feature={feature} />
       </div>
       {feature.highlights?.length ? (
         <ul className="issue-points">
@@ -127,18 +126,7 @@ function Companion({ feature }: { feature: ReleaseFeature }) {
       <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
       <p>{feature.deck}</p>
       {feature.where ? <p className="issue-where">{feature.where}</p> : null}
-      <FeatureActions feature={feature} />
     </div>
-  );
-}
-
-function FeatureActions({ feature }: { feature: ReleaseFeature }) {
-  return (
-    <p className="issue-actions is-start">
-      <a className="issue-help-link" href={feature.helpUrl} aria-label={`Help article: ${feature.title}`}>
-        Help article
-      </a>
-    </p>
   );
 }
 
@@ -157,7 +145,6 @@ function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
         {feature.where ? <p className="issue-where">{feature.where}</p> : null}
         {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
         {feature.teaser ? <p className="issue-teaser">{feature.teaser}</p> : null}
-        <FeatureActions feature={feature} />
       </div>
     </div>
   );

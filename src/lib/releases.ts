@@ -17,7 +17,6 @@ export type ReleaseFeature = {
   /** Optional quiet hint at what's coming next. */
   teaser?: string;
   tags: string[];
-  helpUrl: string;
   video?: string;
   /** Native aspect ratio for framed clips, e.g. "35 / 27"; shown uncropped. */
   videoAspect?: string;
@@ -69,7 +68,6 @@ const october: Release = {
       ],
       deck: "Build agents that know your people, your content, and your data.",
       tags: ["Feature", "AI"],
-      helpUrl: "https://help.opus.so/en/articles/17153956",
       video: "/releases/2026-10/agents",
       videoAspect: "275 / 172",
       tier: "hero",
@@ -81,7 +79,6 @@ const october: Release = {
       deck: "Connect Opus to the AI tools you already use. If your AI tool is also connected to your scheduling or HR system, ask one question across all of them, like who is working this weekend without a current food safety certification.",
       where: "For Admins and Managers, and each sees only what they can see in Opus. Admins connect in Settings › AI connections, and Managers connect from their AI tool.",
       tags: ["Feature", "Integrations"],
-      helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
       logos: [
         { name: "Claude", src: "/releases/2026-10/ai-tools/claude.svg" },
         { name: "ChatGPT", src: "/releases/2026-10/ai-tools/openai.svg" },
@@ -97,7 +94,6 @@ const october: Release = {
       deck: "Keep changes in draft until you publish, and see who's on each step in the new Runs tab.",
       where: "For Admins, plus Managers with permission. Training › Paths.",
       tags: ["Feature", "Training", "Modules"],
-      helpUrl: "https://help.opus.so/en/articles/9460316-paths-overview",
       video: "/releases/2026-10/path",
       videoAspect: "35 / 27",
       tier: "featured",
@@ -111,7 +107,6 @@ const october: Release = {
       note:
         "The Manage tab is gone: who gets your content is now on the Overview, and the assigned, past due, and self-serve lists are under Reporting.",
       tags: ["Feature", "Training", "Operations"],
-      helpUrl: "https://help.opus.so/en/articles/17154881-content-pages-overview",
       video: "/releases/2026-10/detail",
       tier: "featured",
     },
@@ -122,7 +117,6 @@ const october: Release = {
       deck: "Trim clips, add a voiceover or an AI voice, and add music, then save it in place.",
       where: "For Admins, plus Managers who can edit the training. Click Edit video on any uploaded video.",
       tags: ["Feature", "Video"],
-      helpUrl: "https://help.opus.so/en/articles/17297854",
       video: "/releases/2026-10/video-editor",
       videoAspect: "35 / 27",
       tier: "featured",
@@ -136,7 +130,6 @@ const october: Release = {
       teaser:
         "Psst. Those faces are about to get busier. A new Newsfeed and group messages arrive with Messaging in November.",
       tags: ["Improvement", "Team"],
-      helpUrl: "https://help.opus.so/en/articles/17154255",
       video: "/releases/2026-10/profile",
       videoAspect: "359 / 270",
       tier: "featured",
@@ -147,7 +140,6 @@ const october: Release = {
       headline: "Audits, graded your way.",
       deck: "Grade every Audit and each section from Excellent to Needs improvement, using ranges you set.",
       tags: ["Improvement", "Audits"],
-      helpUrl: "https://help.opus.so/en/articles/17040944",
       video: "/releases/2026-10/audit",
       videoAspect: "35 / 27",
       tier: "featured",
