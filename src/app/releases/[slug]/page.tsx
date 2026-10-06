@@ -95,22 +95,23 @@ function Lead({
 
 function Companion({ feature }: { feature: ReleaseFeature }) {
   return (
-    <div className="issue-companion">
+    <p className="issue-companion">
+      <span>{feature.headline ?? feature.title}</span>
       {feature.logos?.length ? (
-        <ul className="issue-logos">
+        <span className="issue-logos">
           {feature.logos.map((logo) => (
-            <li key={logo.name}>
-              <img src={logo.src} alt="" width={40} height={40} />
-              <span>{logo.name}</span>
-            </li>
+            <img
+              key={logo.name}
+              src={logo.src}
+              alt={logo.name}
+              title={logo.name}
+              width={28}
+              height={28}
+            />
           ))}
-        </ul>
+        </span>
       ) : null}
-      <p className="issue-row-label">{feature.title}</p>
-      <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
-      <p>{feature.deck}</p>
-      {feature.where ? <p className="issue-where">{feature.where}</p> : null}
-    </div>
+    </p>
   );
 }
 
@@ -125,10 +126,9 @@ function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
       <div className="issue-row-copy">
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
         <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
-        <p>{feature.deck}</p>
+        {feature.deck ? <p>{feature.deck}</p> : null}
         {feature.where ? <p className="issue-where">{feature.where}</p> : null}
         {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
-        {feature.teaser ? <p className="issue-teaser">{feature.teaser}</p> : null}
       </div>
     </div>
   );

@@ -5,14 +5,12 @@ export type ReleaseFeature = {
   slug: string;
   title: string;
   headline?: string;
-  deck: string;
+  deck?: string;
   pitch?: string;
   /** Who gets it and where to find it, in one line. */
   where?: string;
   /** Optional caveat people should know before they start. */
   note?: string;
-  /** Optional quiet hint at what's coming next. */
-  teaser?: string;
   tags: string[];
   video?: string;
   /** Native aspect ratio for framed clips, e.g. "35 / 27"; shown uncropped. */
@@ -55,9 +53,7 @@ const october: Release = {
     {
       slug: "opus-mcp",
       title: "Opus MCP",
-      headline: "All agent functionality also available in your AI tool.",
-      deck: "Connect Opus to the AI tools you already use. If your AI tool is also connected to your scheduling or HR system, ask one question across all of them, like who is working this weekend without a current food safety certification.",
-      where: "For Admins and Managers, and each sees only what they can see in Opus. Admins connect in Settings › AI connections, and Managers connect from their AI tool.",
+      headline: "Also available in your AI tool",
       tags: ["Feature", "Integrations"],
       logos: [
         { name: "Claude", src: "/releases/2026-10/ai-tools/claude.svg" },
@@ -91,7 +87,6 @@ const october: Release = {
       title: "Video Editor",
       headline: "Polish training videos in Opus.",
       deck: "Trim clips, add a voiceover or an AI voice, and add music, then save it in place.",
-      where: "For Admins, plus Managers who can edit the training. Click Edit video on any uploaded video.",
       tags: ["Feature", "Video"],
       video: "/releases/2026-10/video-editor",
       videoAspect: "35 / 27",
@@ -102,9 +97,6 @@ const october: Release = {
       title: "Profile Photos",
       headline: "Put a face to every name.",
       deck: "Let your team personalize their profiles, and recognize each other more easily.",
-      where: "For your whole team, in the Opus Dashboard and the Opus Training App.",
-      teaser:
-        "Psst. Those faces are about to get busier. A new Newsfeed and group messages arrive with Messaging in November.",
       tags: ["Improvement", "Team"],
       video: "/releases/2026-10/profile",
       videoAspect: "359 / 270",
