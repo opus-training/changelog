@@ -596,6 +596,18 @@ a {
   text-wrap: balance;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .issue-cta {
   margin-top: 32px;
 }
@@ -633,7 +645,7 @@ a {
 
 .issue-pitch {
   max-width: 560px;
-  margin: -16px auto 0;
+  margin: 0 auto;
   text-align: center;
   font-size: 19px;
   line-height: 1.55;

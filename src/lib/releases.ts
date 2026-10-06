@@ -34,14 +34,13 @@ const october: Release = {
   slug: "2026-10",
   label: "October 2026",
   title: "October 2026 Release",
-  headline: "Automate the tedious tasks so you can focus on what’s high impact",
+  headline: "Put Opus to work with agents",
   summary:
-    "Automate the tedious tasks so you can focus on what’s high impact. New this month: Agents, Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
+    "Put Opus to work with agents. New this month: Agents, Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
   features: [
     {
       slug: "opus-ai-agent",
       title: "Opus Agents",
-      headline: "Put Opus to work with agents.",
       pitch:
         "Agents answer questions about your team, find content that needs attention, and draft training for you, using only what you can already see.",
       deck: "Build agents that know your people, your content, and your data.",

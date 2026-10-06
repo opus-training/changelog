@@ -76,8 +76,7 @@ function Lead({
 }) {
   return (
     <section className="issue-chapter issue-lead">
-      {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
-      <h2 className="issue-heading">{feature.headline ?? feature.title}</h2>
+      <h2 className="sr-only">{feature.title}</h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
       <div className="issue-stage">
         <FeatureVideo
