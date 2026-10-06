@@ -1,4 +1,5 @@
-export type FeatureTier = "hero" | "featured";
+/** "companion" renders inside the hero section, as part of its story. */
+export type FeatureTier = "hero" | "companion" | "featured";
 
 export type ReleaseFeature = {
   slug: string;
@@ -20,6 +21,8 @@ export type ReleaseFeature = {
   video?: string;
   /** Native aspect ratio for framed clips, e.g. "35 / 27"; shown uncropped. */
   videoAspect?: string;
+  /** Logos of the tools it works with, shown instead of a video. */
+  logos?: { name: string; src: string }[];
   tier: FeatureTier;
 };
 
@@ -74,14 +77,18 @@ const october: Release = {
     {
       slug: "opus-mcp",
       title: "Opus MCP",
-      headline: "Opus, inside Claude and ChatGPT.",
+      headline: "All agent functionality also available in your AI tool.",
       deck: "Connect Opus to the AI tools you already use. If your AI tool is also connected to your scheduling or HR system, ask one question across all of them, like who is working this weekend without a current food safety certification.",
       where: "For Admins and Managers, and each sees only what they can see in Opus. Admins connect in Settings › AI connections, and Managers connect from their AI tool.",
       tags: ["Feature", "Integrations"],
       helpUrl: "https://help.opus.so/en/articles/16531461-getting-started-opus-mcp",
-      video: "/releases/2026-10/mcp",
-      videoAspect: "35 / 27",
-      tier: "featured",
+      logos: [
+        { name: "Claude", src: "/releases/2026-10/ai-tools/claude.svg" },
+        { name: "ChatGPT", src: "/releases/2026-10/ai-tools/openai.svg" },
+        { name: "Gemini", src: "/releases/2026-10/ai-tools/gemini.svg" },
+        { name: "Copilot", src: "/releases/2026-10/ai-tools/copilot.svg" },
+      ],
+      tier: "companion",
     },
     {
       slug: "improved-path-builder",
