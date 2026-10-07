@@ -10,23 +10,19 @@ export function SiteHeader() {
     pathname === "/roadmap" || pathname.startsWith("/roadmap/");
   const onReleases =
     pathname === "/releases" || pathname.startsWith("/releases/");
-  const section = onReleases ? "Releases" : onRoadmap ? "Roadmap" : "Changelog";
+  if (onReleases) return null;
   return (
     <header className="site-header">
       <div className="wrap">
-        <Link
-          className="brand"
-          href={onReleases ? "/releases/" : "/"}
-          aria-label="Opus"
-        >
+        <Link className="brand" href="/" aria-label="Opus">
           <OpusWordmark />
         </Link>
-        <span className="brand-sub">{section}</span>
+        <span className="brand-sub">{onRoadmap ? "Roadmap" : "Changelog"}</span>
         <nav className="site-nav" aria-label="Site">
           <Link
             href="/"
-            className={!onRoadmap && !onReleases ? "is-active" : undefined}
-            aria-current={!onRoadmap && !onReleases ? "page" : undefined}
+            className={!onRoadmap ? "is-active" : undefined}
+            aria-current={!onRoadmap ? "page" : undefined}
           >
             Changelog
           </Link>
@@ -37,13 +33,7 @@ export function SiteHeader() {
           >
             Roadmap
           </Link>
-          <Link
-            href="/releases/"
-            className={onReleases ? "is-active" : undefined}
-            aria-current={onReleases ? "page" : undefined}
-          >
-            Releases
-          </Link>
+          <Link href="/releases/">Releases</Link>
         </nav>
         <a className="header-link" href="https://www.opus.so">
           opus.so

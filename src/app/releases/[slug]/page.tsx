@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeatureVideo } from "@/components/FeatureVideo";
 import {
@@ -8,8 +7,15 @@ import {
   type ReleaseFeature,
 } from "@/lib/releases";
 
-const ROADMAP =
-  "https://opustraining.notion.site/opustraining/5c7e7b1164bb44e58f1f5afdeb74bbea?v=fe8fa7f83a5a499493c91f5d6140735f";
+function bookADemoUrl(release: { label: string }) {
+  const campaign = `${release.label.toLowerCase().replace(/\s+/g, "_")}_release`;
+  const params = new URLSearchParams({
+    utm_source: "changelog",
+    utm_medium: "website",
+    utm_campaign: campaign,
+  });
+  return `https://www.opus.so/book-a-demo?${params}`;
+}
 
 export const dynamicParams = false;
 
@@ -41,18 +47,23 @@ export default async function ReleasePage({
   const release = getRelease(slug);
   if (!release) notFound();
   const hero = release.features.find((feature) => feature.tier === "hero");
+  const companions = release.features.filter((feature) => feature.tier === "companion");
   const featured = release.features.filter((feature) => feature.tier === "featured");
   return (
     <article className="issue">
       <header className="issue-masthead">
-        <h1 className="issue-title">{release.title}</h1>
+        <p className="issue-date">{release.label}</p>
+        <h1 className="issue-title">{release.headline}</h1>
+        {release.intro ? <p className="issue-intro">{release.intro}</p> : null}
+        <a className="btn-solid issue-cta" href={bookADemoUrl(release)}>
+          Book a demo
+        </a>
       </header>
 
-      {hero ? <Lead feature={hero} /> : null}
+      {hero ? <Lead feature={hero} companions={companions} /> : null}
 
       {featured.length > 0 ? (
         <section className="issue-chapter">
-          <h2 className="issue-heading">Also in {release.label.split(" ")[0]}</h2>
           <div className="issue-rows">
             {featured.map((feature, index) => (
               <Row key={feature.slug} feature={feature} flip={index % 2 === 1} />
@@ -61,28 +72,27 @@ export default async function ReleasePage({
         </section>
       ) : null}
 
-      <footer className="issue-close">
-        <p className="issue-close-line">Looking for every fix, or what comes next?</p>
-        <div className="issue-close-links">
-          <Link className="btn-outline" href="/">
-            Read the changelog
-          </Link>
-          <a className="btn-outline" href={ROADMAP}>
-            See the roadmap
+      {release.helpArticleUrl ? (
+        <p className="issue-help">
+          <a href={release.helpArticleUrl}>
+            Read the {release.label} release notes in the Help Center
           </a>
-        </div>
-      </footer>
+        </p>
+      ) : null}
     </article>
   );
 }
 
-function Lead({ feature }: { feature: ReleaseFeature }) {
+function Lead({
+  feature,
+  companions,
+}: {
+  feature: ReleaseFeature;
+  companions: ReleaseFeature[];
+}) {
   return (
     <section className="issue-chapter issue-lead">
-      {feature.headline ? <p className="issue-eyebrow">{feature.title}</p> : null}
-      <h2 className="issue-heading">
-        <a href={feature.helpUrl}>{feature.headline ?? feature.title}</a>
-      </h2>
+      <h2 className="issue-row-title issue-lead-title">{feature.title}</h2>
       {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
       <div className="issue-stage">
         <FeatureVideo
@@ -91,34 +101,38 @@ function Lead({ feature }: { feature: ReleaseFeature }) {
           aspect={feature.videoAspect}
         />
       </div>
-      {feature.highlights?.length ? (
-        <ul className="issue-points">
-          {feature.highlights.map((highlight) => (
-            <li key={highlight.title}>
-              <strong>{highlight.title}</strong> {highlight.text}
-            </li>
-          ))}
-        </ul>
+      {companions.map((companion) => (
+        <Companion key={companion.slug} feature={companion} />
+      ))}
+      {feature.where || feature.note ? (
+        <aside className="issue-note is-bare">
+          {feature.where ? <p className="issue-where">{feature.where}</p> : null}
+          {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
+        </aside>
       ) : null}
-      <aside className={feature.tryThis ? "issue-note" : "issue-note is-bare"}>
-        {feature.tryThis ? (
-          <>
-            <p className="issue-note-label">Try this</p>
-            <p className="issue-note-text">{feature.tryThis}</p>
-          </>
-        ) : null}
-        <p className="issue-where">{feature.where}</p>
-        {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
-        <div className="issue-actions">
-          <a className="btn-solid" href={feature.tryUrl}>
-            {feature.ctaLabel}
-          </a>
-          <a className="btn-outline" href={feature.helpUrl}>
-            Learn more
-          </a>
-        </div>
-      </aside>
     </section>
+  );
+}
+
+function Companion({ feature }: { feature: ReleaseFeature }) {
+  return (
+    <p className="issue-companion">
+      <span>{feature.headline ?? feature.title}</span>
+      {feature.logos?.length ? (
+        <span className="issue-logos">
+          {feature.logos.map((logo) => (
+            <img
+              key={logo.name}
+              src={logo.src}
+              alt={logo.name}
+              title={logo.name}
+              width={44}
+              height={44}
+            />
+          ))}
+        </span>
+      ) : null}
+    </p>
   );
 }
 
@@ -132,28 +146,10 @@ function Row({ feature, flip }: { feature: ReleaseFeature; flip: boolean }) {
       />
       <div className="issue-row-copy">
         {feature.headline ? <p className="issue-row-label">{feature.title}</p> : null}
-        <h3 className="issue-row-title">
-          <a href={feature.helpUrl}>{feature.headline ?? feature.title}</a>
-        </h3>
-        <p>{feature.deck}</p>
-        <p className="issue-where">{feature.where}</p>
+        <h3 className="issue-row-title">{feature.headline ?? feature.title}</h3>
+        {feature.deck ? <p>{feature.deck}</p> : null}
+        {feature.where ? <p className="issue-where">{feature.where}</p> : null}
         {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
-        <div className="issue-row-links">
-          <a
-            className="issue-link"
-            href={feature.tryUrl}
-            aria-label={`${feature.ctaLabel}: ${feature.title}`}
-          >
-            {feature.ctaLabel} <span aria-hidden="true">→</span>
-          </a>
-          <a
-            className="issue-link"
-            href={feature.helpUrl}
-            aria-label={`Learn more about ${feature.title}`}
-          >
-            Learn more
-          </a>
-        </div>
       </div>
     </div>
   );
