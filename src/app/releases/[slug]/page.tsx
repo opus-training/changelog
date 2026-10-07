@@ -7,8 +7,15 @@ import {
   type ReleaseFeature,
 } from "@/lib/releases";
 
-const BOOK_A_DEMO =
-  "https://www.opus.so/book-a-demo?utm_source=changelog&utm_medium=website&utm_campaign=release_page";
+function bookADemoUrl(release: { label: string }) {
+  const campaign = `${release.label.toLowerCase().replace(/\s+/g, "_")}_release`;
+  const params = new URLSearchParams({
+    utm_source: "changelog",
+    utm_medium: "website",
+    utm_campaign: campaign,
+  });
+  return `https://www.opus.so/book-a-demo?${params}`;
+}
 
 export const dynamicParams = false;
 
@@ -47,7 +54,7 @@ export default async function ReleasePage({
       <header className="issue-masthead">
         <p className="issue-eyebrow">{release.label}</p>
         <h1 className="issue-title">{release.headline}</h1>
-        <a className="btn-solid issue-cta" href={BOOK_A_DEMO}>
+        <a className="btn-solid issue-cta" href={bookADemoUrl(release)}>
           Book a demo
         </a>
       </header>
