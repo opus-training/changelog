@@ -93,6 +93,27 @@ function Lead({
           aspect={feature.videoAspect}
         />
       </div>
+      {feature.examples?.length ? (
+        <div className="issue-examples">
+          {feature.examplesTitle ? (
+            <h3 className="issue-examples-title">{feature.examplesTitle}</h3>
+          ) : null}
+          <ul className="issue-example-grid">
+            {feature.examples.map((example) => (
+              <li key={example.name} className="issue-example">
+                <span className="issue-example-emoji" aria-hidden="true">
+                  {example.emoji}
+                </span>
+                <p className="issue-example-name">{example.name}</p>
+                <p>{example.blurb}</p>
+              </li>
+            ))}
+          </ul>
+          {feature.examplesMore ? (
+            <p className="issue-examples-more">{feature.examplesMore}</p>
+          ) : null}
+        </div>
+      ) : null}
       {companions.map((companion) => (
         <Companion key={companion.slug} feature={companion} />
       ))}
