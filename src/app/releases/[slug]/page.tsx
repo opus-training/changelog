@@ -71,14 +71,6 @@ export default async function ReleasePage({
           </div>
         </section>
       ) : null}
-
-      {release.helpArticleUrl ? (
-        <p className="issue-help">
-          <a href={release.helpArticleUrl}>
-            Read the {release.label} release notes in the Help Center
-          </a>
-        </p>
-      ) : null}
     </article>
   );
 }

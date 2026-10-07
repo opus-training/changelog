@@ -743,24 +743,6 @@ a {
   background: none;
 }
 
-.issue-help {
-  margin: 0;
-  padding: 56px 0 72px;
-  border-top: 1px solid var(--rule);
-  font-size: 18px;
-}
-
-.issue-help a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--rule-strong);
-  text-underline-offset: 4px;
-}
-
-.issue-help a:hover {
-  text-decoration-color: var(--ink);
-}
-
 .issue-rows {
   display: flex;
   flex-direction: column;

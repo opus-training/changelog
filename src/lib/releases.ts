@@ -29,8 +29,6 @@ export type Release = {
   summary: string;
   /** One-line italic intro under the headline. */
   intro?: string;
-  /** Help Center article that links to every feature's full article. */
-  helpArticleUrl?: string;
   features: ReleaseFeature[];
 };
 
@@ -38,7 +36,6 @@ const october: Release = {
   slug: "2026-10",
   label: "October 2026",
   title: "October 2026 Release",
-  helpArticleUrl: "https://help.opus.so/en/articles/17359137-october-2026-release",
   headline: "Put Opus to work with agents",
   intro:
     "Automate the tedious work so that you can focus on what’s high impact.",
