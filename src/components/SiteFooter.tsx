@@ -21,7 +21,6 @@ export function SiteFooter() {
           <a href={ROADMAP}>Roadmap</a>
           <span className="footer-sep">·</span>
           <a href={PRIVACY_POLICY_URL}>Privacy Policy</a>
-          <span className="footer-note">One release a month</span>
         </div>
       </footer>
     );
