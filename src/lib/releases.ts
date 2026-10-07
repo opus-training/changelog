@@ -27,6 +27,8 @@ export type Release = {
   /** Big line at the top of the release page. */
   headline: string;
   summary: string;
+  /** Help Center article that links to every feature's full article. */
+  helpArticleUrl?: string;
   features: ReleaseFeature[];
 };
 
@@ -34,6 +36,7 @@ const october: Release = {
   slug: "2026-10",
   label: "October 2026",
   title: "October 2026 Release",
+  helpArticleUrl: "https://help.opus.so/en/articles/17359137-october-2026-release",
   headline: "Put Opus to work with agents",
   summary:
     "Put Opus to work with agents. New this month: Agents, Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
