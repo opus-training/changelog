@@ -65,7 +65,7 @@ const october: Release = {
     {
       slug: "video-editor",
       title: "Video Editor",
-      headline: "Polish training videos in Opus.",
+      headline: "Polish training videos in Opus",
       deck: "Trim clips, add a voiceover or an AI voice, and add music, then save it in place.",
       tags: ["Feature", "Video"],
       video: "/releases/2026-10/video-editor",
@@ -75,7 +75,7 @@ const october: Release = {
     {
       slug: "improved-path-builder",
       title: "Improved Path Builder",
-      headline: "Build Paths without the guesswork.",
+      headline: "Build Paths without the guesswork",
       deck: "Keep changes in draft until you publish, and see who's on each step in the new Runs tab.",
       tags: ["Feature", "Training", "Modules"],
       video: "/releases/2026-10/path",
@@ -85,7 +85,7 @@ const october: Release = {
     {
       slug: "content-detail-pages",
       title: "Content Detail Pages",
-      headline: "Every piece of content, at a glance.",
+      headline: "Every piece of content, at a glance",
       deck: "A new Overview shows results, who has it, and a phone preview of what your team sees.",
       tags: ["Feature", "Training", "Operations"],
       video: "/releases/2026-10/detail",
@@ -94,7 +94,7 @@ const october: Release = {
     {
       slug: "profile-images",
       title: "Profile Photos",
-      headline: "Put a face to every name.",
+      headline: "Put a face to every name",
       deck: "Let your team personalize their profiles, and recognize each other more easily.",
       tags: ["Improvement", "Team"],
       video: "/releases/2026-10/profile",
@@ -104,7 +104,7 @@ const october: Release = {
     {
       slug: "audit-thresholds",
       title: "Audit Thresholds",
-      headline: "Audits, graded your way.",
+      headline: "Audits, graded your way",
       deck: "Grade every Audit and each section from Excellent to Needs improvement, using ranges you set.",
       tags: ["Improvement", "Audits"],
       video: "/releases/2026-10/audit",
