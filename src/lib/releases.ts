@@ -17,6 +17,11 @@ export type ReleaseFeature = {
   videoAspect?: string;
   /** Logos of the tools it works with, shown instead of a video. */
   logos?: { name: string; src: string }[];
+  /** Ready-made examples shown as cards under the hero video. */
+  examples?: { emoji: string; name: string; blurb: string }[];
+  examplesTitle?: string;
+  /** Line under the example cards, e.g. how many more there are. */
+  examplesMore?: string;
   tier: FeatureTier;
 };
 
@@ -51,6 +56,30 @@ const october: Release = {
       tags: ["Feature", "AI"],
       video: "/releases/2026-10/agents",
       videoAspect: "275 / 172",
+      examplesTitle: "Start with a pre-trained agent",
+      examples: [
+        {
+          emoji: "✍️",
+          name: "Content Author",
+          blurb: "Turn an SOP, deck, or idea into a course, check-in, or checklist.",
+        },
+        {
+          emoji: "🏆",
+          name: "Recognition Finder",
+          blurb: "People and stores worth a shoutout this week.",
+        },
+        {
+          emoji: "☀️",
+          name: "Morning Brief",
+          blurb: "Yesterday at a glance, from missed checklists to new hires.",
+        },
+        {
+          emoji: "🚀",
+          name: "Launch & Rollout Tracker",
+          blurb: "Build, assign, and track an LTO or policy rollout by store.",
+        },
+      ],
+      examplesMore: "+ 12 more pre-trained agent templates",
       tier: "hero",
     },
     {
