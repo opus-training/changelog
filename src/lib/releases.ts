@@ -109,8 +109,8 @@ const october: Release = {
       tier: "featured",
     },
     {
-      slug: "audit-thresholds",
-      title: "Audit Thresholds",
+      slug: "audit-grades",
+      title: "Audit Grades",
       headline: "Audits, graded your way",
       deck: "Grade every Audit and each section from Excellent to Needs improvement, using ranges you set.",
       tags: ["Improvement", "Audits"],
