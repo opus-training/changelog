@@ -41,7 +41,7 @@ const october: Release = {
   helpArticleUrl: "https://help.opus.so/en/articles/17359137-october-2026-release",
   headline: "Put Opus to work with agents",
   intro:
-    "October brings Opus Agents, plus updates to training videos, Paths, content pages, profile photos, and Audits.",
+    "Automate the tedious work so that you can focus on what’s high impact.",
   summary:
     "Put Opus to work with agents. New this month: Agents, Opus MCP, a new Path builder, content Overviews, a video editor, profile photos, and graded Audits.",
   features: [
