@@ -580,21 +580,7 @@ a {
 }
 
 .issue-masthead {
-  padding: 40px 0 64px;
-}
-
-.issue-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 40px;
-  font-size: 15px;
-  color: var(--ink-muted);
-  text-decoration: none;
-}
-
-.issue-back:hover {
-  color: var(--ink);
+  padding: 72px 0 64px;
 }
 
 .issue-date {

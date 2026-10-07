@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeatureVideo } from "@/components/FeatureVideo";
 import {
@@ -53,9 +52,6 @@ export default async function ReleasePage({
   return (
     <article className="issue">
       <header className="issue-masthead">
-        <Link className="issue-back" href="/releases/">
-          <span aria-hidden="true">‹</span> All releases
-        </Link>
         <p className="issue-date">{release.label}</p>
         <h1 className="issue-title">{release.headline}</h1>
         {release.intro ? <p className="issue-intro">{release.intro}</p> : null}
