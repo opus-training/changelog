@@ -56,7 +56,7 @@ const october: Release = {
       tags: ["Feature", "AI"],
       video: "/releases/2026-10/agents",
       videoAspect: "275 / 172",
-      examplesTitle: "Start with a pre-trained agent",
+      examplesTitle: "Start with a pre-trained agent, or build your own",
       examples: [
         {
           emoji: "✍️",
