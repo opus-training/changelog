@@ -49,7 +49,6 @@ export default function RootLayout({
         <SiteHeader />
         <main className="wrap">{children}</main>
         <SiteFooter />
-        {/* Production only, so preview visits stay out of retargeting audiences. */}
         <CookieConsent
           gtmId={process.env.VERCEL_ENV === "production" ? "GTM-M59VT4T" : null}
         />
