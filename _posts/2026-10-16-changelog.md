@@ -9,8 +9,8 @@ Ask Opus now answers quick searches, Opus Agents get more done, and fixes across
 
 ### Improvements
 
-- **Ask Opus answers searches.** Type a word or name, like "ranch" or "dress code", and Ask Opus replies with the key fact from your materials instead of asking you to rephrase. Ask a full question or say "full recipe" for the whole answer. It also finds exact names and codes that appear in your materials, and replies about a second faster.
-- **Opus Agents get more done.** Agents answer new-hire and overdue questions correctly, tell you which content mentions a topic (premium items included), act on Guest Feedback recommendations, build Checklists and Check-ins into the draft you have open, and take a file you pick when they ask for one.
+- **Ask Opus answers searches.** Type a word or name, like "ranch" or "dress code", and Ask Opus replies with the key fact from your materials instead of asking you to rephrase. Ask a full question or say "full recipe" for the whole answer. It also finds exact names and codes that appear in your materials.
+- **Opus Agents get more done.** Agents answer new-hire and overdue questions correctly, tell you which content mentions a topic (premium items included), act on Guest Feedback recommendations, fill in the Checklist or Check-in draft you have open, and take a file you pick when they ask for one.
 - **Preview premium content before you buy.** Previewing a premium catalog Module or Course now opens its lessons, so you can see what you'd get.
 - **Full names on hover.** Long step and screen names in the Module builder outline and the trainee preview show in full when you hover over them.
 
