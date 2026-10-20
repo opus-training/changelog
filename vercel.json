@@ -16,6 +16,21 @@
       "permanent": true
     },
     {
+      "source": "/roadmap",
+      "destination": "https://www.opus.so/roadmap",
+      "permanent": true
+    },
+    {
+      "source": "/roadmap/",
+      "destination": "https://www.opus.so/roadmap",
+      "permanent": true
+    },
+    {
+      "source": "/roadmap/:path*",
+      "destination": "https://www.opus.so/roadmap/:path*",
+      "permanent": true
+    },
+    {
       "source": "/assets/:file*",
       "destination": "https://www.opus.so/changelog",
       "permanent": true
