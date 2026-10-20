@@ -5,11 +5,45 @@
   "installCommand": "",
   "outputDirectory": ".",
   "redirects": [
-    { "source": "/", "destination": "https://www.opus.so/changelog", "permanent": true },
-    { "source": "/feed.xml", "destination": "https://www.opus.so/changelog/feed.xml", "permanent": true },
-    { "source": "/releases/:slug/:feature/", "destination": "https://www.opus.so/changelog/releases/:slug", "permanent": true },
-    { "source": "/releases/:slug/:feature", "destination": "https://www.opus.so/changelog/releases/:slug", "permanent": true },
-    { "source": "/:path(.*[^/])/", "destination": "https://www.opus.so/changelog/:path", "permanent": true },
-    { "source": "/:path(.*)", "destination": "https://www.opus.so/changelog/:path", "permanent": true }
+    {
+      "source": "/",
+      "destination": "https://www.opus.so/changelog",
+      "permanent": true
+    },
+    {
+      "source": "/feed.xml",
+      "destination": "https://www.opus.so/changelog/feed.xml",
+      "permanent": true
+    },
+    {
+      "source": "/assets/:file*",
+      "destination": "https://www.opus.so/changelog",
+      "permanent": true
+    },
+    {
+      "source": "/releases/:slug/:file(.+\\..+)",
+      "destination": "https://www.opus.so/changelog/releases/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/releases/:slug/:feature/",
+      "destination": "https://www.opus.so/changelog/releases/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/releases/:slug/:feature",
+      "destination": "https://www.opus.so/changelog/releases/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/:path(.*[^/])/",
+      "destination": "https://www.opus.so/changelog/:path",
+      "permanent": true
+    },
+    {
+      "source": "/:path(.*)",
+      "destination": "https://www.opus.so/changelog/:path",
+      "permanent": true
+    }
   ]
 }
