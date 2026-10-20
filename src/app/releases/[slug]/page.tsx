@@ -166,7 +166,7 @@ function Lead({
 function Companion({ feature }: { feature: ReleaseFeature }) {
   if (feature.deck || feature.where) {
     return (
-      <div className="issue-companion-block">
+      <div className="issue-companion-block" id={feature.slug}>
         <h3 className="issue-companion">{feature.headline ?? feature.title}</h3>
         {feature.deck ? <p className="issue-pitch">{feature.deck}</p> : null}
         {feature.where ? <p className="issue-where">{feature.where}</p> : null}
