@@ -701,6 +701,11 @@ a {
   background: var(--surface);
 }
 
+/* No video yet: keep the stage's spacing between the pitch and the cards. */
+.issue-pitch + .issue-examples {
+  margin-top: 56px;
+}
+
 .issue-examples-title {
   margin: 0 0 24px;
   font-family: var(--font-display);
@@ -760,6 +765,41 @@ a {
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.15;
+  color: var(--ink);
+}
+
+.issue-companion-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.issue-companion-block .issue-companion {
+  margin-bottom: 4px;
+}
+
+.issue-more-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.issue-more-grid .issue-example {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.issue-more-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
   color: var(--ink);
 }
 
@@ -877,7 +917,8 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .issue-example-grid {
+  .issue-example-grid,
+  .issue-more-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 

@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FeatureVideo } from "@/components/FeatureVideo";
@@ -15,6 +17,17 @@ function bookADemoUrl(release: { label: string }) {
     utm_campaign: campaign,
   });
   return `https://www.opus.so/book-a-demo?${params}`;
+}
+
+/**
+ * Pages are built statically, so a clip whose file isn't in public/ yet (a
+ * draft release waiting on its video) renders without media instead of an
+ * empty frame with a dead Play button.
+ */
+function withAvailableVideo(feature: ReleaseFeature): ReleaseFeature {
+  if (!feature.video) return feature;
+  const file = path.join(process.cwd(), "public", `${feature.video}.mp4`);
+  return existsSync(file) ? feature : { ...feature, video: undefined };
 }
 
 export const dynamicParams = false;
@@ -46,9 +59,11 @@ export default async function ReleasePage({
   const { slug } = await params;
   const release = getRelease(slug);
   if (!release) notFound();
-  const hero = release.features.find((feature) => feature.tier === "hero");
-  const companions = release.features.filter((feature) => feature.tier === "companion");
-  const featured = release.features.filter((feature) => feature.tier === "featured");
+  const features = release.features.map(withAvailableVideo);
+  const hero = features.find((feature) => feature.tier === "hero");
+  const companions = features.filter((feature) => feature.tier === "companion");
+  const featured = features.filter((feature) => feature.tier === "featured");
+  const more = features.filter((feature) => feature.tier === "more");
   return (
     <article className="issue">
       <header className="issue-masthead">
@@ -71,6 +86,23 @@ export default async function ReleasePage({
           </div>
         </section>
       ) : null}
+
+      {more.length > 0 ? (
+        <section className="issue-chapter">
+          <h2 className="issue-examples-title">More this month</h2>
+          <ul className="issue-more-grid">
+            {more.map((feature) => (
+              <li key={feature.slug} className="issue-example">
+                <p className="issue-row-label">{feature.title}</p>
+                <h3 className="issue-more-title">{feature.headline ?? feature.title}</h3>
+                {feature.deck ? <p>{feature.deck}</p> : null}
+                {feature.where ? <p className="issue-where">{feature.where}</p> : null}
+                {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </article>
   );
 }
@@ -85,14 +117,18 @@ function Lead({
   return (
     <section className="issue-chapter issue-lead">
       <h2 className="issue-row-title issue-lead-title">{feature.title}</h2>
-      {feature.pitch ? <p className="issue-pitch">{feature.pitch}</p> : null}
-      <div className="issue-stage">
-        <FeatureVideo
-          video={feature.video}
-          title={feature.title}
-          aspect={feature.videoAspect}
-        />
-      </div>
+      {feature.pitch ?? feature.deck ? (
+        <p className="issue-pitch">{feature.pitch ?? feature.deck}</p>
+      ) : null}
+      {feature.video ? (
+        <div className="issue-stage">
+          <FeatureVideo
+            video={feature.video}
+            title={feature.title}
+            aspect={feature.videoAspect}
+          />
+        </div>
+      ) : null}
       {feature.examples?.length ? (
         <div className="issue-examples">
           {feature.examplesTitle ? (
@@ -114,20 +150,29 @@ function Lead({
           ) : null}
         </div>
       ) : null}
-      {companions.map((companion) => (
-        <Companion key={companion.slug} feature={companion} />
-      ))}
       {feature.where || feature.note ? (
         <aside className="issue-note is-bare">
           {feature.where ? <p className="issue-where">{feature.where}</p> : null}
           {feature.note ? <p className="issue-caveat">{feature.note}</p> : null}
         </aside>
       ) : null}
+      {companions.map((companion) => (
+        <Companion key={companion.slug} feature={companion} />
+      ))}
     </section>
   );
 }
 
 function Companion({ feature }: { feature: ReleaseFeature }) {
+  if (feature.deck || feature.where) {
+    return (
+      <div className="issue-companion-block">
+        <h3 className="issue-companion">{feature.headline ?? feature.title}</h3>
+        {feature.deck ? <p className="issue-pitch">{feature.deck}</p> : null}
+        {feature.where ? <p className="issue-where">{feature.where}</p> : null}
+      </div>
+    );
+  }
   return (
     <p className="issue-companion">
       <span>{feature.headline ?? feature.title}</span>

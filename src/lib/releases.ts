@@ -1,5 +1,8 @@
-/** "companion" renders inside the hero section, as part of its story. */
-export type FeatureTier = "hero" | "companion" | "featured";
+/**
+ * "companion" renders inside the hero section, as part of its story.
+ * "more" renders as a text card under the featured rows, without media.
+ */
+export type FeatureTier = "hero" | "companion" | "featured" | "more";
 
 export type ReleaseFeature = {
   slug: string;
@@ -12,6 +15,10 @@ export type ReleaseFeature = {
   /** Optional caveat people should know before they start. */
   note?: string;
   tags: string[];
+  /**
+   * Path without extension; the page loads `${video}.mp4` and `${video}.jpg`
+   * from public/. Until the .mp4 exists the page renders without the video.
+   */
   video?: string;
   /** Native aspect ratio for framed clips, e.g. "35 / 27"; shown uncropped. */
   videoAspect?: string;
@@ -35,6 +42,80 @@ export type Release = {
   /** One-line italic intro under the headline. */
   intro?: string;
   features: ReleaseFeature[];
+};
+
+const november: Release = {
+  slug: "2026-11",
+  label: "November 2026",
+  title: "November 2026 Release",
+  headline: "Keep every location in the loop",
+  intro: "Share news, celebrate great work, and talk with your team, all in Opus.",
+  summary:
+    "Keep every location in the loop. New this month: Newsfeed and Messages, Agents for Managers, checklists, audits and check-ins on desktop, impersonation, and better translations.",
+  features: [
+    {
+      slug: "newsfeed-and-messages",
+      title: "Newsfeed and Messages",
+      deck: "Share company news and shout-outs, and chat with your team in groups or one to one.",
+      tags: ["Feature", "Messaging"],
+      // TODO(november-video): add public/releases/2026-11/newsfeed.mp4 and
+      // newsfeed.jpg (1100x688, like October's lead). Until the .mp4 exists
+      // the page renders the lead without a video.
+      video: "/releases/2026-11/newsfeed",
+      videoAspect: "275 / 172",
+      examplesTitle: "Message Blasts are now two things",
+      examples: [
+        {
+          emoji: "📰",
+          name: "Newsfeed",
+          blurb:
+            "Post news and recognition to the locations, roles, or groups you choose. Add photos, videos, or PDFs, schedule posts ahead, and see who has read them. Posts are translated for every reader, and your team can react and comment with @mentions.",
+        },
+        {
+          emoji: "💬",
+          name: "Messages",
+          blurb:
+            "Chat two ways: group chats built from an audience, which update themselves as people join and leave, and direct messages one to one.",
+        },
+      ],
+      where: "Admins switch their business over from Message Blasts themselves, right in Opus.",
+      tier: "hero",
+    },
+    {
+      slug: "agents-for-managers",
+      title: "Agents for Managers",
+      headline: "Agents for every Manager",
+      deck: "Every Manager gets Ask Opus plus three agents: Location health, Daily summary, and New hire coach. The New hire coach guides each new hire's first 90 days. It welcomes them, flags anyone falling behind, and reminds you of 30, 60, and 90-day check-ins.",
+      where: "Agents only act within each Manager's permissions.",
+      tags: ["Feature", "AI"],
+      tier: "companion",
+    },
+    {
+      slug: "checklists-on-desktop",
+      title: "Checklists, audits and check-ins on desktop",
+      headline: "Fill out checklists on any screen",
+      deck: "Complete checklists, audits, and check-ins in the Dashboard on a computer or tablet, with every step type and signatures. Save your progress and finish on either device.",
+      tags: ["Feature", "Dashboard"],
+      tier: "more",
+    },
+    {
+      slug: "impersonation",
+      title: "Impersonation",
+      headline: "See what your team sees",
+      deck: "Admins can view the Dashboard as anyone in their business, read-only.",
+      where: "New Impersonate users permission, on for Admins by default.",
+      tags: ["Feature", "Dashboard"],
+      tier: "more",
+    },
+    {
+      slug: "better-translations",
+      title: "Better translations",
+      headline: "Translations that sound natural",
+      deck: "Training and posts read more naturally in every language.",
+      tags: ["Improvement", "Training"],
+      tier: "more",
+    },
+  ],
 };
 
 const october: Release = {
@@ -147,7 +228,7 @@ const october: Release = {
   ],
 };
 
-const RELEASES: Release[] = [october];
+const RELEASES: Release[] = [november, october];
 
 export function getReleases(): Release[] {
   return RELEASES;
